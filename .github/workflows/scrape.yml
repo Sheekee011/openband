@@ -2,7 +2,9 @@
 # This file tells GitHub to automatically run scraper.py every night at midnight.
 # You don't need to touch this file after uploading it.
 
-name: Scrape FNFTA Data
+concurrency:
+  group: fnfta-scraper
+  cancel-in-progress: true
 
 on:
   # Run every night at midnight UTC
@@ -39,8 +41,9 @@ jobs:
       # 5. Commit data.json back to the repo so the website can read it
       - name: Commit updated data
         run: |
-          git config user.name  "OpenBand Bot"
+          git config user.name "OpenBand Bot"
           git config user.email "openband-bot@users.noreply.github.com"
           git add data.json
           git diff --staged --quiet || git commit -m "Auto: update FNFTA data $(date -u '+%Y-%m-%d')"
+          git pull origin main --rebase
           git push
