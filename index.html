@@ -262,6 +262,18 @@
       <!-- DOC LINKS -->
       <div class="doc-cards" id="docCards"></div>
 
+      <div class="filings-section" id="numbersSection" style="display:none;">
+        <h3>Chief & Council numbers</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Name</th><th>Role</th><th>Remuneration</th><th>Expenses</th><th>Total</th></tr>
+            </thead>
+            <tbody id="numbersTable"></tbody>
+          </table>
+        </div>
+      </div>
+
       <!-- ALL FILINGS TABLE -->
       <div class="filings-section">
         <h3>All filings</h3>
@@ -595,6 +607,7 @@ function showFilings() {
     selectedYear = postedYears[0] || allFilings[0].year;
     renderYearTabs();
     renderDocCards();
+    renderNumbersTable();
     renderFilingsTable();
   }
 }
@@ -614,6 +627,7 @@ function showFallback(band, iscUrl) {
   document.getElementById("filingsContent").style.display = "block";
   renderYearTabs();
   renderDocCards();
+  renderNumbersTable();
   renderFilingsTable();
 
   const note = document.getElementById("errorState");
@@ -633,6 +647,7 @@ function selectYear(year) {
   selectedYear = year;
   renderYearTabs();
   renderDocCards();
+  renderNumbersTable();
 }
 
 function renderDocCards() {
@@ -659,6 +674,34 @@ function renderDocCards() {
   };
 
   document.getElementById("docCards").innerHTML = cardHTML(stmts, false) + cardHTML(sched, true);
+}
+
+
+function formatMoney(val) {
+  if (val === null || val === undefined || Number.isNaN(val)) return "—";
+  return new Intl.NumberFormat("en-CA", { style: "currency", currency: "CAD", maximumFractionDigits: 2 }).format(val);
+}
+
+function renderNumbersTable() {
+  const yearFilings = allFilings.filter(f => f.year === selectedYear);
+  const sched = yearFilings.find(f => (f.docType || "").toLowerCase().includes("remuneration"));
+  const section = document.getElementById("numbersSection");
+  const tbody = document.getElementById("numbersTable");
+  if (!sched || !Array.isArray(sched.people) || sched.people.length === 0) {
+    section.style.display = "none";
+    tbody.innerHTML = "";
+    return;
+  }
+  section.style.display = "block";
+  tbody.innerHTML = sched.people.map(p => `
+    <tr>
+      <td><span class="filing-year">${p.name || "—"}</span></td>
+      <td><span class="filing-type">${p.role || "—"}</span></td>
+      <td>${formatMoney(p.remuneration)}</td>
+      <td>${formatMoney(p.expenses)}</td>
+      <td>${formatMoney(p.total)}</td>
+    </tr>
+  `).join("");
 }
 
 function renderFilingsTable() {
