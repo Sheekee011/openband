@@ -322,7 +322,6 @@ def parse_money(value):
         return None
 
 
-
 def extract_with_openai_vision(pdf_bytes):
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
@@ -386,15 +385,14 @@ def extract_remuneration_rows(pdf_url):
 
     try:
         safe_pdf_url = normalize_pdf_url(pdf_url)
-        req = urllib.request.Request(safe_pdf_url, headers={"User-Agent": "OpenBand/1.0 (github.com/openband; transparency research)"})
+safe_pdf_url = normalize_pdf_url(pdf_url)
 
-def extract_remuneration_rows(pdf_url):
-    if not pdf_url or pdfplumber is None:
-        return {"parse_status": "skipped", "warnings": ["pdfplumber unavailable or missing PDF URL"], "people": []}
-
-    try:
-        req = urllib.request.Request(pdf_url, headers={"User-Agent": "OpenBand/1.0 (github.com/openband; transparency research)"})
-
+req = urllib.request.Request(
+    safe_pdf_url,
+    headers={
+        "User-Agent": "OpenBand/1.0 (github.com/openband; transparency research)"
+    }
+)
         with urllib.request.urlopen(req, timeout=30) as resp:
             pdf_bytes = resp.read()
 
@@ -409,21 +407,28 @@ def extract_remuneration_rows(pdf_url):
                     for row in table:
                         if not row or len(row) < 4:
                             continue
+
                         cells = [str(c).strip() if c is not None else "" for c in row]
                         joined = " ".join(cells).lower()
                         if any(k in joined for k in ["name", "chief", "council", "total remuneration", "schedule"]):
                             continue
+
+
                         name = cells[0]
                         if not name or len(name) < 2:
                             continue
+
+
                         role = cells[1] if len(cells) > 1 else ""
                         remuneration = parse_money(cells[2] if len(cells) > 2 else None)
                         expenses = parse_money(cells[3] if len(cells) > 3 else None)
                         total = parse_money(cells[4] if len(cells) > 4 else None)
+
                         if remuneration is None and expenses is None and total is None:
                             continue
                         if total is None and remuneration is not None and expenses is not None:
                             total = remuneration + expenses
+
                         people.append({
                             "name": name,
                             "role": role or "Council",
@@ -448,7 +453,7 @@ return {
     "parse_status": ai_result.get("parse_status", "error"),
     "warnings": warnings,
     "people": []
-}
+} main
     except Exception as e:
         return {"parse_status": "error", "warnings": [f"PDF parse failed: {e}"], "people": []}
 
@@ -479,11 +484,7 @@ def main():
         for filing in filings:
             f = dict(filing)
             f["people"] = []
-f["parse_status"] = "not_applicable"
-f["warnings"] = []
 
-if f.get("posted") and "remuneration" in f.get("docType", "").lower():
-    parsed = extract_remuneration_rows(f.get("href"))
                 f["people"] = parsed.get("people", [])
                 f["parse_status"] = parsed.get("parse_status", "error")
                 f["warnings"] = parsed.get("warnings", [])

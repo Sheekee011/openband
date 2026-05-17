@@ -700,7 +700,9 @@ if (!sched) {
 section.style.display = "block";
 
 if (!Array.isArray(sched.people) || sched.people.length === 0) {
-  tbody.innerHTML = `<tr><td colspan="5" style="color:var(--text-3);font-size:13px;">Numbers not available for this year yet. You can still open the source PDF below.</td></tr>`;
+  tbody.innerHTML = `<tr><td colspan="5" style="color:var(--text-3);font-size:13px;">
+    Numbers not available for this year yet. You can still open the source PDF below.
+  </td></tr>`;
 
   if (note) {
     const status = sched.parse_status || "unknown";
