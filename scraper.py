@@ -172,6 +172,16 @@ BANDS = [
 
 ISC_BASE = "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search"
 
+
+def normalize_pdf_url(url):
+    """Ensure query params are URL-encoded before requesting ISC PDFs."""
+    if not url:
+        return url
+    parts = urllib.parse.urlsplit(url)
+    query_pairs = urllib.parse.parse_qsl(parts.query, keep_blank_values=True)
+    safe_query = urllib.parse.urlencode(query_pairs, quote_via=urllib.parse.quote)
+    return urllib.parse.urlunsplit((parts.scheme, parts.netloc, parts.path, safe_query, parts.fragment))
+
 # ── HTML parser to extract filing rows from ISC pages ────────────────────────
 class FilingParser(HTMLParser):
     def __init__(self):
@@ -374,7 +384,8 @@ def extract_remuneration_rows(pdf_url):
         return {"parse_status": "skipped_pdfplumber", "warnings": ["pdfplumber unavailable in runtime"], "people": []}
 
     try:
-        req = urllib.request.Request(pdf_url, headers={"User-Agent": "OpenBand/1.0 (github.com/openband; transparency research)"})
+        safe_pdf_url = normalize_pdf_url(pdf_url)
+        req = urllib.request.Request(safe_pdf_url, headers={"User-Agent": "OpenBand/1.0 (github.com/openband; transparency research)"})
         with urllib.request.urlopen(req, timeout=30) as resp:
             pdf_bytes = resp.read()
 
