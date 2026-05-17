@@ -5,8 +5,10 @@ Fetches FNFTA filing listings from Indigenous Services Canada
 and saves the results to data.json for the website to read.
 """
 
+import base64
 import io
 import json
+import os
 import re
 import time
 import urllib.request
@@ -170,6 +172,16 @@ BANDS = [
 
 ISC_BASE = "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search"
 
+
+def normalize_pdf_url(url):
+    """Ensure query params are URL-encoded before requesting ISC PDFs."""
+    if not url:
+        return url
+    parts = urllib.parse.urlsplit(url)
+    query_pairs = urllib.parse.parse_qsl(parts.query, keep_blank_values=True)
+    safe_query = urllib.parse.urlencode(query_pairs, quote_via=urllib.parse.quote)
+    return urllib.parse.urlunsplit((parts.scheme, parts.netloc, parts.path, safe_query, parts.fragment))
+
 # ── HTML parser to extract filing rows from ISC pages ────────────────────────
 class FilingParser(HTMLParser):
     def __init__(self):
@@ -242,7 +254,7 @@ def fetch_band_filings(band_id):
 
             # Make href absolute if relative
             if href and not href.startswith("http"):
-                href = "https://fnp-ppn.aadnc-aandc.gc.ca" + href
+                href = "https://fnp-ppn.aadnc-aandc.gc.ca/" + href.lstrip("/")
 
             posted = date_text not in ("", "Not yet posted", "—", "N/A")
 
@@ -310,12 +322,79 @@ def parse_money(value):
         return None
 
 
+
+def extract_with_openai_vision(pdf_bytes):
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        return {"parse_status": "skipped_openai_no_key", "warnings": ["OPENAI_API_KEY not set"], "people": []}
+
+    prompt = (
+        "Extract the Chief and Council remuneration table from this PDF. "
+        "Return only JSON with shape: {\"people\":[{\"name\":str,\"role\":str,\"remuneration\":number|null,\"expenses\":number|null,\"total\":number|null}]}. "
+        "Do not include markdown fences. If no table is present, return {\"people\":[]}."
+    )
+
+    payload = {
+        "model": os.getenv("OPENAI_MODEL", "gpt-4.1"),
+        "input": [{
+            "role": "user",
+            "content": [
+                {"type": "input_text", "text": prompt},
+                {"type": "input_file", "filename": "filing.pdf", "file_data": f"data:application/pdf;base64,{base64.b64encode(pdf_bytes).decode('ascii')}"}
+            ]
+        }]
+    }
+
+    req = urllib.request.Request(
+        "https://api.openai.com/v1/responses",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json"
+        },
+        method="POST"
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=90) as resp:
+            raw = json.loads(resp.read().decode("utf-8"))
+
+        text = raw.get("output_text", "").strip()
+        if not text:
+            return {"parse_status": "error_openai_empty", "warnings": ["OpenAI returned empty output"], "people": []}
+        data = json.loads(text)
+        rows = data.get("people", []) if isinstance(data, dict) else []
+        people = []
+        for row in rows:
+            people.append({
+                "name": str(row.get("name", "")).strip(),
+                "role": str(row.get("role", "")).strip() or "Council",
+                "remuneration": parse_money(row.get("remuneration")),
+                "expenses": parse_money(row.get("expenses")),
+                "total": parse_money(row.get("total")),
+            })
+        people = [p for p in people if p["name"]]
+        return {"parse_status": "ok_openai", "warnings": [], "people": people}
+    except Exception as e:
+        return {"parse_status": "error_openai", "warnings": [f"OpenAI parse failed: {e}"], "people": []}
+
+
+def extract_remuneration_rows(pdf_url):
+    if not pdf_url:
+        return {"parse_status": "no_pdf_url", "warnings": ["No PDF URL available for this filing"], "people": []}
+    if pdfplumber is None:
+        return {"parse_status": "skipped_pdfplumber", "warnings": ["pdfplumber unavailable in runtime"], "people": []}
+
+    try:
+        safe_pdf_url = normalize_pdf_url(pdf_url)
+        req = urllib.request.Request(safe_pdf_url, headers={"User-Agent": "OpenBand/1.0 (github.com/openband; transparency research)"})
+
 def extract_remuneration_rows(pdf_url):
     if not pdf_url or pdfplumber is None:
         return {"parse_status": "skipped", "warnings": ["pdfplumber unavailable or missing PDF URL"], "people": []}
 
     try:
         req = urllib.request.Request(pdf_url, headers={"User-Agent": "OpenBand/1.0 (github.com/openband; transparency research)"})
+
         with urllib.request.urlopen(req, timeout=30) as resp:
             pdf_bytes = resp.read()
 
@@ -353,10 +432,23 @@ def extract_remuneration_rows(pdf_url):
                             "total": total
                         })
 
-        if not people:
-            warnings.append("No remuneration rows detected from PDF table extraction")
-            return {"parse_status": "error", "warnings": warnings, "people": []}
-        return {"parse_status": "ok", "warnings": warnings, "people": people}
+if people:
+    return {"parse_status": "ok_pdfplumber", "warnings": warnings, "people": people}
+
+ai_result = extract_with_openai_vision(pdf_bytes)
+
+if ai_result.get("people"):
+    ai_result["warnings"] = ["Parsed via OpenAI vision fallback"] + ai_result.get("warnings", [])
+    return ai_result
+
+warnings.append("No remuneration rows detected from PDF table extraction")
+warnings.extend(ai_result.get("warnings", []))
+
+return {
+    "parse_status": ai_result.get("parse_status", "error"),
+    "warnings": warnings,
+    "people": []
+}
     except Exception as e:
         return {"parse_status": "error", "warnings": [f"PDF parse failed: {e}"], "people": []}
 
@@ -387,10 +479,11 @@ def main():
         for filing in filings:
             f = dict(filing)
             f["people"] = []
-            f["parse_status"] = "skipped"
-            f["warnings"] = []
-            if f.get("posted") and "remuneration" in f.get("docType", "").lower() and f.get("href"):
-                parsed = extract_remuneration_rows(f["href"])
+f["parse_status"] = "not_applicable"
+f["warnings"] = []
+
+if f.get("posted") and "remuneration" in f.get("docType", "").lower():
+    parsed = extract_remuneration_rows(f.get("href"))
                 f["people"] = parsed.get("people", [])
                 f["parse_status"] = parsed.get("parse_status", "error")
                 f["warnings"] = parsed.get("warnings", [])

@@ -704,7 +704,16 @@ if (!Array.isArray(sched.people) || sched.people.length === 0) {
 
   if (note) {
     const status = sched.parse_status || "unknown";
-    note.textContent = `Parser status: ${status}${sched.warnings && sched.warnings.length ? ` · ${sched.warnings[0]}` : ""}`;
+    const hint =
+      status === "skipped_pdfplumber"
+        ? "Run scraper in GitHub Actions (it installs pdfplumber) or install pdfplumber locally."
+        : "";
+
+    note.textContent =
+      `Parser status: ${status}` +
+      `${sched.warnings && sched.warnings.length ? ` · ${sched.warnings[0]}` : ""}` +
+      `${hint ? ` · ${hint}` : ""}`;
+
     note.style.display = "block";
   }
 
