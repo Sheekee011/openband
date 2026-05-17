@@ -38,8 +38,8 @@ jobs:
         run: python scraper.py
 
       # 5. Commit data.json back to the repo so the website can read it
-      - name: Commit updated data
-  run: |
+     - name: Commit updated data
+run: |
     git config user.name "OpenBand Bot"
     git config user.email "openband-bot@users.noreply.github.com"
 
