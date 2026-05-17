@@ -28,11 +28,15 @@ jobs:
         with:
           python-version: "3.11"
 
-      # 3. Run the scraper — this fetches data from ISC and writes data.json
+      # 3. Install scraper dependencies (includes PDF parsing)
+      - name: Install dependencies
+        run: python -m pip install --upgrade pip pdfplumber
+
+      # 4. Run the scraper — this fetches data from ISC and writes data.json
       - name: Run scraper
         run: python scraper.py
 
-      # 4. Commit data.json back to the repo so the website can read it
+      # 5. Commit data.json back to the repo so the website can read it
       - name: Commit updated data
         run: |
           git config user.name  "OpenBand Bot"

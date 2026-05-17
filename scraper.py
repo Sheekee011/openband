@@ -5,12 +5,21 @@ Fetches FNFTA filing listings from Indigenous Services Canada
 and saves the results to data.json for the website to read.
 """
 
+import base64
+import io
 import json
+import os
+import re
 import time
 import urllib.request
 import urllib.parse
 from html.parser import HTMLParser
 from datetime import datetime
+
+try:
+    import pdfplumber
+except ImportError:
+    pdfplumber = None
 
 # ── All 619 First Nations with their ISC band numbers ────────────────────────
 # Band numbers come from ISC's First Nations Profiles registry.
@@ -163,6 +172,16 @@ BANDS = [
 
 ISC_BASE = "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search"
 
+
+def normalize_pdf_url(url):
+    """Ensure query params are URL-encoded before requesting ISC PDFs."""
+    if not url:
+        return url
+    parts = urllib.parse.urlsplit(url)
+    query_pairs = urllib.parse.parse_qsl(parts.query, keep_blank_values=True)
+    safe_query = urllib.parse.urlencode(query_pairs, quote_via=urllib.parse.quote)
+    return urllib.parse.urlunsplit((parts.scheme, parts.netloc, parts.path, safe_query, parts.fragment))
+
 # ── HTML parser to extract filing rows from ISC pages ────────────────────────
 class FilingParser(HTMLParser):
     def __init__(self):
@@ -230,13 +249,12 @@ def fetch_band_filings(band_id):
             href      = row[1]["href"]
 
             # Only keep rows that look like fiscal years
-            import re
             if not re.match(r"\d{4}-\d{4}", year_text):
                 continue
 
             # Make href absolute if relative
             if href and not href.startswith("http"):
-                href = "https://fnp-ppn.aadnc-aandc.gc.ca" + href
+                href = "https://fnp-ppn.aadnc-aandc.gc.ca/" + href.lstrip("/")
 
             posted = date_text not in ("", "Not yet posted", "—", "N/A")
 
@@ -287,6 +305,151 @@ def build_fallback_filings(band_id):
     return filings
 
 
+def parse_money(value):
+    if value is None:
+        return None
+    text = str(value).strip()
+    if not text or text in {"-", "—", "N/A"}:
+        return None
+    negative = text.startswith("(") and text.endswith(")")
+    cleaned = re.sub(r"[^0-9.\-]", "", text)
+    if not cleaned:
+        return None
+    try:
+        amount = float(cleaned)
+        return -amount if negative and amount > 0 else amount
+    except ValueError:
+        return None
+
+
+def extract_with_openai_vision(pdf_bytes):
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        return {"parse_status": "skipped_openai_no_key", "warnings": ["OPENAI_API_KEY not set"], "people": []}
+
+    prompt = (
+        "Extract the Chief and Council remuneration table from this PDF. "
+        "Return only JSON with shape: {\"people\":[{\"name\":str,\"role\":str,\"remuneration\":number|null,\"expenses\":number|null,\"total\":number|null}]}. "
+        "Do not include markdown fences. If no table is present, return {\"people\":[]}."
+    )
+
+    payload = {
+        "model": os.getenv("OPENAI_MODEL", "gpt-4.1"),
+        "input": [{
+            "role": "user",
+            "content": [
+                {"type": "input_text", "text": prompt},
+                {"type": "input_file", "filename": "filing.pdf", "file_data": f"data:application/pdf;base64,{base64.b64encode(pdf_bytes).decode('ascii')}"}
+            ]
+        }]
+    }
+
+    req = urllib.request.Request(
+        "https://api.openai.com/v1/responses",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json"
+        },
+        method="POST"
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=90) as resp:
+            raw = json.loads(resp.read().decode("utf-8"))
+
+        text = raw.get("output_text", "").strip()
+        if not text:
+            return {"parse_status": "error_openai_empty", "warnings": ["OpenAI returned empty output"], "people": []}
+        data = json.loads(text)
+        rows = data.get("people", []) if isinstance(data, dict) else []
+        people = []
+        for row in rows:
+            people.append({
+                "name": str(row.get("name", "")).strip(),
+                "role": str(row.get("role", "")).strip() or "Council",
+                "remuneration": parse_money(row.get("remuneration")),
+                "expenses": parse_money(row.get("expenses")),
+                "total": parse_money(row.get("total")),
+            })
+        people = [p for p in people if p["name"]]
+        return {"parse_status": "ok_openai", "warnings": [], "people": people}
+    except Exception as e:
+        return {"parse_status": "error_openai", "warnings": [f"OpenAI parse failed: {e}"], "people": []}
+
+
+def extract_remuneration_rows(pdf_url):
+    if not pdf_url:
+        return {"parse_status": "no_pdf_url", "warnings": ["No PDF URL available for this filing"], "people": []}
+    if pdfplumber is None:
+        return {"parse_status": "skipped_pdfplumber", "warnings": ["pdfplumber unavailable in runtime"], "people": []}
+
+    try:
+        safe_pdf_url = normalize_pdf_url(pdf_url)
+        req = urllib.request.Request(
+            safe_pdf_url,
+            headers={"User-Agent": "OpenBand/1.0 (github.com/openband; transparency research)"}
+        )
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            pdf_bytes = resp.read()
+
+        people = []
+        warnings = []
+        with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+            for page in pdf.pages:
+                tables = page.extract_tables() or []
+                for table in tables:
+                    if not table:
+                        continue
+                    for row in table:
+                        if not row or len(row) < 4:
+                            continue
+
+                        cells = [str(c).strip() if c is not None else "" for c in row]
+                        joined = " ".join(cells).lower()
+                        if any(k in joined for k in ["name", "chief", "council", "total remuneration", "schedule"]):
+                            continue
+
+                        name = cells[0]
+                        if not name or len(name) < 2:
+                            continue
+
+                        role = cells[1] if len(cells) > 1 else ""
+                        remuneration = parse_money(cells[2] if len(cells) > 2 else None)
+                        expenses = parse_money(cells[3] if len(cells) > 3 else None)
+                        total = parse_money(cells[4] if len(cells) > 4 else None)
+
+                        if remuneration is None and expenses is None and total is None:
+                            continue
+                        if total is None and remuneration is not None and expenses is not None:
+                            total = remuneration + expenses
+
+                        people.append({
+                            "name": name,
+                            "role": role or "Council",
+                            "remuneration": remuneration,
+                            "expenses": expenses,
+                            "total": total
+                        })
+
+        if people:
+            return {"parse_status": "ok_pdfplumber", "warnings": warnings, "people": people}
+
+        ai_result = extract_with_openai_vision(pdf_bytes)
+        if ai_result.get("people"):
+            ai_result["warnings"] = ["Parsed via OpenAI vision fallback"] + ai_result.get("warnings", [])
+            return ai_result
+
+        warnings.append("No remuneration rows detected from PDF table extraction")
+        warnings.extend(ai_result.get("warnings", []))
+        return {
+            "parse_status": ai_result.get("parse_status", "error"),
+            "warnings": warnings,
+            "people": []
+        }
+    except Exception as e:
+        return {"parse_status": "error", "warnings": [f"PDF parse failed: {e}"], "people": []}
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
     print(f"OpenBand scraper starting — {datetime.utcnow().isoformat()}Z")
@@ -309,13 +472,26 @@ def main():
         else:
             status = "ok"
 
-        print(f"  → {len(filings)} filings ({status})")
+        enriched = []
+        for filing in filings:
+            f = dict(filing)
+            f["people"] = []
+            f["parse_status"] = "not_applicable"
+            f["warnings"] = []
+            if f.get("posted") and "remuneration" in f.get("docType", "").lower():
+                parsed = extract_remuneration_rows(f.get("href"))
+                f["people"] = parsed.get("people", [])
+                f["parse_status"] = parsed.get("parse_status", "error")
+                f["warnings"] = parsed.get("warnings", [])
+            enriched.append(f)
+
+        print(f"  → {len(enriched)} filings ({status})")
 
         results.append({
             "id":       band["id"],
             "name":     band["name"],
             "province": band["province"],
-            "filings":  filings,
+            "filings":  enriched,
             "status":   status,
             "scraped":  datetime.utcnow().isoformat() + "Z"
         })
