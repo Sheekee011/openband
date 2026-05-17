@@ -2,7 +2,6 @@
 # This file tells GitHub to automatically run scraper.py every night at midnight.
 # You don't need to touch this file after uploading it.
 
-name: Scrape FNFTA Data
 concurrency:
   group: fnfta-scraper
   cancel-in-progress: true
