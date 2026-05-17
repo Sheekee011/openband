@@ -322,6 +322,7 @@ def parse_money(value):
         return None
 
 
+
 def extract_with_openai_vision(pdf_bytes):
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
@@ -386,6 +387,14 @@ def extract_remuneration_rows(pdf_url):
     try:
         safe_pdf_url = normalize_pdf_url(pdf_url)
         req = urllib.request.Request(safe_pdf_url, headers={"User-Agent": "OpenBand/1.0 (github.com/openband; transparency research)"})
+
+def extract_remuneration_rows(pdf_url):
+    if not pdf_url or pdfplumber is None:
+        return {"parse_status": "skipped", "warnings": ["pdfplumber unavailable or missing PDF URL"], "people": []}
+
+    try:
+        req = urllib.request.Request(pdf_url, headers={"User-Agent": "OpenBand/1.0 (github.com/openband; transparency research)"})
+
         with urllib.request.urlopen(req, timeout=30) as resp:
             pdf_bytes = resp.read()
 
@@ -423,17 +432,23 @@ def extract_remuneration_rows(pdf_url):
                             "total": total
                         })
 
-        if people:
-            return {"parse_status": "ok_pdfplumber", "warnings": warnings, "people": people}
+if people:
+    return {"parse_status": "ok_pdfplumber", "warnings": warnings, "people": people}
 
-        ai_result = extract_with_openai_vision(pdf_bytes)
-        if ai_result.get("people"):
-            ai_result["warnings"] = ["Parsed via OpenAI vision fallback"] + ai_result.get("warnings", [])
-            return ai_result
+ai_result = extract_with_openai_vision(pdf_bytes)
 
-        warnings.append("No remuneration rows detected from PDF table extraction")
-        warnings.extend(ai_result.get("warnings", []))
-        return {"parse_status": ai_result.get("parse_status", "error"), "warnings": warnings, "people": []}
+if ai_result.get("people"):
+    ai_result["warnings"] = ["Parsed via OpenAI vision fallback"] + ai_result.get("warnings", [])
+    return ai_result
+
+warnings.append("No remuneration rows detected from PDF table extraction")
+warnings.extend(ai_result.get("warnings", []))
+
+return {
+    "parse_status": ai_result.get("parse_status", "error"),
+    "warnings": warnings,
+    "people": []
+}
     except Exception as e:
         return {"parse_status": "error", "warnings": [f"PDF parse failed: {e}"], "people": []}
 
@@ -464,10 +479,11 @@ def main():
         for filing in filings:
             f = dict(filing)
             f["people"] = []
-            f["parse_status"] = "not_applicable"
-            f["warnings"] = []
-            if f.get("posted") and "remuneration" in f.get("docType", "").lower():
-                parsed = extract_remuneration_rows(f.get("href"))
+f["parse_status"] = "not_applicable"
+f["warnings"] = []
+
+if f.get("posted") and "remuneration" in f.get("docType", "").lower():
+    parsed = extract_remuneration_rows(f.get("href"))
                 f["people"] = parsed.get("people", [])
                 f["parse_status"] = parsed.get("parse_status", "error")
                 f["warnings"] = parsed.get("warnings", [])
