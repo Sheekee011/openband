@@ -1,49 +1,37 @@
-# OpenBand — Nightly FNFTA Data Scraper
-# This file tells GitHub to automatically run scraper.py every night at midnight.
-# You don't need to touch this file after uploading it.
-
-concurrency:
-  group: fnfta-scraper
-  cancel-in-progress: true
+name: Scrape FNFTA data
 
 on:
-  # Run every night at midnight UTC
   schedule:
-    - cron: "0 0 * * *"
-
-  # Also lets you trigger it manually from the GitHub website
-  # (go to Actions tab → Scrape FNFTA Data → Run workflow)
+    - cron: "17 8 * * *"
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Check out your repo so the scraper can run inside it
       - name: Check out repository
         uses: actions/checkout@v4
 
-      # 2. Set up Python
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      # 3. Install scraper dependencies (includes PDF parsing)
       - name: Install dependencies
-        run: python -m pip install --upgrade pip pdfplumber
+        run: pip install -r requirements.txt
 
-      # 4. Run the scraper — this fetches data from ISC and writes data.json
       - name: Run scraper
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-4.1-mini
         run: python scraper.py
 
-      # 5. Commit data.json back to the repo so the website can read it
       - name: Commit updated data
-        run: |
-          git config user.name "OpenBand Bot"
-          git config user.email "openband-bot@users.noreply.github.com"
-          git add data.json
-          git diff --staged --quiet || git commit -m "Auto: update FNFTA data $(date -u '+%Y-%m-%d')"
-          git pull origin main --rebase
-          git push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update FNFTA data"
+          file_pattern: data.json
