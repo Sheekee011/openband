@@ -1,8 +1,9 @@
 """
 OpenBand Scraper
+
 Runs nightly via GitHub Actions.
-Fetches FNFTA filing listings from Indigenous Services Canada
-and saves the results to data.json for the website to read.
+Fetches FNFTA filing listings from Indigenous Services Canada and saves the
+results to data.json for the website to read.
 """
 
 import base64
@@ -11,166 +12,172 @@ import json
 import os
 import re
 import time
-import urllib.request
 import urllib.parse
-from html.parser import HTMLParser
+import urllib.request
 from datetime import datetime
+from html.parser import HTMLParser
 
 try:
     import pdfplumber
 except ImportError:
     pdfplumber = None
 
-# ── All 619 First Nations with their ISC band numbers ────────────────────────
+
 # Band numbers come from ISC's First Nations Profiles registry.
-# This list covers the bands that have FNFTA filings.
+# This starter list covers the bands currently tracked by OpenBand.
 BANDS = [
-    {"id": 1,   "name": "Abegweit First Nation",                    "province": "PE"},
-    {"id": 2,   "name": "Acadia First Nation",                      "province": "NS"},
-    {"id": 4,   "name": "Acho Dene Koe First Nation",               "province": "NT"},
-    {"id": 5,   "name": "Adams Lake Indian Band",                   "province": "BC"},
-    {"id": 7,   "name": "Ahousaht",                                 "province": "BC"},
-    {"id": 8,   "name": "Ahtahkakoop Cree Nation",                  "province": "SK"},
-    {"id": 10,  "name": "Alexis Nakoda Sioux Nation",               "province": "AB"},
-    {"id": 11,  "name": "Alexis Creek (Tsi Del Del)",               "province": "BC"},
-    {"id": 32,  "name": "Beardy's and Okemasis' Cree Nation",       "province": "SK"},
-    {"id": 35,  "name": "Beausoleil First Nation",                  "province": "ON"},
-    {"id": 38,  "name": "Beaver Lake Cree Nation",                  "province": "AB"},
-    {"id": 52,  "name": "Blueberry River First Nations",            "province": "BC"},
-    {"id": 58,  "name": "Brokenhead Ojibway Nation",                "province": "MB"},
-    {"id": 65,  "name": "Caldwell First Nation",                    "province": "ON"},
-    {"id": 69,  "name": "Canoe Lake Cree First Nation",             "province": "SK"},
-    {"id": 71,  "name": "Carry the Kettle Nakoda Nation",           "province": "SK"},
-    {"id": 77,  "name": "Chemawawin Cree Nation",                   "province": "MB"},
-    {"id": 81,  "name": "Chippewas of Georgina Island First Nation","province": "ON"},
-    {"id": 83,  "name": "Chippewas of Kettle and Stony Point",      "province": "ON"},
-    {"id": 85,  "name": "Chippewas of Nawash Unceded First Nation", "province": "ON"},
-    {"id": 87,  "name": "Chippewas of Rama First Nation",           "province": "ON"},
-    {"id": 91,  "name": "Clearwater River Dene Nation",             "province": "SK"},
-    {"id": 93,  "name": "Cold Lake First Nations",                  "province": "AB"},
-    {"id": 97,  "name": "Constance Lake First Nation",              "province": "ON"},
-    {"id": 101, "name": "Cote First Nation",                        "province": "SK"},
-    {"id": 103, "name": "Couchiching First Nation",                 "province": "ON"},
-    {"id": 105, "name": "Cowichan Tribes",                          "province": "BC"},
-    {"id": 107, "name": "Cowessess First Nation",                   "province": "SK"},
-    {"id": 109, "name": "Cross Lake Band of Indians",               "province": "MB"},
-    {"id": 111, "name": "Cumberland House Cree Nation",             "province": "SK"},
-    {"id": 113, "name": "Curve Lake First Nation",                  "province": "ON"},
-    {"id": 119, "name": "Day Star First Nation",                    "province": "SK"},
-    {"id": 121, "name": "Dene Tha' First Nation",                   "province": "AB"},
-    {"id": 125, "name": "Doig River First Nation",                  "province": "BC"},
-    {"id": 127, "name": "Driftpile Cree Nation",                    "province": "AB"},
-    {"id": 135, "name": "Enoch Cree Nation",                        "province": "AB"},
-    {"id": 145, "name": "Ermineskin Cree Nation",                   "province": "AB"},
-    {"id": 149, "name": "Frog Lake First Nation",                   "province": "AB"},
-    {"id": 151, "name": "Flying Dust First Nation",                 "province": "SK"},
-    {"id": 153, "name": "Sagkeeng First Nation",                    "province": "MB"},
-    {"id": 157, "name": "Fort McKay First Nation",                  "province": "AB"},
-    {"id": 163, "name": "Fort William First Nation",                "province": "ON"},
-    {"id": 165, "name": "Fox Lake Cree Nation",                     "province": "MB"},
-    {"id": 169, "name": "Garden Hill First Nations",                "province": "MB"},
-    {"id": 171, "name": "George Gordon First Nation",               "province": "SK"},
-    {"id": 175, "name": "God's Lake First Nation",                  "province": "MB"},
-    {"id": 177, "name": "Grassy Narrows First Nation",              "province": "ON"},
-    {"id": 181, "name": "Haisla Nation",                            "province": "BC"},
-    {"id": 183, "name": "Heiltsuk Nation",                          "province": "BC"},
-    {"id": 191, "name": "Horse Lake First Nation",                  "province": "AB"},
-    {"id": 193, "name": "Hudson Bay Cree Nation",                   "province": "SK"},
-    {"id": 197, "name": "Huron-Wendat",                             "province": "QC"},
-    {"id": 198, "name": "Batchewana First Nation",                  "province": "ON"},
-    {"id": 210, "name": "Kahkewistahaw First Nation",               "province": "SK"},
-    {"id": 216, "name": "Kawacatoose First Nation",                 "province": "SK"},
-    {"id": 218, "name": "Keeseekoose First Nation",                 "province": "SK"},
-    {"id": 220, "name": "Key First Nation",                         "province": "SK"},
-    {"id": 222, "name": "Kinistin Saulteaux Nation",                "province": "SK"},
-    {"id": 224, "name": "Kitasoo/Xai'Xais First Nation",           "province": "BC"},
-    {"id": 226, "name": "Kluane First Nation",                      "province": "YT"},
-    {"id": 234, "name": "Lac La Ronge Indian Band",                 "province": "SK"},
-    {"id": 236, "name": "Lac Seul First Nation",                    "province": "ON"},
-    {"id": 240, "name": "Lake Manitoba First Nation",               "province": "MB"},
-    {"id": 248, "name": "Lennox Island First Nation",               "province": "PE"},
-    {"id": 254, "name": "Lil'wat Nation",                           "province": "BC"},
-    {"id": 256, "name": "Little Black Bear First Nation",           "province": "SK"},
-    {"id": 258, "name": "Little Pine First Nation",                 "province": "SK"},
-    {"id": 260, "name": "Little Red River Cree Nation",             "province": "AB"},
-    {"id": 266, "name": "Long Plain First Nation",                  "province": "MB"},
-    {"id": 270, "name": "Louis Bull Tribe",                         "province": "AB"},
-    {"id": 272, "name": "Lucky Man Cree Nation",                    "province": "SK"},
-    {"id": 276, "name": "Makwa Sahgaiehcan First Nation",           "province": "SK"},
-    {"id": 286, "name": "Mathias Colomb Cree Nation",               "province": "MB"},
-    {"id": 290, "name": "McLeod Lake Indian Band",                  "province": "BC"},
-    {"id": 292, "name": "Membertou First Nation",                   "province": "NS"},
-    {"id": 296, "name": "Mikisew Cree First Nation",                "province": "AB"},
-    {"id": 298, "name": "Mistawasis Nehiyawak",                     "province": "SK"},
-    {"id": 300, "name": "Mohawks of Akwesasne",                     "province": "ON"},
-    {"id": 302, "name": "Mohawks of the Bay of Quinte",             "province": "ON"},
-    {"id": 304, "name": "Montana First Nation",                     "province": "AB"},
-    {"id": 306, "name": "Moose Cree First Nation",                  "province": "ON"},
-    {"id": 312, "name": "Muskoday First Nation",                    "province": "SK"},
-    {"id": 318, "name": "Namgis First Nation",                      "province": "BC"},
-    {"id": 322, "name": "Nekaneet Cree Nation",                     "province": "SK"},
-    {"id": 330, "name": "Nisga'a Nation",                           "province": "BC"},
-    {"id": 332, "name": "Nisichawayasihk Cree Nation",              "province": "MB"},
-    {"id": 344, "name": "Ochapowace First Nation",                  "province": "SK"},
-    {"id": 346, "name": "Okanagan Indian Band",                     "province": "BC"},
-    {"id": 348, "name": "Okanese First Nation",                     "province": "SK"},
-    {"id": 350, "name": "Onion Lake Cree Nation",                   "province": "SK"},
-    {"id": 352, "name": "Opaskwayak Cree Nation",                   "province": "MB"},
-    {"id": 360, "name": "Pasqua First Nation",                      "province": "SK"},
-    {"id": 364, "name": "Peepeekisis Cree Nation",                  "province": "SK"},
-    {"id": 366, "name": "Pelican Lake First Nation",                "province": "SK"},
-    {"id": 368, "name": "Penelakut Tribe",                          "province": "BC"},
-    {"id": 370, "name": "Penticton Indian Band",                    "province": "BC"},
-    {"id": 372, "name": "Peter Ballantyne Cree Nation",             "province": "SK"},
-    {"id": 376, "name": "Pheasant Rump Nakoda Nation",              "province": "SK"},
-    {"id": 378, "name": "Pine Creek First Nation",                  "province": "MB"},
-    {"id": 380, "name": "Pinaymootang First Nation",                "province": "MB"},
-    {"id": 386, "name": "Poplar River First Nation",                "province": "MB"},
-    {"id": 392, "name": "Poundmaker Cree Nation",                   "province": "SK"},
-    {"id": 404, "name": "Red Earth Cree Nation",                    "province": "SK"},
-    {"id": 406, "name": "Red Pheasant Cree Nation",                 "province": "SK"},
-    {"id": 414, "name": "Rolling River First Nation",               "province": "MB"},
-    {"id": 416, "name": "Roseau River Anishinabe First Nation",     "province": "MB"},
-    {"id": 424, "name": "Sakimay First Nations",                    "province": "SK"},
-    {"id": 428, "name": "Sandy Bay Ojibway First Nation",           "province": "MB"},
-    {"id": 430, "name": "Sandy Lake First Nation",                  "province": "ON"},
-    {"id": 432, "name": "Saulteau First Nations",                   "province": "BC"},
-    {"id": 434, "name": "Sawridge First Nation",                    "province": "AB"},
-    {"id": 448, "name": "Shoal Lake Cree Nation",                   "province": "SK"},
-    {"id": 452, "name": "Siksika Nation",                           "province": "AB"},
-    {"id": 454, "name": "Simpcw First Nation",                      "province": "BC"},
-    {"id": 456, "name": "Sioux Valley Dakota Nation",               "province": "MB"},
-    {"id": 458, "name": "Six Nations of the Grand River",           "province": "ON"},
-    {"id": 462, "name": "Skidegate (Haida Nation)",                 "province": "BC"},
-    {"id": 474, "name": "Squamish Nation",                          "province": "BC"},
-    {"id": 478, "name": "Stoney Nakoda Nation",                     "province": "AB"},
-    {"id": 480, "name": "Sucker Creek First Nation",                "province": "AB"},
-    {"id": 490, "name": "Tahltan Nation",                           "province": "BC"},
-    {"id": 494, "name": "The Key First Nation",                     "province": "SK"},
-    {"id": 498, "name": "Tobique First Nation",                     "province": "NB"},
-    {"id": 502, "name": "Tootinaowaziibeeng Treaty Reserve",        "province": "MB"},
-    {"id": 506, "name": "Tseshaht First Nation",                    "province": "BC"},
-    {"id": 510, "name": "Tsleil-Waututh Nation",                    "province": "BC"},
-    {"id": 512, "name": "Tsuut'ina Nation",                         "province": "AB"},
-    {"id": 518, "name": "Upper Nicola Band",                        "province": "BC"},
-    {"id": 524, "name": "Ucluelet First Nation",                    "province": "BC"},
-    {"id": 526, "name": "Wahnapitae First Nation",                  "province": "ON"},
-    {"id": 528, "name": "Wahpeton Dakota Nation",                   "province": "SK"},
-    {"id": 538, "name": "Waterhen Lake First Nation",               "province": "SK"},
-    {"id": 540, "name": "Waywayseecappo First Nation",              "province": "MB"},
-    {"id": 542, "name": "West Moberly First Nations",               "province": "BC"},
-    {"id": 546, "name": "White Bear First Nations",                 "province": "SK"},
-    {"id": 548, "name": "Doig River First Nation",                  "province": "BC"},
-    {"id": 550, "name": "Whitefish Lake First Nation",              "province": "AB"},
-    {"id": 552, "name": "Whitecap Dakota First Nation",             "province": "SK"},
-    {"id": 556, "name": "Williams Lake Indian Band",                "province": "BC"},
-    {"id": 560, "name": "Woodland Cree First Nation",               "province": "AB"},
-    {"id": 566, "name": "Yale First Nation",                        "province": "BC"},
-    {"id": 568, "name": "Yellowknives Dene First Nation",           "province": "NT"},
-    {"id": 570, "name": "York Factory First Nation",                "province": "MB"},
+    {"id": 1, "name": "Abegweit First Nation", "province": "PE"},
+    {"id": 2, "name": "Acadia First Nation", "province": "NS"},
+    {"id": 4, "name": "Acho Dene Koe First Nation", "province": "NT"},
+    {"id": 5, "name": "Adams Lake Indian Band", "province": "BC"},
+    {"id": 7, "name": "Ahousaht", "province": "BC"},
+    {"id": 8, "name": "Ahtahkakoop Cree Nation", "province": "SK"},
+    {"id": 10, "name": "Alexis Nakoda Sioux Nation", "province": "AB"},
+    {"id": 11, "name": "Alexis Creek (Tsi Del Del)", "province": "BC"},
+    {"id": 32, "name": "Beardy's and Okemasis' Cree Nation", "province": "SK"},
+    {"id": 35, "name": "Beausoleil First Nation", "province": "ON"},
+    {"id": 38, "name": "Beaver Lake Cree Nation", "province": "AB"},
+    {"id": 52, "name": "Blueberry River First Nations", "province": "BC"},
+    {"id": 58, "name": "Brokenhead Ojibway Nation", "province": "MB"},
+    {"id": 65, "name": "Caldwell First Nation", "province": "ON"},
+    {"id": 69, "name": "Canoe Lake Cree First Nation", "province": "SK"},
+    {"id": 71, "name": "Carry the Kettle Nakoda Nation", "province": "SK"},
+    {"id": 77, "name": "Chemawawin Cree Nation", "province": "MB"},
+    {"id": 81, "name": "Chippewas of Georgina Island First Nation", "province": "ON"},
+    {"id": 83, "name": "Chippewas of Kettle and Stony Point", "province": "ON"},
+    {"id": 85, "name": "Chippewas of Nawash Unceded First Nation", "province": "ON"},
+    {"id": 87, "name": "Chippewas of Rama First Nation", "province": "ON"},
+    {"id": 91, "name": "Clearwater River Dene Nation", "province": "SK"},
+    {"id": 93, "name": "Cold Lake First Nations", "province": "AB"},
+    {"id": 97, "name": "Constance Lake First Nation", "province": "ON"},
+    {"id": 101, "name": "Cote First Nation", "province": "SK"},
+    {"id": 103, "name": "Couchiching First Nation", "province": "ON"},
+    {"id": 105, "name": "Cowichan Tribes", "province": "BC"},
+    {"id": 107, "name": "Cowessess First Nation", "province": "SK"},
+    {"id": 109, "name": "Cross Lake Band of Indians", "province": "MB"},
+    {"id": 111, "name": "Cumberland House Cree Nation", "province": "SK"},
+    {"id": 113, "name": "Curve Lake First Nation", "province": "ON"},
+    {"id": 119, "name": "Day Star First Nation", "province": "SK"},
+    {"id": 121, "name": "Dene Tha' First Nation", "province": "AB"},
+    {"id": 125, "name": "Doig River First Nation", "province": "BC"},
+    {"id": 127, "name": "Driftpile Cree Nation", "province": "AB"},
+    {"id": 135, "name": "Enoch Cree Nation", "province": "AB"},
+    {"id": 145, "name": "Ermineskin Cree Nation", "province": "AB"},
+    {"id": 149, "name": "Frog Lake First Nation", "province": "AB"},
+    {"id": 151, "name": "Flying Dust First Nation", "province": "SK"},
+    {"id": 153, "name": "Sagkeeng First Nation", "province": "MB"},
+    {"id": 157, "name": "Fort McKay First Nation", "province": "AB"},
+    {"id": 163, "name": "Fort William First Nation", "province": "ON"},
+    {"id": 165, "name": "Fox Lake Cree Nation", "province": "MB"},
+    {"id": 169, "name": "Garden Hill First Nations", "province": "MB"},
+    {"id": 171, "name": "George Gordon First Nation", "province": "SK"},
+    {"id": 175, "name": "God's Lake First Nation", "province": "MB"},
+    {"id": 177, "name": "Grassy Narrows First Nation", "province": "ON"},
+    {"id": 181, "name": "Haisla Nation", "province": "BC"},
+    {"id": 183, "name": "Heiltsuk Nation", "province": "BC"},
+    {"id": 191, "name": "Horse Lake First Nation", "province": "AB"},
+    {"id": 193, "name": "Hudson Bay Cree Nation", "province": "SK"},
+    {"id": 197, "name": "Huron-Wendat", "province": "QC"},
+    {"id": 198, "name": "Batchewana First Nation", "province": "ON"},
+    {"id": 210, "name": "Kahkewistahaw First Nation", "province": "SK"},
+    {"id": 216, "name": "Kawacatoose First Nation", "province": "SK"},
+    {"id": 218, "name": "Keeseekoose First Nation", "province": "SK"},
+    {"id": 220, "name": "Key First Nation", "province": "SK"},
+    {"id": 222, "name": "Kinistin Saulteaux Nation", "province": "SK"},
+    {"id": 224, "name": "Kitasoo/Xai'Xais First Nation", "province": "BC"},
+    {"id": 226, "name": "Kluane First Nation", "province": "YT"},
+    {"id": 234, "name": "Lac La Ronge Indian Band", "province": "SK"},
+    {"id": 236, "name": "Lac Seul First Nation", "province": "ON"},
+    {"id": 240, "name": "Lake Manitoba First Nation", "province": "MB"},
+    {"id": 248, "name": "Lennox Island First Nation", "province": "PE"},
+    {"id": 254, "name": "Lil'wat Nation", "province": "BC"},
+    {"id": 256, "name": "Little Black Bear First Nation", "province": "SK"},
+    {"id": 258, "name": "Little Pine First Nation", "province": "SK"},
+    {"id": 260, "name": "Little Red River Cree Nation", "province": "AB"},
+    {"id": 266, "name": "Long Plain First Nation", "province": "MB"},
+    {"id": 270, "name": "Louis Bull Tribe", "province": "AB"},
+    {"id": 272, "name": "Lucky Man Cree Nation", "province": "SK"},
+    {"id": 276, "name": "Makwa Sahgaiehcan First Nation", "province": "SK"},
+    {"id": 286, "name": "Mathias Colomb Cree Nation", "province": "MB"},
+    {"id": 290, "name": "McLeod Lake Indian Band", "province": "BC"},
+    {"id": 292, "name": "Membertou First Nation", "province": "NS"},
+    {"id": 296, "name": "Mikisew Cree First Nation", "province": "AB"},
+    {"id": 298, "name": "Mistawasis Nehiyawak", "province": "SK"},
+    {"id": 300, "name": "Mohawks of Akwesasne", "province": "ON"},
+    {"id": 302, "name": "Mohawks of the Bay of Quinte", "province": "ON"},
+    {"id": 304, "name": "Montana First Nation", "province": "AB"},
+    {"id": 306, "name": "Moose Cree First Nation", "province": "ON"},
+    {"id": 312, "name": "Muskoday First Nation", "province": "SK"},
+    {"id": 318, "name": "Namgis First Nation", "province": "BC"},
+    {"id": 322, "name": "Nekaneet Cree Nation", "province": "SK"},
+    {"id": 330, "name": "Nisga'a Nation", "province": "BC"},
+    {"id": 332, "name": "Nisichawayasihk Cree Nation", "province": "MB"},
+    {"id": 344, "name": "Ochapowace First Nation", "province": "SK"},
+    {"id": 346, "name": "Okanagan Indian Band", "province": "BC"},
+    {"id": 348, "name": "Okanese First Nation", "province": "SK"},
+    {"id": 350, "name": "Onion Lake Cree Nation", "province": "SK"},
+    {"id": 352, "name": "Opaskwayak Cree Nation", "province": "MB"},
+    {"id": 360, "name": "Pasqua First Nation", "province": "SK"},
+    {"id": 364, "name": "Peepeekisis Cree Nation", "province": "SK"},
+    {"id": 366, "name": "Pelican Lake First Nation", "province": "SK"},
+    {"id": 368, "name": "Penelakut Tribe", "province": "BC"},
+    {"id": 370, "name": "Penticton Indian Band", "province": "BC"},
+    {"id": 372, "name": "Peter Ballantyne Cree Nation", "province": "SK"},
+    {"id": 376, "name": "Pheasant Rump Nakoda Nation", "province": "SK"},
+    {"id": 378, "name": "Pine Creek First Nation", "province": "MB"},
+    {"id": 380, "name": "Pinaymootang First Nation", "province": "MB"},
+    {"id": 386, "name": "Poplar River First Nation", "province": "MB"},
+    {"id": 392, "name": "Poundmaker Cree Nation", "province": "SK"},
+    {"id": 404, "name": "Red Earth Cree Nation", "province": "SK"},
+    {"id": 406, "name": "Red Pheasant Cree Nation", "province": "SK"},
+    {"id": 414, "name": "Rolling River First Nation", "province": "MB"},
+    {"id": 416, "name": "Roseau River Anishinabe First Nation", "province": "MB"},
+    {"id": 424, "name": "Sakimay First Nations", "province": "SK"},
+    {"id": 428, "name": "Sandy Bay Ojibway First Nation", "province": "MB"},
+    {"id": 430, "name": "Sandy Lake First Nation", "province": "ON"},
+    {"id": 432, "name": "Saulteau First Nations", "province": "BC"},
+    {"id": 434, "name": "Sawridge First Nation", "province": "AB"},
+    {"id": 448, "name": "Shoal Lake Cree Nation", "province": "SK"},
+    {"id": 452, "name": "Siksika Nation", "province": "AB"},
+    {"id": 454, "name": "Simpcw First Nation", "province": "BC"},
+    {"id": 456, "name": "Sioux Valley Dakota Nation", "province": "MB"},
+    {"id": 458, "name": "Six Nations of the Grand River", "province": "ON"},
+    {"id": 462, "name": "Skidegate (Haida Nation)", "province": "BC"},
+    {"id": 474, "name": "Squamish Nation", "province": "BC"},
+    {"id": 478, "name": "Stoney Nakoda Nation", "province": "AB"},
+    {"id": 480, "name": "Sucker Creek First Nation", "province": "AB"},
+    {"id": 490, "name": "Tahltan Nation", "province": "BC"},
+    {"id": 494, "name": "The Key First Nation", "province": "SK"},
+    {"id": 498, "name": "Tobique First Nation", "province": "NB"},
+    {"id": 502, "name": "Tootinaowaziibeeng Treaty Reserve", "province": "MB"},
+    {"id": 506, "name": "Tseshaht First Nation", "province": "BC"},
+    {"id": 510, "name": "Tsleil-Waututh Nation", "province": "BC"},
+    {"id": 512, "name": "Tsuut'ina Nation", "province": "AB"},
+    {"id": 518, "name": "Upper Nicola Band", "province": "BC"},
+    {"id": 524, "name": "Ucluelet First Nation", "province": "BC"},
+    {"id": 526, "name": "Wahnapitae First Nation", "province": "ON"},
+    {"id": 528, "name": "Wahpeton Dakota Nation", "province": "SK"},
+    {"id": 538, "name": "Waterhen Lake First Nation", "province": "SK"},
+    {"id": 540, "name": "Waywayseecappo First Nation", "province": "MB"},
+    {"id": 542, "name": "West Moberly First Nations", "province": "BC"},
+    {"id": 546, "name": "White Bear First Nations", "province": "SK"},
+    {"id": 548, "name": "Doig River First Nation", "province": "BC"},
+    {"id": 550, "name": "Whitefish Lake First Nation", "province": "AB"},
+    {"id": 552, "name": "Whitecap Dakota First Nation", "province": "SK"},
+    {"id": 556, "name": "Williams Lake Indian Band", "province": "BC"},
+    {"id": 560, "name": "Woodland Cree First Nation", "province": "AB"},
+    {"id": 566, "name": "Yale First Nation", "province": "BC"},
+    {"id": 568, "name": "Yellowknives Dene First Nation", "province": "NT"},
+    {"id": 570, "name": "York Factory First Nation", "province": "MB"},
 ]
 
-ISC_BASE = "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search"
+ISC_HOST = "https://fnp-ppn.aadnc-aandc.gc.ca"
+ISC_BASE = f"{ISC_HOST}/fnp/Main/Search"
+USER_AGENT = "OpenBand/1.0 (transparency research; nightly GitHub Action)"
+
+
+def utc_now():
+    return datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
 
 
 def normalize_pdf_url(url):
@@ -180,10 +187,14 @@ def normalize_pdf_url(url):
     parts = urllib.parse.urlsplit(url)
     query_pairs = urllib.parse.parse_qsl(parts.query, keep_blank_values=True)
     safe_query = urllib.parse.urlencode(query_pairs, quote_via=urllib.parse.quote)
-    return urllib.parse.urlunsplit((parts.scheme, parts.netloc, parts.path, safe_query, parts.fragment))
+    return urllib.parse.urlunsplit(
+        (parts.scheme, parts.netloc, parts.path, safe_query, parts.fragment)
+    )
 
-# ── HTML parser to extract filing rows from ISC pages ────────────────────────
+
 class FilingParser(HTMLParser):
+    """Extract rows from ISC filing-listing tables."""
+
     def __init__(self):
         super().__init__()
         self.in_table = False
@@ -192,116 +203,120 @@ class FilingParser(HTMLParser):
         self.current_cell = ""
         self.current_href = None
         self.rows = []
-        self.td_count = 0
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         if tag == "table":
             self.in_table = True
-        if self.in_table and tag == "tr":
+        elif self.in_table and tag == "tr":
             self.current_row = []
-            self.td_count = 0
-        if self.in_table and tag == "td":
+        elif self.in_table and tag == "td":
             self.in_td = True
             self.current_cell = ""
             self.current_href = None
-        if self.in_td and tag == "a":
+        elif self.in_td and tag == "a":
             self.current_href = attrs.get("href", "")
 
     def handle_endtag(self, tag):
-        if tag == "table":
-            self.in_table = False
-        if self.in_table and tag == "td":
-            self.current_row.append({
-                "text": self.current_cell.strip(),
-                "href": self.current_href
-            })
+        if tag == "td" and self.in_td:
+            self.current_row.append(
+                {"text": " ".join(self.current_cell.split()), "href": self.current_href}
+            )
             self.in_td = False
-            self.td_count += 1
-        if self.in_table and tag == "tr" and len(self.current_row) >= 3:
+        elif tag == "tr" and self.in_table and len(self.current_row) >= 3:
             self.rows.append(self.current_row)
+        elif tag == "table":
+            self.in_table = False
 
     def handle_data(self, data):
         if self.in_td:
             self.current_cell += data
 
 
+def fetch_url(url, timeout=30):
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return resp.read()
+
+
 def fetch_band_filings(band_id):
     """Fetch the FNFTA filing page for one band and return parsed rows."""
     url = f"{ISC_BASE}/FederalFundingMain.aspx?BAND_NUMBER={band_id}&lang=eng"
     try:
-        req = urllib.request.Request(url, headers={
-            "User-Agent": "OpenBand/1.0 (github.com/openband; transparency research)"
-        })
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            html = resp.read().decode("utf-8", errors="replace")
-
+        html = fetch_url(url, timeout=15).decode("utf-8", errors="replace")
         parser = FilingParser()
         parser.feed(html)
 
         filings = []
         for row in parser.rows:
-            if len(row) < 3:
-                continue
             year_text = row[0]["text"]
-            doc_text  = row[1]["text"]
+            doc_text = row[1]["text"]
             date_text = row[2]["text"]
-            href      = row[1]["href"]
+            href = row[1]["href"]
 
-            # Only keep rows that look like fiscal years
             if not re.match(r"\d{4}-\d{4}", year_text):
                 continue
 
-            # Make href absolute if relative
             if href and not href.startswith("http"):
-                href = "https://fnp-ppn.aadnc-aandc.gc.ca/" + href.lstrip("/")
+                href = f"{ISC_HOST}/{href.lstrip('/')}"
 
-            posted = date_text not in ("", "Not yet posted", "—", "N/A")
-
-            filings.append({
-                "year":    year_text,
-                "docType": doc_text,
-                "date":    date_text,
-                "href":    href if posted else None,
-                "posted":  posted
-            })
+            posted = date_text not in ("", "Not yet posted", "-", "—", "N/A")
+            filings.append(
+                {
+                    "year": year_text,
+                    "docType": doc_text,
+                    "date": date_text,
+                    "href": href if posted else None,
+                    "posted": posted,
+                }
+            )
 
         return filings
-
-    except Exception as e:
-        print(f"  ERROR band {band_id}: {e}")
+    except Exception as exc:
+        print(f"  ERROR band {band_id}: {exc}")
         return None
 
 
 def build_fallback_filings(band_id):
-    """
-    If the live fetch fails, build direct PDF links using ISC's known URL pattern.
-    These links will still work — they go straight to the PDF on ISC's servers.
-    """
+    """Build direct ISC PDF links using the public DisplayBinaryData URL pattern."""
     fiscal_years = [
-        "2023-2024","2022-2023","2021-2022","2020-2021","2019-2020",
-        "2018-2019","2017-2018","2016-2017","2015-2016","2014-2015","2013-2014"
+        "2023-2024",
+        "2022-2023",
+        "2021-2022",
+        "2020-2021",
+        "2019-2020",
+        "2018-2019",
+        "2017-2018",
+        "2016-2017",
+        "2015-2016",
+        "2014-2015",
+        "2013-2014",
     ]
+    doc_types = [
+        "Audited consolidated financial statements",
+        "Schedule of Remuneration and Expenses",
+    ]
+
     filings = []
     for fy in fiscal_years:
-        fy_enc = urllib.parse.quote(fy)
-        for doc, label in [
-            ("Audited consolidated financial statements", "Audited consolidated financial statements"),
-            ("Schedule of Remuneration and Expenses",     "Schedule of Remuneration and Expenses"),
-        ]:
-            doc_enc = urllib.parse.quote(doc)
+        for doc in doc_types:
             href = (
-                f"{ISC_BASE}/DisplayBinaryData.aspx"
-                f"?BAND_NUMBER_FF={band_id}&FY={fy_enc}&DOC={doc_enc}&lang=eng"
+                f"{ISC_BASE}/DisplayBinaryData.aspx?"
+                + urllib.parse.urlencode(
+                    {"BAND_NUMBER_FF": band_id, "FY": fy, "DOC": doc, "lang": "eng"},
+                    quote_via=urllib.parse.quote,
+                )
             )
-            filings.append({
-                "year":    fy,
-                "docType": label,
-                "date":    "See ISC",
-                "href":    href,
-                "posted":  True,
-                "fallback": True
-            })
+            filings.append(
+                {
+                    "year": fy,
+                    "docType": doc,
+                    "date": "See ISC",
+                    "href": href,
+                    "posted": True,
+                    "fallback": True,
+                }
+            )
     return filings
 
 
@@ -313,7 +328,7 @@ def parse_money(value):
         return None
     negative = text.startswith("(") and text.endswith(")")
     cleaned = re.sub(r"[^0-9.\-]", "", text)
-    if not cleaned:
+    if not cleaned or cleaned in {"-", "."}:
         return None
     try:
         amount = float(cleaned)
@@ -322,159 +337,222 @@ def parse_money(value):
         return None
 
 
+def response_output_text(response_json):
+    if response_json.get("output_text"):
+        return response_json["output_text"]
+
+    chunks = []
+    for item in response_json.get("output", []):
+        for content in item.get("content", []):
+            if content.get("type") in {"output_text", "text"} and content.get("text"):
+                chunks.append(content["text"])
+    return "\n".join(chunks).strip()
+
+
 def extract_with_openai_vision(pdf_bytes):
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
-        return {"parse_status": "skipped_openai_no_key", "warnings": ["OPENAI_API_KEY not set"], "people": []}
+        return {
+            "parse_status": "skipped_openai_no_key",
+            "warnings": ["OPENAI_API_KEY not set"],
+            "people": [],
+        }
 
     prompt = (
         "Extract the Chief and Council remuneration table from this PDF. "
-        "Return only JSON with shape: {\"people\":[{\"name\":str,\"role\":str,\"remuneration\":number|null,\"expenses\":number|null,\"total\":number|null}]}. "
-        "Do not include markdown fences. If no table is present, return {\"people\":[]}."
+        "Return only JSON with this shape: "
+        '{"people":[{"name":str,"role":str,"remuneration":number|null,'
+        '"expenses":number|null,"total":number|null}]}. '
+        "If no table is present, return {\"people\":[]}."
     )
-
     payload = {
-        "model": os.getenv("OPENAI_MODEL", "gpt-4.1"),
-        "input": [{
-            "role": "user",
-            "content": [
-                {"type": "input_text", "text": prompt},
-                {"type": "input_file", "filename": "filing.pdf", "file_data": f"data:application/pdf;base64,{base64.b64encode(pdf_bytes).decode('ascii')}"}
-            ]
-        }]
+        "model": os.getenv("OPENAI_MODEL", "gpt-4.1-mini"),
+        "input": [
+            {
+                "role": "user",
+                "content": [
+                    {"type": "input_text", "text": prompt},
+                    {
+                        "type": "input_file",
+                        "filename": "filing.pdf",
+                        "file_data": "data:application/pdf;base64,"
+                        + base64.b64encode(pdf_bytes).decode("ascii"),
+                    },
+                ],
+            }
+        ],
     }
 
     req = urllib.request.Request(
         "https://api.openai.com/v1/responses",
         data=json.dumps(payload).encode("utf-8"),
-        headers={
-            "Authorization": f"Bearer {api_key}",
-            "Content-Type": "application/json"
-        },
-        method="POST"
+        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+        method="POST",
     )
+
     try:
         with urllib.request.urlopen(req, timeout=90) as resp:
             raw = json.loads(resp.read().decode("utf-8"))
 
-        text = raw.get("output_text", "").strip()
+        text = response_output_text(raw)
         if not text:
-            return {"parse_status": "error_openai_empty", "warnings": ["OpenAI returned empty output"], "people": []}
+            return {
+                "parse_status": "error_openai_empty",
+                "warnings": ["OpenAI returned empty output"],
+                "people": [],
+            }
+
         data = json.loads(text)
         rows = data.get("people", []) if isinstance(data, dict) else []
         people = []
         for row in rows:
-            people.append({
-                "name": str(row.get("name", "")).strip(),
-                "role": str(row.get("role", "")).strip() or "Council",
-                "remuneration": parse_money(row.get("remuneration")),
-                "expenses": parse_money(row.get("expenses")),
-                "total": parse_money(row.get("total")),
-            })
-        people = [p for p in people if p["name"]]
-        return {"parse_status": "ok_openai", "warnings": [], "people": people}
-    except Exception as e:
-        return {"parse_status": "error_openai", "warnings": [f"OpenAI parse failed: {e}"], "people": []}
+            people.append(
+                {
+                    "name": str(row.get("name", "")).strip(),
+                    "role": str(row.get("role", "")).strip() or "Council",
+                    "remuneration": parse_money(row.get("remuneration")),
+                    "expenses": parse_money(row.get("expenses")),
+                    "total": parse_money(row.get("total")),
+                }
+            )
+        return {
+            "parse_status": "ok_openai",
+            "warnings": [],
+            "people": [p for p in people if p["name"]],
+        }
+    except Exception as exc:
+        return {
+            "parse_status": "error_openai",
+            "warnings": [f"OpenAI parse failed: {exc}"],
+            "people": [],
+        }
+
+
+def role_from_cells(cells):
+    joined = " ".join(cells).lower()
+    if "chief" in joined:
+        return "Chief"
+    if "councillor" in joined or "council" in joined:
+        return "Councillor"
+    return "Council"
+
+
+def extract_people_from_table(table):
+    people = []
+    for row in table:
+        if not row:
+            continue
+
+        cells = [" ".join(str(cell or "").split()) for cell in row]
+        joined = " ".join(cells).lower()
+        if not joined:
+            continue
+        if any(term in joined for term in ["name of individual", "position title"]):
+            continue
+        if "total remuneration" in joined or "schedule of remuneration" in joined:
+            continue
+
+        amounts = [parse_money(cell) for cell in cells]
+        amounts = [amount for amount in amounts if amount is not None]
+        if not amounts:
+            continue
+
+        name = ""
+        for cell in cells:
+            if parse_money(cell) is not None:
+                continue
+            if re.search(r"chief|councillor|council|months?|position", cell, re.I):
+                continue
+            if len(cell) >= 2:
+                name = cell
+                break
+
+        if not name:
+            continue
+
+        remuneration = amounts[-3] if len(amounts) >= 3 else amounts[0]
+        expenses = amounts[-2] if len(amounts) >= 3 else (amounts[1] if len(amounts) >= 2 else None)
+        total = amounts[-1] if len(amounts) >= 3 else None
+        if total is None and remuneration is not None and expenses is not None:
+            total = remuneration + expenses
+
+        people.append(
+            {
+                "name": name,
+                "role": role_from_cells(cells),
+                "remuneration": remuneration,
+                "expenses": expenses,
+                "total": total,
+            }
+        )
+    return people
 
 
 def extract_remuneration_rows(pdf_url):
     if not pdf_url:
-        return {"parse_status": "no_pdf_url", "warnings": ["No PDF URL available for this filing"], "people": []}
+        return {"parse_status": "no_pdf_url", "warnings": ["No PDF URL available"], "people": []}
+
+    warnings = []
+    try:
+        pdf_bytes = fetch_url(normalize_pdf_url(pdf_url), timeout=30)
+    except Exception as exc:
+        return {
+            "parse_status": "error_pdf_download",
+            "warnings": [f"PDF download failed: {exc}"],
+            "people": [],
+        }
+
     if pdfplumber is None:
-        return {"parse_status": "skipped_pdfplumber", "warnings": ["pdfplumber unavailable in runtime"], "people": []}
+        ai_result = extract_with_openai_vision(pdf_bytes)
+        ai_result["warnings"] = ["pdfplumber unavailable"] + ai_result.get("warnings", [])
+        return ai_result
 
     try:
-        safe_pdf_url = normalize_pdf_url(pdf_url)
-safe_pdf_url = normalize_pdf_url(pdf_url)
-
-req = urllib.request.Request(
-    safe_pdf_url,
-    headers={
-        "User-Agent": "OpenBand/1.0 (github.com/openband; transparency research)"
-    }
-)
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            pdf_bytes = resp.read()
-
         people = []
-        warnings = []
         with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
             for page in pdf.pages:
-                tables = page.extract_tables() or []
-                for table in tables:
-                    if not table:
-                        continue
-                    for row in table:
-                        if not row or len(row) < 4:
-                            continue
+                for table in page.extract_tables() or []:
+                    people.extend(extract_people_from_table(table))
 
-                        cells = [str(c).strip() if c is not None else "" for c in row]
-                        joined = " ".join(cells).lower()
-                        if any(k in joined for k in ["name", "chief", "council", "total remuneration", "schedule"]):
-                            continue
+        if people:
+            return {"parse_status": "ok_pdfplumber", "warnings": warnings, "people": people}
 
+        ai_result = extract_with_openai_vision(pdf_bytes)
+        if ai_result.get("people"):
+            ai_result["warnings"] = ["Parsed via OpenAI fallback"] + ai_result.get("warnings", [])
+            return ai_result
 
-                        name = cells[0]
-                        if not name or len(name) < 2:
-                            continue
-
-
-                        role = cells[1] if len(cells) > 1 else ""
-                        remuneration = parse_money(cells[2] if len(cells) > 2 else None)
-                        expenses = parse_money(cells[3] if len(cells) > 3 else None)
-                        total = parse_money(cells[4] if len(cells) > 4 else None)
-
-                        if remuneration is None and expenses is None and total is None:
-                            continue
-                        if total is None and remuneration is not None and expenses is not None:
-                            total = remuneration + expenses
-
-                        people.append({
-                            "name": name,
-                            "role": role or "Council",
-                            "remuneration": remuneration,
-                            "expenses": expenses,
-                            "total": total
-                        })
-
-if people:
-    return {"parse_status": "ok_pdfplumber", "warnings": warnings, "people": people}
-
-ai_result = extract_with_openai_vision(pdf_bytes)
-
-if ai_result.get("people"):
-    ai_result["warnings"] = ["Parsed via OpenAI vision fallback"] + ai_result.get("warnings", [])
-    return ai_result
-
-warnings.append("No remuneration rows detected from PDF table extraction")
-warnings.extend(ai_result.get("warnings", []))
-
-return {
-    "parse_status": ai_result.get("parse_status", "error"),
-    "warnings": warnings,
-    "people": []
-} main
-    except Exception as e:
-        return {"parse_status": "error", "warnings": [f"PDF parse failed: {e}"], "people": []}
+        warnings.append("No remuneration rows detected from PDF table extraction")
+        warnings.extend(ai_result.get("warnings", []))
+        return {
+            "parse_status": ai_result.get("parse_status", "no_rows"),
+            "warnings": warnings,
+            "people": [],
+        }
+    except Exception as exc:
+        return {"parse_status": "error", "warnings": [f"PDF parse failed: {exc}"], "people": []}
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+def should_parse_people(filing):
+    return filing.get("posted") and "remuneration" in filing.get("docType", "").lower()
+
+
 def main():
-    print(f"OpenBand scraper starting — {datetime.utcnow().isoformat()}Z")
+    print(f"OpenBand scraper starting - {utc_now()}")
     print(f"Scraping {len(BANDS)} bands...\n")
 
     results = []
-    errors  = 0
+    errors = 0
 
-    for i, band in enumerate(BANDS):
-        print(f"[{i+1}/{len(BANDS)}] {band['name']} (#{band['id']})")
+    for index, band in enumerate(BANDS, start=1):
+        print(f"[{index}/{len(BANDS)}] {band['name']} (#{band['id']})")
         filings = fetch_band_filings(band["id"])
 
         if filings is None:
             filings = build_fallback_filings(band["id"])
             errors += 1
             status = "fallback"
-        elif len(filings) == 0:
+        elif not filings:
             filings = build_fallback_filings(band["id"])
             status = "no-filings-found"
         else:
@@ -482,37 +560,42 @@ def main():
 
         enriched = []
         for filing in filings:
-            f = dict(filing)
-            f["people"] = []
+            enriched_filing = dict(filing)
+            enriched_filing["people"] = []
+            enriched_filing["parse_status"] = "not_applicable"
+            enriched_filing["warnings"] = []
 
-                f["people"] = parsed.get("people", [])
-                f["parse_status"] = parsed.get("parse_status", "error")
-                f["warnings"] = parsed.get("warnings", [])
-            enriched.append(f)
+            if should_parse_people(enriched_filing):
+                parsed = extract_remuneration_rows(enriched_filing.get("href"))
+                enriched_filing["people"] = parsed.get("people", [])
+                enriched_filing["parse_status"] = parsed.get("parse_status", "error")
+                enriched_filing["warnings"] = parsed.get("warnings", [])
 
-        print(f"  → {len(enriched)} filings ({status})")
+            enriched.append(enriched_filing)
 
-        results.append({
-            "id":       band["id"],
-            "name":     band["name"],
-            "province": band["province"],
-            "filings":  enriched,
-            "status":   status,
-            "scraped":  datetime.utcnow().isoformat() + "Z"
-        })
+        print(f"  -> {len(enriched)} filings ({status})")
+        results.append(
+            {
+                "id": band["id"],
+                "name": band["name"],
+                "province": band["province"],
+                "filings": enriched,
+                "status": status,
+                "scraped": utc_now(),
+            }
+        )
 
-        # Be polite to ISC's servers — wait 1 second between requests
-        time.sleep(1)
+        time.sleep(float(os.getenv("OPENBAND_REQUEST_DELAY", "1")))
 
     output = {
-        "generated": datetime.utcnow().isoformat() + "Z",
+        "generated": utc_now(),
         "band_count": len(results),
         "error_count": errors,
-        "bands": results
+        "bands": results,
     }
 
-    with open("data.json", "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False, indent=2)
+    with open("data.json", "w", encoding="utf-8") as handle:
+        json.dump(output, handle, ensure_ascii=False, indent=2)
 
     print(f"\nDone. {len(results)} bands scraped, {errors} errors.")
     print("Saved to data.json")
