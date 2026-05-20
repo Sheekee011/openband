@@ -361,8 +361,9 @@ def extract_with_openai_vision(pdf_bytes):
     prompt = (
         "Extract the Chief and Council remuneration table from this PDF. "
         "Return only JSON with this shape: "
-        '{"people":[{"name":str,"role":str,"remuneration":number|null,'
-        '"expenses":number|null,"total":number|null}]}. '
+        '{"people":[{"name":str,"role":str,"months":number|null,'
+        '"remuneration":number|null,"travel":number|null,"expenses":number|null,'
+        '"creditCard":number|null,"otherPayments":number|null,"total":number|null}]}. '
         "If no table is present, return {\"people\":[]}."
     )
     payload = {
@@ -410,8 +411,12 @@ def extract_with_openai_vision(pdf_bytes):
                 {
                     "name": str(row.get("name", "")).strip(),
                     "role": str(row.get("role", "")).strip() or "Council",
+                    "months": parse_money(row.get("months")),
                     "remuneration": parse_money(row.get("remuneration")),
+                    "travel": parse_money(row.get("travel")),
                     "expenses": parse_money(row.get("expenses")),
+                    "creditCard": parse_money(row.get("creditCard")),
+                    "otherPayments": parse_money(row.get("otherPayments")),
                     "total": parse_money(row.get("total")),
                 }
             )
@@ -430,15 +435,57 @@ def extract_with_openai_vision(pdf_bytes):
 
 def role_from_cells(cells):
     joined = " ".join(cells).lower()
-    if "chief" in joined:
+    if re.search(r"\bchief\b", joined):
         return "Chief"
-    if "councillor" in joined or "council" in joined:
+    if re.search(r"\bcouncillor\b|\bcouncil\b", joined):
         return "Councillor"
     return "Council"
 
 
+def header_key(cell):
+    text = re.sub(r"\s+", " ", str(cell or "").strip().lower())
+    if not text:
+        return None
+    if "credit" in text and "card" in text:
+        return "creditCard"
+    if "other" in text and ("payment" in text or "payments" in text):
+        return "otherPayments"
+    if "travel" in text or "per diem" in text:
+        return "travel"
+    if "expense" in text and "remuneration" not in text:
+        return "expenses"
+    if "remuneration" in text or "salary" in text or "honoraria" in text:
+        return "remuneration"
+    if "month" in text:
+        return "months"
+    if "position" in text or text == "chief and council":
+        return "role"
+    if text.startswith("name"):
+        return "name"
+    if text == "total":
+        return "total"
+    return None
+
+
+def clean_person_name(name):
+    name = re.sub(r"\*+$", "", str(name or "").strip())
+    name = re.sub(r"\s+", " ", name)
+    return name
+
+
+def value_by_key(cells, keys, key):
+    if key not in keys:
+        return None
+    index = keys.index(key)
+    if index >= len(cells):
+        return None
+    return cells[index]
+
+
 def extract_people_from_table(table):
     people = []
+    keys = []
+
     for row in table:
         if not row:
             continue
@@ -447,41 +494,71 @@ def extract_people_from_table(table):
         joined = " ".join(cells).lower()
         if not joined:
             continue
-        if any(term in joined for term in ["name of individual", "position title"]):
-            continue
-        if "total remuneration" in joined or "schedule of remuneration" in joined:
+
+        possible_keys = [header_key(cell) for cell in cells]
+        if "remuneration" in possible_keys and (
+            "months" in possible_keys
+            or "travel" in possible_keys
+            or "expenses" in possible_keys
+            or "otherPayments" in possible_keys
+            or "total" in possible_keys
+        ):
+            keys = possible_keys
             continue
 
         amounts = [parse_money(cell) for cell in cells]
         amounts = [amount for amount in amounts if amount is not None]
         if not amounts:
             continue
+        if re.match(r"^\s*total\b", cells[0], re.I):
+            continue
 
-        name = ""
-        for cell in cells:
-            if parse_money(cell) is not None:
-                continue
-            if re.search(r"chief|councillor|council|months?|position", cell, re.I):
-                continue
-            if len(cell) >= 2:
-                name = cell
-                break
+        name = clean_person_name(value_by_key(cells, keys, "name"))
+        role = value_by_key(cells, keys, "role") or ""
 
+        # Some schedules use a blank name header with role in column 1 and name in column 2.
+        if not name and cells and re.search(r"chief|councillor|council", cells[0], re.I):
+            role = role or cells[0]
+            name = clean_person_name(cells[1] if len(cells) > 1 else "")
+
+        if not name:
+            for cell in cells:
+                if parse_money(cell) is not None:
+                    continue
+                if re.search(r"chief|councillor|council|months?|position", cell, re.I):
+                    continue
+                if len(cell) >= 2:
+                    name = clean_person_name(cell)
+                    break
         if not name:
             continue
 
-        remuneration = amounts[-3] if len(amounts) >= 3 else amounts[0]
-        expenses = amounts[-2] if len(amounts) >= 3 else (amounts[1] if len(amounts) >= 2 else None)
-        total = amounts[-1] if len(amounts) >= 3 else None
-        if total is None and remuneration is not None and expenses is not None:
-            total = remuneration + expenses
+        months = parse_money(value_by_key(cells, keys, "months"))
+        remuneration = parse_money(value_by_key(cells, keys, "remuneration"))
+        travel = parse_money(value_by_key(cells, keys, "travel"))
+        expenses = parse_money(value_by_key(cells, keys, "expenses"))
+        credit_card = parse_money(value_by_key(cells, keys, "creditCard"))
+        other_payments = parse_money(value_by_key(cells, keys, "otherPayments"))
+        total = parse_money(value_by_key(cells, keys, "total"))
+
+        if remuneration is None:
+            remuneration = amounts[0]
+        if total is None:
+            total = sum(
+                value or 0
+                for value in [remuneration, travel, expenses, credit_card, other_payments]
+            )
 
         people.append(
             {
                 "name": name,
-                "role": role_from_cells(cells),
+                "role": role_from_cells([role] + cells),
+                "months": months,
                 "remuneration": remuneration,
+                "travel": travel,
                 "expenses": expenses,
+                "creditCard": credit_card,
+                "otherPayments": other_payments,
                 "total": total,
             }
         )
