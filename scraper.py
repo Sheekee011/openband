@@ -31,10 +31,6 @@ except ImportError:
     pdfplumber = None
 
 
-# ---------------------------------------------------------------------------
-# Saskatchewan First Nations — ISC BGMS Band Numbers (authoritative source:
-# ISC Saskatchewan Region map, Feb 2020; cross-checked via Wikipedia infoboxes)
-# ---------------------------------------------------------------------------
 BANDS = [
     # Treaty 4 Nations
     {"id": 378, "name": "Carry the Kettle Nakoda Nation", "province": "SK", "treaty": "Treaty 4"},
@@ -73,7 +69,7 @@ BANDS = [
     {"id": 376, "name": "Yellow Quill First Nation",       "province": "SK", "treaty": "Treaty 4"},
     # Treaty 6 / Northern
     {"id": 406, "name": "Ahtahkakoop Cree Nation",         "province": "SK", "treaty": "Treaty 6"},
-    {"id": 369, "name": "Beardy's and Okemasis' Cree Nation","province": "SK", "treaty": "Treaty 6"},
+    {"id": 369, "name": "Beardy's and Okemasis' Cree Nation", "province": "SK", "treaty": "Treaty 6"},
     {"id": 398, "name": "Buffalo River Dene Nation",       "province": "SK", "treaty": "Treaty 10"},
     {"id": 394, "name": "Canoe Lake Cree First Nation",    "province": "SK", "treaty": "Treaty 10"},
     {"id": 401, "name": "Clearwater River Dene Nation",    "province": "SK", "treaty": "Treaty 10"},
@@ -187,8 +183,9 @@ def fetch_band_filings(band_id):
 
             if not re.match(r"\d{4}-\d{4}", year_text):
                 continue
-if href and not href.startswith("http"):
-    href = f"{ISC_HOST}/fnp/Main/Search/{href.lstrip('/')}"
+
+            if href and not href.startswith("http"):
+                href = f"{ISC_BASE}/{href.lstrip('/')}"
 
             posted = date_text not in ("", "Not yet posted", "-", "—", "N/A")
             filings.append(
@@ -208,12 +205,7 @@ if href and not href.startswith("http"):
 
 
 def build_direct_pdf_urls(band_id):
-    """
-    Build direct ISC DisplayBinaryData PDF links for the most common fiscal years
-    and document types. These links will work if ISC has the document, and return
-    a PDF error page if not — the site handles this gracefully by linking to the
-    filing page instead.
-    """
+    """Build direct ISC DisplayBinaryData PDF links as a fallback."""
     fiscal_years = [
         "2023-2024",
         "2022-2023",
