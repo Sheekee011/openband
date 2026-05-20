@@ -187,8 +187,7 @@ def fetch_band_filings(band_id):
 
             if not re.match(r"\d{4}-\d{4}", year_text):
                 continue
-
-            if href and not href.startswith("http"):
+if href and not href.startswith("http"):
     href = f"{ISC_HOST}/fnp/Main/Search/{href.lstrip('/')}"
 
             posted = date_text not in ("", "Not yet posted", "-", "—", "N/A")
