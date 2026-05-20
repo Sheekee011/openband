@@ -189,7 +189,7 @@ def fetch_band_filings(band_id):
                 continue
 
             if href and not href.startswith("http"):
-                href = f"{ISC_HOST}/{href.lstrip('/')}"
+    href = f"{ISC_HOST}/fnp/Main/Search/{href.lstrip('/')}"
 
             posted = date_text not in ("", "Not yet posted", "-", "—", "N/A")
             filings.append(
