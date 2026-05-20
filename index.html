@@ -3,78 +3,641 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>OpenBand - First Nations Chief & Council Expenditure Tracker</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<title>OpenBand — First Nations Financial Transparency</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#f5f3ee;--surface:#fff;--surface2:#edebe5;--border:rgba(0,0,0,.09);--border-strong:rgba(0,0,0,.18);--text:#1a1916;--text-2:#5c5a55;--text-3:#9a9891;--accent:#1a472a;--accent-light:#e8f0ea;--accent-mid:#2d6b40;--amber:#a05c00;--amber-light:#fef3e2;--blue:#1a3a5c;--blue-light:#e8eef5}
-body{font-family:Inter,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.6}
-nav{background:var(--accent);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;z-index:100}
-.logo{font-family:Syne,sans-serif;font-size:20px;font-weight:700;color:#fff}.logo span{color:#7ec89a}
-.nav-r{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;justify-content:flex-end}.nav-r a{color:rgba(255,255,255,.78);text-decoration:none;font-size:14px;padding:8px 2px;border-bottom:1px solid transparent;cursor:pointer}.nav-r a:hover,.nav-r a:focus{color:#fff;border-bottom-color:rgba(255,255,255,.45);outline:none}.badge{background:rgba(255,255,255,.15);color:#fff;font-size:11px;padding:3px 10px;border-radius:999px}
-.hero{background:var(--accent);padding:4rem 2rem 5rem;text-align:center;position:relative;overflow:hidden}.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(255,255,255,.02) 40px,rgba(255,255,255,.02) 80px)}
-.hc{position:relative;z-index:1;max-width:680px;margin:0 auto}.ey{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);color:#9fe1cb;font-size:12px;font-weight:500;letter-spacing:.8px;text-transform:uppercase;padding:6px 16px;border-radius:999px;margin-bottom:1.5rem}
-.hero h1{font-family:Syne,sans-serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:1rem}.hero h1 em{color:#7ec89a;font-style:normal}.hero p{color:rgba(255,255,255,.7);font-size:16px;max-width:500px;margin:0 auto 2.5rem}
-.sbox{background:#fff;border-radius:16px;padding:1.25rem 1.25rem 1.25rem 1.5rem;display:flex;gap:10px;max-width:600px;margin:0 auto;box-shadow:0 8px 40px rgba(0,0,0,.25)}.sw{position:relative;flex:1}.sbox input{width:100%;border:none;outline:none;font-family:Inter,sans-serif;font-size:15px;color:var(--text);background:transparent}.sbox input::placeholder{color:var(--text-3)}
-.sbtn{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:10px 22px;font-family:Inter,sans-serif;font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap;transition:background .15s}.sbtn:hover{background:var(--accent-mid)}.shint{color:rgba(255,255,255,.4);font-size:12px;margin-top:.75rem}
-#acl{position:absolute;top:calc(100% + 8px);left:-24px;right:0;min-width:340px;background:#fff;border:1px solid var(--border-strong);border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.15);max-height:280px;overflow-y:auto;z-index:200;display:none}.aci{padding:10px 16px;cursor:pointer;font-size:14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border)}.aci:last-child{border-bottom:none}.aci:hover,.aci.sel{background:var(--accent-light);color:var(--accent)}.acp{font-size:11px;color:var(--text-3);background:var(--surface2);padding:2px 8px;border-radius:999px}
-.sbar{background:var(--surface);border-bottom:1px solid var(--border);display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;padding:0 2rem}.si{padding:1.25rem 0;text-align:center}.sn{font-family:Syne,sans-serif;font-size:22px;font-weight:700;color:var(--accent)}.sl{font-size:12px;color:var(--text-3);margin-top:2px}
-.main{max-width:1100px;margin:0 auto;padding:2.5rem 2rem}#empty{text-align:center;padding:5rem 1rem}.ei{width:72px;height:72px;background:var(--surface2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 1.25rem}#empty h2{font-family:Syne,sans-serif;font-size:20px;font-weight:600;margin-bottom:8px}#empty p{color:var(--text-2);font-size:14px;max-width:380px;margin:0 auto 1.5rem}
-.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}.chip{background:var(--surface);border:1px solid var(--border-strong);border-radius:999px;padding:7px 18px;font-size:13px;cursor:pointer;transition:all .15s}.chip:hover{background:var(--accent-light);border-color:var(--accent);color:var(--accent)}
-.ag{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;text-align:left}.ac{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.5rem}.ai{width:44px;height:44px;border-radius:10px;background:var(--accent-light);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:1rem}.ac h3{font-family:Syne,sans-serif;font-size:16px;font-weight:600;margin-bottom:8px}.ac p{font-size:13px;color:var(--text-2);line-height:1.65}
-#results{display:none}.ch{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.5rem 1.75rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}.ci h2{font-family:Syne,sans-serif;font-size:22px;font-weight:700;margin-bottom:6px}.cm{display:flex;gap:8px;flex-wrap:wrap}.mt{background:var(--surface2);color:var(--text-2);font-size:12px;padding:4px 12px;border-radius:999px}.mt.g{background:var(--accent-light);color:var(--accent)}.mt.y{background:var(--amber-light);color:var(--amber)}
-.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:1.5rem}.sc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.25rem}.sl2{font-size:12px;color:var(--text-3);margin-bottom:4px}.sv{font-family:Syne,sans-serif;font-size:20px;font-weight:700}.ss{font-size:11px;color:var(--text-3);margin-top:2px}
-.cr{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem;flex-wrap:wrap}.fp{display:flex;gap:6px;flex-wrap:wrap}.pill{font-size:12px;padding:5px 14px;border-radius:999px;border:1px solid var(--border-strong);background:var(--surface);color:var(--text-2);cursor:pointer;font-family:Inter,sans-serif;transition:all .15s}.pill:hover{border-color:var(--accent);color:var(--accent)}.pill.active{background:var(--accent);color:#fff;border-color:var(--accent)}.sortw{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-3)}.sortw select{font-family:Inter,sans-serif;font-size:13px;padding:5px 10px;border:1px solid var(--border-strong);border-radius:8px;background:var(--surface)}
-.tw{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:1.5rem}table{width:100%;border-collapse:collapse}thead{background:var(--surface2)}th{font-size:11px;font-weight:500;color:var(--text-3);text-transform:uppercase;letter-spacing:.6px;padding:12px 16px;text-align:left}th:last-child,td:last-child{text-align:right}td{padding:13px 16px;border-top:1px solid var(--border);font-size:14px;vertical-align:middle}tr:hover td{background:#fafaf8}.tn{font-weight:500;color:var(--text)}.rb{display:inline-flex;font-size:11px;font-weight:500;padding:3px 10px;border-radius:999px}.rc{background:var(--amber-light);color:var(--amber)}.rco{background:var(--blue-light);color:var(--blue)}.amt{font-family:Syne,sans-serif;font-size:14px;font-weight:600}.amtt{font-family:Syne,sans-serif;font-size:15px;font-weight:700;color:var(--accent)}
-.tf{padding:12px 16px;border-top:1px solid var(--border);background:var(--surface2);display:flex;justify-content:space-between;align-items:center}.tfl{font-size:12px;color:var(--text-3)}.tft{font-family:Syne,sans-serif;font-size:16px;font-weight:700;color:var(--accent)}.note{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;padding:1rem 1.25rem;font-size:13px;color:var(--text-2);line-height:1.6}.note a{color:var(--accent)}
-footer{background:var(--text);color:rgba(255,255,255,.5);padding:2.5rem 2rem;margin-top:4rem;text-align:center;font-size:13px}.fl{font-family:Syne,sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:.5rem}.fl span{color:#7ec89a}footer a{color:#7ec89a;text-decoration:none}
-@media(max-width:700px){nav{padding:0 1rem;height:auto;min-height:60px;gap:.75rem;flex-wrap:wrap}.nav-r{gap:.75rem;padding:.55rem 0}.nav-r a{font-size:13px}.badge{display:none}.sbox{align-items:stretch;flex-direction:column}.sg{grid-template-columns:repeat(2,1fr)}.ag{grid-template-columns:1fr}table th:nth-child(3),table td:nth-child(3),table th:nth-child(5),table td:nth-child(5),table th:nth-child(7),table td:nth-child(7),table th:nth-child(8),table td:nth-child(8){display:none}}
+:root{
+  --bg:#f4f2ed;
+  --surface:#ffffff;
+  --surface2:#eceae4;
+  --border:rgba(0,0,0,.08);
+  --border-strong:rgba(0,0,0,.16);
+  --text:#18170f;
+  --text-2:#5a5850;
+  --text-3:#9e9b90;
+  --green:#1b4d2e;
+  --green-mid:#246638;
+  --green-light:#e6f0e9;
+  --amber:#8a4d00;
+  --amber-light:#fdf0e0;
+  --blue:#1a3558;
+  --blue-light:#e5eaf3;
+  --red:#7a1f1f;
+  --red-light:#faeaea;
+  --radius:14px;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.6}
+
+/* ── NAV ── */
+nav{background:var(--green);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:58px;position:sticky;top:0;z-index:200;gap:1rem}
+.logo{font-family:Syne,sans-serif;font-size:19px;font-weight:800;color:#fff;letter-spacing:-.3px;flex-shrink:0}
+.logo em{color:#7fcf9a;font-style:normal}
+.nav-r{display:flex;gap:.25rem;align-items:center;flex-wrap:nowrap}
+.nav-r a{color:rgba(255,255,255,.72);text-decoration:none;font-size:13px;padding:7px 12px;border-radius:8px;cursor:pointer;transition:background .15s;white-space:nowrap}
+.nav-r a:hover{background:rgba(255,255,255,.12);color:#fff}
+.badge{background:rgba(255,255,255,.13);color:#9fdfb8;font-size:11px;font-weight:500;padding:3px 10px;border-radius:999px;letter-spacing:.4px;flex-shrink:0}
+
+/* ── HERO ── */
+.hero{background:var(--green);padding:3.5rem 2rem 5rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(ellipse 60% 50% at 20% 80%, rgba(255,255,255,.04) 0%, transparent 60%),
+  radial-gradient(ellipse 40% 60% at 80% 20%, rgba(255,255,255,.03) 0%, transparent 60%)}
+.hc{position:relative;z-index:1;max-width:640px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:12px;font-weight:500;letter-spacing:.8px;text-transform:uppercase;margin-bottom:1.25rem}
+.hero h1{font-family:Syne,sans-serif;font-size:clamp(1.9rem,5vw,2.9rem);font-weight:800;color:#fff;line-height:1.12;margin-bottom:.9rem;letter-spacing:-.5px}
+.hero h1 em{color:#7fcf9a;font-style:normal}
+.hero p{color:rgba(255,255,255,.62);font-size:15px;max-width:480px;margin:0 auto 2.25rem;line-height:1.65}
+
+/* ── SEARCH BOX ── */
+.sbox{background:#fff;border-radius:var(--radius);padding:1rem 1rem 1rem 1.25rem;display:flex;gap:8px;align-items:center;max-width:580px;margin:0 auto;box-shadow:0 10px 48px rgba(0,0,0,.28)}
+.sw{position:relative;flex:1;min-width:0}
+#si{width:100%;border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--text);background:transparent}
+#si::placeholder{color:var(--text-3)}
+.sbtn{background:var(--green);color:#fff;border:none;border-radius:9px;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap;transition:background .15s;flex-shrink:0}
+.sbtn:hover{background:var(--green-mid)}
+.shint{color:rgba(255,255,255,.35);font-size:12px;margin-top:.75rem}
+
+/* ── AUTOCOMPLETE ── */
+#acl{position:absolute;top:calc(100% + 6px);left:-20px;right:0;min-width:340px;background:#fff;border:1px solid var(--border-strong);border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.15);max-height:300px;overflow-y:auto;z-index:300;display:none}
+.aci{padding:10px 16px;cursor:pointer;font-size:14px;display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid var(--border)}
+.aci:last-child{border-bottom:none}
+.aci:hover,.aci.sel{background:var(--green-light);color:var(--green)}
+.aci-name{flex:1;min-width:0}
+.acp{font-size:11px;color:var(--text-3);background:var(--surface2);padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0}
+
+/* ── STATS BAR ── */
+.sbar{background:var(--surface);border-bottom:1px solid var(--border);display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;padding:.1rem 2rem}
+.si2{padding:1.1rem 0;text-align:center}
+.sn{font-family:Syne,sans-serif;font-size:22px;font-weight:700;color:var(--green)}
+.sl{font-size:12px;color:var(--text-3);margin-top:1px}
+
+/* ── MAIN ── */
+.main{max-width:1080px;margin:0 auto;padding:2.5rem 2rem}
+
+/* ── EMPTY STATE ── */
+#empty{text-align:center;padding:4rem 1rem}
+.ei{width:68px;height:68px;background:var(--surface2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 1.1rem}
+#empty h2{font-family:Syne,sans-serif;font-size:19px;font-weight:700;margin-bottom:8px}
+#empty p{color:var(--text-2);font-size:14px;max-width:360px;margin:0 auto 1.5rem;line-height:1.65}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
+.chip{background:var(--surface);border:1px solid var(--border-strong);border-radius:999px;padding:7px 18px;font-size:13px;cursor:pointer;transition:all .15s;color:var(--text-2)}
+.chip:hover{background:var(--green-light);border-color:var(--green);color:var(--green)}
+.ag{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;text-align:left;max-width:860px;margin:0 auto}
+.ac{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem 1.5rem}
+.ai{font-size:22px;margin-bottom:.75rem}
+.ac h3{font-family:Syne,sans-serif;font-size:15px;font-weight:700;margin-bottom:6px}
+.ac p{font-size:13px;color:var(--text-2);line-height:1.65}
+
+/* ── RESULTS ── */
+#results{display:none}
+.ch{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem 1.75rem;margin-bottom:1.25rem;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.ci h2{font-family:Syne,sans-serif;font-size:21px;font-weight:800;margin-bottom:6px;letter-spacing:-.3px}
+.cm{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.mt{font-size:12px;font-weight:500;padding:3px 11px;border-radius:999px}
+.mt-green{background:var(--green-light);color:var(--green)}
+.mt-amber{background:var(--amber-light);color:var(--amber)}
+.mt-red{background:var(--red-light);color:var(--red)}
+.mt-grey{background:var(--surface2);color:var(--text-2)}
+.isc-btn{display:inline-flex;align-items:center;gap:6px;background:var(--green-light);color:var(--green);font-size:13px;font-weight:500;padding:8px 18px;border-radius:9px;text-decoration:none;border:1px solid rgba(27,77,46,.18);transition:background .15s;white-space:nowrap}
+.isc-btn:hover{background:#d4e9da}
+
+/* ── SUMMARY CARDS ── */
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.25rem}
+.sc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem 1.2rem}
+.sc-lbl{font-size:12px;color:var(--text-3);margin-bottom:3px}
+.sc-val{font-family:Syne,sans-serif;font-size:20px;font-weight:700;color:var(--text)}
+.sc-sub{font-size:11px;color:var(--text-3);margin-top:2px}
+
+/* ── TABLE CONTROLS ── */
+.cr{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.9rem;flex-wrap:wrap}
+.fp{display:flex;gap:6px;flex-wrap:wrap}
+.pill{font-size:12px;padding:5px 14px;border-radius:999px;border:1px solid var(--border-strong);background:var(--surface);color:var(--text-2);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
+.pill:hover{border-color:var(--green);color:var(--green)}
+.pill.active{background:var(--green);color:#fff;border-color:var(--green)}
+.sortw{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-3)}
+.sortw select{font-family:'DM Sans',sans-serif;font-size:13px;padding:5px 10px;border:1px solid var(--border-strong);border-radius:8px;background:var(--surface);cursor:pointer}
+
+/* ── DATA TABLE ── */
+.tw{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:1.25rem}
+table{width:100%;border-collapse:collapse}
+thead{background:var(--surface2)}
+th{font-size:11px;font-weight:500;color:var(--text-3);text-transform:uppercase;letter-spacing:.55px;padding:11px 15px;text-align:left;white-space:nowrap}
+th:last-child,td:last-child{text-align:right}
+td{padding:12px 15px;border-top:1px solid var(--border);font-size:14px;vertical-align:middle}
+tr:hover td{background:#fafaf7}
+.tn{font-weight:500}
+.rb{display:inline-flex;font-size:11px;font-weight:500;padding:3px 10px;border-radius:999px}
+.rc{background:var(--amber-light);color:var(--amber)}
+.rco{background:var(--blue-light);color:var(--blue)}
+.amt{font-family:Syne,sans-serif;font-size:13px;font-weight:600;color:var(--text)}
+.amtt{font-family:Syne,sans-serif;font-size:14px;font-weight:700;color:var(--green)}
+.tf{padding:11px 15px;border-top:1px solid var(--border);background:var(--surface2);display:flex;justify-content:space-between;align-items:center}
+.tfl{font-size:12px;color:var(--text-3)}
+.tft{font-family:Syne,sans-serif;font-size:15px;font-weight:700;color:var(--green)}
+
+/* ── YEAR SELECTOR ── */
+.year-row{display:flex;align-items:center;gap:8px;margin-bottom:1.25rem;flex-wrap:wrap}
+.year-row label{font-size:13px;color:var(--text-2);font-weight:500}
+.year-row select{font-family:'DM Sans',sans-serif;font-size:14px;padding:6px 12px;border:1px solid var(--border-strong);border-radius:9px;background:var(--surface);cursor:pointer}
+
+/* ── PENDING / NO-DATA STATE ── */
+.pending-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem;text-align:center;margin-bottom:1.25rem}
+.pending-icon{font-size:36px;margin-bottom:.75rem}
+.pending-card h3{font-family:Syne,sans-serif;font-size:17px;font-weight:700;margin-bottom:.5rem}
+.pending-card p{color:var(--text-2);font-size:14px;max-width:440px;margin:0 auto;line-height:1.65}
+.pending-card a{color:var(--green);font-weight:500}
+
+/* ── SOURCE NOTE ── */
+.note{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--green);border-radius:0 12px 12px 0;padding:.9rem 1.2rem;font-size:13px;color:var(--text-2);line-height:1.6}
+.note a{color:var(--green);font-weight:500}
+
+/* ── FOOTER ── */
+footer{background:var(--text);color:rgba(255,255,255,.45);padding:2.5rem 2rem;margin-top:5rem;text-align:center;font-size:13px;line-height:1.8}
+.fl{font-family:Syne,sans-serif;font-size:18px;font-weight:800;color:#fff;margin-bottom:.4rem;letter-spacing:-.3px}
+.fl em{color:#7fcf9a;font-style:normal}
+footer a{color:#7fcf9a;text-decoration:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:760px){
+  nav{padding:0 1rem;height:auto;min-height:56px;flex-wrap:wrap;gap:.5rem;padding-top:.5rem;padding-bottom:.5rem}
+  .nav-r a{padding:6px 8px;font-size:12px}
+  .badge{display:none}
+  .sbox{flex-direction:column;align-items:stretch}
+  .sg{grid-template-columns:repeat(2,1fr)}
+  .ag{grid-template-columns:1fr}
+  table th:nth-child(3),table td:nth-child(3),
+  table th:nth-child(5),table td:nth-child(5),
+  table th:nth-child(7),table td:nth-child(7){display:none}
+}
 </style>
 </head>
 <body>
-<nav><div class="logo">Open<span>Band</span></div><div class="nav-r"><a id="howLink" href="#how">How it works</a><a id="fnftaLink" href="https://www.sac-isc.gc.ca/eng/1322056355024/1565374106591" target="_blank" rel="noopener">About FNFTA</a><span class="badge">Saskatchewan Beta</span></div></nav>
-<div class="hero"><div class="hc"><div class="ey">Financial transparency for First Nations</div><h1>Chief &amp; Council<br><em>Expenditure Tracker</em></h1><p>Search any Saskatchewan First Nation to view Chief &amp; Council remuneration and expenses from FNFTA filings and labelled estimates.</p><div class="sbox"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9a9891" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;margin-top:2px"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><div class="sw"><input id="si" type="text" placeholder="Search a First Nation (e.g. Carry the Kettle, Cowessess...)" autocomplete="off"><div id="acl"></div></div><button class="sbtn" onclick="doSearch()">Search</button></div><div class="shint">Saskatchewan First Nations · Fiscal year 2022-2023 · Source: ISC / FNFTA</div></div></div>
-<div class="sbar"><div class="si"><div class="sn" id="statN">14</div><div class="sl">SK First Nations</div></div><div class="si"><div class="sn" id="statT">-</div><div class="sl">Total tracked</div></div><div class="si"><div class="sn">2022-23</div><div class="sl">Fiscal year</div></div><div class="si"><div class="sn">FNFTA</div><div class="sl">Official source</div></div></div>
-<div class="main">
-<div id="empty"><div class="ei">&#128269;</div><h2>Search a First Nation to begin</h2><p>Enter any Saskatchewan First Nation name to view Chief &amp; Council remuneration and expense data.</p><div class="chips" id="chips"></div><div class="ag" id="how"><div class="ac"><div class="ai">&#128203;</div><h3>What is the FNFTA?</h3><p>The First Nations Financial Transparency Act requires public audited remuneration schedules for Chief and Council compensation.</p></div><div class="ac"><div class="ai">&#128270;</div><h3>What does OpenBand show?</h3><p>Salary, remuneration, and expense figures for each Chief and Councillor. Estimated figures are clearly labelled.</p></div><div class="ac"><div class="ai">&#129309;</div><h3>Who built this?</h3><p>OpenBand is a community transparency prototype using public Indigenous Services Canada filing links.</p></div></div></div>
-<div id="results"><div class="ch"><div class="ci"><h2 id="rName"></h2><div class="cm" id="rMeta"></div></div><a id="rLink" href="#" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--accent-light);color:var(--accent);font-size:13px;font-weight:500;padding:8px 18px;border-radius:8px;text-decoration:none;border:1px solid rgba(26,71,42,.2)">View FNFTA filing</a></div><div class="sg"><div class="sc"><div class="sl2">Total paid</div><div class="sv" id="sTotal">-</div><div class="ss">Latest parsed filing</div></div><div class="sc"><div class="sl2">Total remuneration</div><div class="sv" id="sRemun">-</div><div class="ss">Salary &amp; honoraria</div></div><div class="sc"><div class="sl2">Non-salary payments</div><div class="sv" id="sExp">-</div><div class="ss">Travel, expenses, cards, other</div></div><div class="sc"><div class="sl2">Council members</div><div class="sv" id="sCount">-</div><div class="ss">Chief &amp; Councillors</div></div></div><div class="cr"><div class="fp"><button class="pill active" onclick="setF('all',this)">All</button><button class="pill" onclick="setF('Chief',this)">Chief only</button><button class="pill" onclick="setF('Councillor',this)">Councillors only</button></div><div class="sortw">Sort by <select onchange="renderT()"><option value="td">Total (highest)</option><option value="ta">Total (lowest)</option><option value="nm">Name (A-Z)</option></select></div></div><div class="tw"><table><thead><tr><th>Name</th><th>Role</th><th>Months</th><th>Remuneration</th><th>Travel</th><th>Expenses</th><th>Credit Card</th><th>Other</th><th>Total</th></tr></thead><tbody id="tb"></tbody></table><div class="tf"><span class="tfl" id="tfl"></span><span class="tft" id="tft"></span></div></div><div class="note" id="srcNote"></div></div>
+
+<nav>
+  <div class="logo">Open<em>Band</em></div>
+  <div class="nav-r">
+    <a id="howLink" href="#how">How it works</a>
+    <a href="https://www.sac-isc.gc.ca/eng/1322056355024/1565374106591" target="_blank" rel="noopener">About FNFTA</a>
+    <span class="badge">Saskatchewan</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hc">
+    <div class="eyebrow">First Nations Financial Transparency Act</div>
+    <h1>Chief &amp; Council<br><em>Expenditure Tracker</em></h1>
+    <p>Search any Saskatchewan First Nation to view Chief &amp; Council remuneration and expenses, sourced directly from official ISC filings.</p>
+    <div class="sbox">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9e9b90" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <div class="sw">
+        <input id="si" type="text" placeholder="Search a First Nation..." autocomplete="off" spellcheck="false">
+        <div id="acl"></div>
+      </div>
+      <button class="sbtn" onclick="doSearch()">Search</button>
+    </div>
+    <div class="shint">Saskatchewan First Nations · FNFTA public filings · Source: Indigenous Services Canada</div>
+  </div>
 </div>
-<footer><div class="fl">Open<span>Band</span></div><p>Built to support financial transparency in First Nations governance.</p><p style="margin-top:8px">Data from <a href="https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/SearchFF.aspx?lang=eng" target="_blank">Indigenous Services Canada</a> under the First Nations Financial Transparency Act</p></footer>
+
+<div class="sbar">
+  <div class="si2"><div class="sn" id="statN">—</div><div class="sl">SK First Nations tracked</div></div>
+  <div class="si2"><div class="sn" id="statP">—</div><div class="sl">With parsed data</div></div>
+  <div class="si2"><div class="sn" id="statLast">—</div><div class="sl">Last updated</div></div>
+  <div class="si2"><div class="sn">FNFTA</div><div class="sl">Official source</div></div>
+</div>
+
+<div class="main">
+  <div id="empty">
+    <div class="ei">🔍</div>
+    <h2>Search a First Nation to begin</h2>
+    <p>Enter any Saskatchewan First Nation name above to view their FNFTA-filed remuneration schedule.</p>
+    <div class="chips" id="chips"></div>
+    <div class="ag" id="how">
+      <div class="ac"><div class="ai">📋</div><h3>What is the FNFTA?</h3><p>The First Nations Financial Transparency Act requires First Nations to publish audited financial statements and Chief &amp; Council remuneration schedules on ISC's website.</p></div>
+      <div class="ac"><div class="ai">🔎</div><h3>What does OpenBand show?</h3><p>Real remuneration and expense figures parsed directly from FNFTA filings. If a filing hasn't been parsed yet, we link directly to the ISC PDF so you can view it yourself.</p></div>
+      <div class="ac"><div class="ai">⚠️</div><h3>Data availability</h3><p>Not every band has filed for every year. Some PDFs may be unavailable or not yet processed by the nightly scraper. Always verify against the original ISC filing.</p></div>
+    </div>
+  </div>
+
+  <div id="results">
+    <!-- Band header -->
+    <div class="ch">
+      <div class="ci">
+        <h2 id="rName"></h2>
+        <div class="cm" id="rMeta"></div>
+      </div>
+      <a id="rLink" href="#" target="_blank" class="isc-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        View ISC filing
+      </a>
+    </div>
+
+    <!-- Year selector -->
+    <div class="year-row">
+      <label for="yearSel">Fiscal year:</label>
+      <select id="yearSel" onchange="onYearChange()"></select>
+    </div>
+
+    <!-- Parsed data panel -->
+    <div id="dataPanel">
+      <!-- Summary cards -->
+      <div class="sg">
+        <div class="sc"><div class="sc-lbl">Total paid</div><div class="sc-val" id="sTotal">—</div><div class="sc-sub">Chief &amp; Council</div></div>
+        <div class="sc"><div class="sc-lbl">Total remuneration</div><div class="sc-val" id="sRemun">—</div><div class="sc-sub">Salary &amp; honoraria</div></div>
+        <div class="sc"><div class="sc-lbl">Non-salary payments</div><div class="sc-val" id="sExp">—</div><div class="sc-sub">Travel, expenses, other</div></div>
+        <div class="sc"><div class="sc-lbl">Council members</div><div class="sc-val" id="sCount">—</div><div class="sc-sub">Parsed from filing</div></div>
+      </div>
+
+      <!-- Filters + sort -->
+      <div class="cr">
+        <div class="fp">
+          <button class="pill active" onclick="setF('all',this)">All</button>
+          <button class="pill" onclick="setF('Chief',this)">Chief only</button>
+          <button class="pill" onclick="setF('Councillor',this)">Councillors only</button>
+        </div>
+        <div class="sortw">Sort by
+          <select id="sortSel" onchange="renderT()">
+            <option value="td">Total (highest)</option>
+            <option value="ta">Total (lowest)</option>
+            <option value="nm">Name (A–Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="tw">
+        <table>
+          <thead><tr>
+            <th>Name</th><th>Role</th><th>Months</th>
+            <th>Remuneration</th><th>Travel</th><th>Expenses</th>
+            <th>Credit Card</th><th>Other</th><th>Total</th>
+          </tr></thead>
+          <tbody id="tb"></tbody>
+        </table>
+        <div class="tf">
+          <span class="tfl" id="tfl"></span>
+          <span class="tft" id="tft"></span>
+        </div>
+      </div>
+
+      <div class="note" id="srcNote"></div>
+    </div>
+
+    <!-- Pending / not-parsed panel -->
+    <div id="pendingPanel" style="display:none">
+      <div class="pending-card">
+        <div class="pending-icon">📄</div>
+        <h3 id="pendingTitle">Filing not yet parsed</h3>
+        <p id="pendingMsg"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="fl">Open<em>Band</em></div>
+  <p>Built to support financial transparency in First Nations governance.</p>
+  <p>Data sourced from <a href="https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/SearchFF.aspx?lang=eng" target="_blank">Indigenous Services Canada</a> under the First Nations Financial Transparency Act.</p>
+  <p style="margin-top:.75rem;font-size:12px;opacity:.6">Numbers shown are from official FNFTA filings only. No estimates or projections are displayed.</p>
+</footer>
+
 <script>
-const estimates={chief:[88000,11200],council:[36000,4200]};
-const make=(name,treaty,band,chief,councillors,chiefPay=estimates.chief[0],chiefExp=estimates.chief[1],cPay=estimates.council[0],cExp=estimates.council[1])=>({t:treaty,v:false,u:`https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/FederalFundingMain.aspx?BAND_NUMBER=${band}&lang=eng`,m:[{n:chief,r:"Chief",mo:12,re:chiefPay,ex:chiefExp},...Array.from({length:councillors},(_,i)=>({n:`Councillor ${i+1}`,r:"Councillor",mo:12,re:cPay,ex:Math.max(1900,cExp+(i%3-1)*900)}))]});
-const D={
-"Carry the Kettle Nakoda Nation":{t:"Treaty 4",v:true,u:"https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=378&FY=2022-2023&DOC=Schedule+of+Remuneration+and+Expenses&lang=eng",m:[{n:"Scott Eashappie",r:"Chief",mo:12,re:213396,ex:61030},{n:"Shawn Spencer",r:"Councillor",mo:12,re:139862,ex:0},{n:"Tamara Thomson",r:"Councillor",mo:11.5,re:136267,ex:0},{n:"Lucy Musqua",r:"Councillor",mo:11.5,re:116650,ex:0},{n:"Dwayne Thomson",r:"Councillor",mo:11.5,re:96027,ex:0},{n:"Terrina Ashdohonk-Bellegarde",r:"Councillor",mo:6,re:49916,ex:0},{n:"Joellen Haywahe",r:"Councillor",mo:8,re:49718,ex:0},{n:"Brady O'Watch",r:"Councillor",mo:3,re:42153,ex:0},{n:"Morris Passap",r:"Councillor",mo:3,re:41776,ex:0},{n:"Conrad Medicine-Rope",r:"Councillor",mo:1,re:9038,ex:0}]},
-"Cowessess First Nation":make("Cowessess First Nation","Treaty 4",107,"Chief Cadmus Delorme",6,110000,18400,42000,5200),
-"Cote First Nation":make("Cote First Nation","Treaty 4",101,"Chief Wes Daniels",5,95000,14200,38000,4500),
-"Day Star First Nation":make("Day Star First Nation","Treaty 4",119,"Chief",4,78000,9800,32000,3100),
-"George Gordon First Nation":make("George Gordon First Nation","Treaty 4",171,"Chief",4,88000,11200,36000,4200),
-"Kahkewistahaw First Nation":make("Kahkewistahaw First Nation","Treaty 4",210,"Chief",4,84000,10500,34000,3500),
-"Keeseekoose First Nation":make("Keeseekoose First Nation","Treaty 4",218,"Chief Alvin Musqua Jr.",4,89000,13400,36000,4100),
-"Kinistin Saulteaux Nation":make("Kinistin Saulteaux Nation","Treaty 4",222,"Chief",4,82000,10100,33000,3200),
-"Lac La Ronge Indian Band":make("Lac La Ronge Indian Band","Treaty 6",234,"Chief Tammy Cook-Searson",7,135000,22400,52000,6400),
-"Makwa Sahgaiehcan First Nation":make("Makwa Sahgaiehcan First Nation","Treaty 6",276,"Chief",4,86000,11800,35000,3900),
-"Mistawasis Nehiyawak":make("Mistawasis Nehiyawak","Treaty 6",298,"Chief Daryl Watson",5,92000,14600,38000,4600),
-"Muskoday First Nation":make("Muskoday First Nation","Treaty 6",312,"Chief Austin Bear",4,91000,13200,37000,4200),
-"Ochapowace First Nation":make("Ochapowace First Nation","Treaty 4",344,"Chief",4,83000,10700,34000,3500),
-"Onion Lake Cree Nation":make("Onion Lake Cree Nation","Treaty 6",350,"Chief Henry Lewis",6,128000,19800,49000,5900)
-};
-let names=Object.keys(D),cur=null,filt="all";const fmt=n=>"$"+Math.round(Number(n)||0).toLocaleString("en-CA"),num=v=>Number(v)||0,rowTotal=m=>m.total!=null?num(m.total):num(m.re)+num(m.travel)+num(m.ex)+num(m.cc)+num(m.other),rowExtra=m=>num(m.travel)+num(m.ex)+num(m.cc)+num(m.other);
-function updateStats(){const gt=names.reduce((s,n)=>s+D[n].m.reduce((t,m)=>t+rowTotal(m),0),0);document.getElementById("statN").textContent=names.length;document.getElementById("statT").textContent="$"+(gt/1000000).toFixed(1)+"M"}
-function renderChips(){const box=document.getElementById("chips");box.innerHTML="";names.slice(0,5).forEach(n=>{const c=document.createElement("div");c.className="chip";c.textContent=n;c.onclick=()=>pick(n);box.appendChild(c)})}
-function fromScraperData(j){const out={};(j.bands||[]).forEach(b=>{const fs=(b.filings||[]).filter(f=>(f.people||[]).length&&/remuneration/i.test(f.docType||""));const f=fs[0]||(b.filings||[]).find(x=>(x.people||[]).length);if(!f)return;out[b.name]={t:b.province||"Canada",v:String(f.parse_status||"").startsWith("ok"),u:f.href||"#",y:f.year||"",m:(f.people||[]).map(p=>({n:p.name,r:/chief/i.test(p.role||"")?"Chief":"Councillor",mo:p.months??"",re:num(p.remuneration),travel:num(p.travel),ex:num(p.expenses),cc:num(p.creditCard),other:num(p.otherPayments),total:p.total}))}});return out}
-async function loadData(){try{const r=await fetch("data.json",{cache:"no-store"});if(!r.ok)throw new Error("No data.json");const live=fromScraperData(await r.json());if(!Object.keys(live).length)return;Object.keys(D).forEach(k=>delete D[k]);Object.assign(D,live);names=Object.keys(D).sort((a,b)=>a.localeCompare(b));updateStats();renderChips()}catch(e){updateStats();renderChips()}}
+// ─────────────────────────────────────────────
+// State
+// ─────────────────────────────────────────────
+let bandsData = [];      // raw array from data.json
+let names     = [];      // sorted band names
+let bandMap   = {};      // name → band object
+let curName   = null;
+let curYear   = null;
+let filt      = 'all';
+
+const ISC_SEARCH = 'https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/SearchFF.aspx?lang=eng';
+const ISC_FILING = (id) =>
+  `https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/FederalFundingMain.aspx?BAND_NUMBER=${id}&lang=eng`;
+
+// ─────────────────────────────────────────────
+// Helpers
+// ─────────────────────────────────────────────
+const num = v => Number(v) || 0;
+const rowTotal = p =>
+  p.total != null ? num(p.total)
+  : num(p.remuneration) + num(p.travel) + num(p.expenses) + num(p.creditCard) + num(p.otherPayments);
+const rowExtra = p =>
+  num(p.travel) + num(p.expenses) + num(p.creditCard) + num(p.otherPayments);
+const fmt = n => '$' + Math.round(num(n)).toLocaleString('en-CA');
+const money = v => num(v) > 0 ? fmt(v) : '&mdash;';
+
+function timeAgo(iso) {
+  if (!iso) return '—';
+  const diff = (Date.now() - new Date(iso).getTime()) / 1000;
+  if (diff < 3600)   return Math.round(diff/60) + 'm ago';
+  if (diff < 86400)  return Math.round(diff/3600) + 'h ago';
+  return Math.round(diff/86400) + 'd ago';
+}
+
+// ─────────────────────────────────────────────
+// Load data.json
+// ─────────────────────────────────────────────
+async function loadData() {
+  try {
+    const r = await fetch('data.json', { cache: 'no-store' });
+    if (!r.ok) throw new Error('no data.json');
+    const j = await r.json();
+
+    bandsData = j.bands || [];
+    names = bandsData.map(b => b.name).sort((a,b) => a.localeCompare(b));
+    bandMap = {};
+    bandsData.forEach(b => { bandMap[b.name] = b; });
+
+    // Stats bar
+    const parsed = bandsData.filter(b =>
+      (b.filings || []).some(f => (f.people || []).length > 0)
+    ).length;
+    const newest = bandsData.reduce((m,b) => b.scraped > m ? b.scraped : m, '');
+
+    document.getElementById('statN').textContent = bandsData.length;
+    document.getElementById('statP').textContent = parsed;
+    document.getElementById('statLast').textContent = timeAgo(newest);
+
+  } catch(e) {
+    document.getElementById('statN').textContent = '—';
+    document.getElementById('statP').textContent = '—';
+    document.getElementById('statLast').textContent = 'pending';
+  }
+
+  renderChips();
+}
+
 loadData();
-const inp=document.getElementById("si"),acl=document.getElementById("acl");let ai=-1;
-inp.addEventListener("input",()=>{const q=inp.value.trim().toLowerCase();acl.innerHTML="";ai=-1;if(!q||q.length<2){acl.style.display="none";return}const h=names.filter(n=>n.toLowerCase().includes(q)).slice(0,8);if(!h.length){acl.style.display="none";return}h.forEach(n=>{const d=document.createElement("div");d.className="aci";d.innerHTML=`<span>${n.replace(new RegExp(q,"gi"),m=>`<strong>${m}</strong>`)}</span><span class="acp">${D[n].t}</span>`;d.onclick=()=>{inp.value=n;acl.style.display="none";pick(n)};acl.appendChild(d)});acl.style.display="block"});
-inp.addEventListener("keydown",e=>{const its=acl.querySelectorAll(".aci");if(e.key==="ArrowDown"){ai=Math.min(ai+1,its.length-1);its.forEach((t,i)=>t.classList.toggle("sel",i===ai));e.preventDefault()}else if(e.key==="ArrowUp"){ai=Math.max(ai-1,-1);its.forEach((t,i)=>t.classList.toggle("sel",i===ai));e.preventDefault()}else if(e.key==="Enter"){ai>=0&&its[ai]?its[ai].click():doSearch();acl.style.display="none"}else if(e.key==="Escape")acl.style.display="none"});
-document.addEventListener("click",e=>{if(!e.target.closest(".sbox"))acl.style.display="none"});
-document.getElementById("howLink").addEventListener("click",e=>{e.preventDefault();document.getElementById("empty").style.display="block";document.getElementById("results").style.display="none";history.replaceState(null,"","#how");document.getElementById("how").scrollIntoView({behavior:"smooth",block:"start"})});
-document.getElementById("fnftaLink").addEventListener("click",e=>{e.preventDefault();window.open(e.currentTarget.href,"_blank","noopener")});
-function doSearch(){const q=inp.value.trim().toLowerCase();if(!q)return;const m=names.find(n=>n.toLowerCase()===q)||names.find(n=>n.toLowerCase().includes(q));m?pick(m):alert(`No results for "${inp.value}". Try: Carry the Kettle, Cowessess, Lac La Ronge, Onion Lake`)}
-function pick(n){cur=n;filt="all";inp.value=n;acl.style.display="none";document.getElementById("empty").style.display="none";document.getElementById("results").style.display="block";const nd=D[n];document.getElementById("rName").textContent=n;document.getElementById("rLink").href=nd.u;document.getElementById("rMeta").innerHTML=(nd.v?`<span class="mt g">Parsed FNFTA data</span>`:`<span class="mt y">Sample or unparsed data</span>`)+`<span class="mt">${nd.t}</span><span class="mt">${nd.y?nd.y:"Year ended March 31, 2023"}</span>`;const all=nd.m,tr=all.reduce((s,m)=>s+num(m.re),0),te=all.reduce((s,m)=>s+rowExtra(m),0),tt=all.reduce((s,m)=>s+rowTotal(m),0);document.getElementById("sTotal").textContent=fmt(tt);document.getElementById("sRemun").textContent=fmt(tr);document.getElementById("sExp").textContent=fmt(te);document.getElementById("sCount").textContent=all.length;document.getElementById("srcNote").innerHTML=nd.v?`<strong>Source:</strong> Parsed from the Schedule of Remuneration and Expenses filed with ISC under the FNFTA. <a href="${nd.u}" target="_blank">View original filing</a>`:`<strong>Note:</strong> This entry is using sample or unparsed data until the nightly scraper produces rows for this filing. <a href="${nd.u}" target="_blank">View ISC filing page</a>`;document.querySelectorAll(".pill").forEach(p=>p.classList.toggle("active",p.textContent==="All"));window.scrollTo({top:document.getElementById("results").offsetTop-80,behavior:"smooth"});renderT()}
-function setF(f,btn){filt=f;document.querySelectorAll(".pill").forEach(p=>p.classList.remove("active"));btn.classList.add("active");renderT()}
-function renderT(){if(!cur)return;const nd=D[cur],sv=document.querySelector(".sortw select").value;let rows=filt==="all"?[...nd.m]:nd.m.filter(m=>m.r===filt);if(sv==="td")rows.sort((a,b)=>rowTotal(b)-rowTotal(a));else if(sv==="ta")rows.sort((a,b)=>rowTotal(a)-rowTotal(b));else rows.sort((a,b)=>a.n.localeCompare(b.n));const ft=rows.reduce((s,m)=>s+rowTotal(m),0),money=v=>num(v)>0?fmt(v):"&mdash;";document.getElementById("tb").innerHTML=rows.map(m=>`<tr><td><div class="tn">${m.n}</div></td><td><span class="rb ${m.r==="Chief"?"rc":"rco"}">${m.r}</span></td><td style="font-size:13px;color:var(--text-2)">${m.mo||"&mdash;"}</td><td class="amt">${money(m.re)}</td><td class="amt">${money(m.travel)}</td><td class="amt">${money(m.ex)}</td><td class="amt">${money(m.cc)}</td><td class="amt">${money(m.other)}</td><td class="amtt">${fmt(rowTotal(m))}</td></tr>`).join("");document.getElementById("tfl").textContent=`${rows.length} member${rows.length!==1?"s":""} shown`;document.getElementById("tft").textContent=`Total: ${fmt(ft)}`}
+
+// ─────────────────────────────────────────────
+// Chips (quick-pick example bands)
+// ─────────────────────────────────────────────
+function renderChips() {
+  const box = document.getElementById('chips');
+  box.innerHTML = '';
+  // Show first 6 alphabetically that have real parsed data, else first 6 total
+  let candidates = names.filter(n => {
+    const b = bandMap[n];
+    return b && (b.filings||[]).some(f => (f.people||[]).length > 0);
+  }).slice(0, 6);
+  if (!candidates.length) candidates = names.slice(0, 6);
+  candidates.forEach(n => {
+    const c = document.createElement('div');
+    c.className = 'chip';
+    c.textContent = n;
+    c.onclick = () => pick(n);
+    box.appendChild(c);
+  });
+}
+
+// ─────────────────────────────────────────────
+// Autocomplete
+// ─────────────────────────────────────────────
+const inp = document.getElementById('si');
+const acl = document.getElementById('acl');
+let ai = -1;
+
+inp.addEventListener('input', () => {
+  const q = inp.value.trim().toLowerCase();
+  acl.innerHTML = '';
+  ai = -1;
+  if (!q || q.length < 2) { acl.style.display='none'; return; }
+  const hits = names.filter(n => n.toLowerCase().includes(q)).slice(0, 8);
+  if (!hits.length) { acl.style.display='none'; return; }
+  hits.forEach(n => {
+    const b = bandMap[n];
+    const hasParsed = b && (b.filings||[]).some(f => (f.people||[]).length > 0);
+    const d = document.createElement('div');
+    d.className = 'aci';
+    d.innerHTML = `<span class="aci-name">${n.replace(new RegExp(q,'gi'), m => `<strong>${m}</strong>`)}</span><span class="acp">${b ? b.treaty||b.province : ''}</span>`;
+    d.onclick = () => { inp.value = n; acl.style.display='none'; pick(n); };
+    acl.appendChild(d);
+  });
+  acl.style.display = 'block';
+});
+
+inp.addEventListener('keydown', e => {
+  const its = acl.querySelectorAll('.aci');
+  if (e.key==='ArrowDown') { ai=Math.min(ai+1,its.length-1); its.forEach((t,i)=>t.classList.toggle('sel',i===ai)); e.preventDefault(); }
+  else if (e.key==='ArrowUp') { ai=Math.max(ai-1,-1); its.forEach((t,i)=>t.classList.toggle('sel',i===ai)); e.preventDefault(); }
+  else if (e.key==='Enter') { ai>=0&&its[ai] ? its[ai].click() : doSearch(); acl.style.display='none'; }
+  else if (e.key==='Escape') acl.style.display='none';
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('.sbox')) acl.style.display='none';
+});
+
+function doSearch() {
+  const q = inp.value.trim().toLowerCase();
+  if (!q) return;
+  const m = names.find(n=>n.toLowerCase()===q) || names.find(n=>n.toLowerCase().includes(q));
+  if (m) pick(m);
+  else {
+    // Graceful fallback: link to ISC search
+    alert(`No match found for "${inp.value}". You can search directly on the ISC website.`);
+  }
+}
+
+// ─────────────────────────────────────────────
+// Pick a band
+// ─────────────────────────────────────────────
+function pick(name) {
+  const band = bandMap[name];
+  if (!band) return;
+
+  curName = name;
+  filt = 'all';
+  inp.value = name;
+  acl.style.display = 'none';
+
+  document.getElementById('empty').style.display = 'none';
+  document.getElementById('results').style.display = 'block';
+
+  // Header
+  document.getElementById('rName').textContent = name;
+  document.getElementById('rLink').href = ISC_FILING(band.id);
+
+  // Populate year selector — only years with any filing
+  const filings = band.filings || [];
+  const remYears = [...new Set(
+    filings.filter(f => /remuneration/i.test(f.docType||'')).map(f=>f.year)
+  )].sort((a,b)=>b.localeCompare(a));
+
+  const yearSel = document.getElementById('yearSel');
+  yearSel.innerHTML = '';
+  if (remYears.length) {
+    remYears.forEach(y => {
+      const o = document.createElement('option');
+      o.value = y; o.textContent = `${y} (year ended Mar 31, ${y.split('-')[1]})`;
+      yearSel.appendChild(o);
+    });
+    curYear = remYears[0];
+  } else {
+    const o = document.createElement('option');
+    o.value=''; o.textContent='No filings found';
+    yearSel.appendChild(o);
+    curYear = null;
+  }
+
+  renderYear();
+  window.scrollTo({ top: document.getElementById('results').offsetTop - 72, behavior:'smooth' });
+}
+
+function onYearChange() {
+  curYear = document.getElementById('yearSel').value || null;
+  renderYear();
+}
+
+// ─────────────────────────────────────────────
+// Render for selected year
+// ─────────────────────────────────────────────
+function renderYear() {
+  const band = bandMap[curName];
+  if (!band) return;
+
+  const filings = band.filings || [];
+  const filing = curYear
+    ? filings.find(f => f.year===curYear && /remuneration/i.test(f.docType||''))
+    : null;
+
+  // Build meta tags
+  const meta = document.getElementById('rMeta');
+  meta.innerHTML = '';
+  const addTag = (text, cls) => {
+    const s = document.createElement('span');
+    s.className = `mt ${cls}`;
+    s.textContent = text;
+    meta.appendChild(s);
+  };
+
+  if (!filing) {
+    addTag('No filing found', 'mt-red');
+  } else if ((filing.people||[]).length > 0) {
+    addTag('Parsed data ✓', 'mt-green');
+  } else if (filing.posted) {
+    addTag('Filing posted — not yet parsed', 'mt-amber');
+  } else {
+    addTag('Not yet posted', 'mt-grey');
+  }
+  if (band.treaty) addTag(band.treaty, 'mt-grey');
+
+  const hasPeople = filing && (filing.people||[]).length > 0;
+  document.getElementById('dataPanel').style.display   = hasPeople ? '' : 'none';
+  document.getElementById('pendingPanel').style.display = hasPeople ? 'none' : '';
+
+  if (hasPeople) {
+    renderSummary(filing.people);
+    renderT();
+    renderNote(filing, band);
+  } else {
+    renderPending(filing, band);
+  }
+}
+
+// ─────────────────────────────────────────────
+// Summary cards
+// ─────────────────────────────────────────────
+function renderSummary(people) {
+  const total  = people.reduce((s,p)=>s+rowTotal(p), 0);
+  const remun  = people.reduce((s,p)=>s+num(p.remuneration), 0);
+  const extra  = people.reduce((s,p)=>s+rowExtra(p), 0);
+  document.getElementById('sTotal').textContent = fmt(total);
+  document.getElementById('sRemun').textContent = fmt(remun);
+  document.getElementById('sExp').textContent   = fmt(extra);
+  document.getElementById('sCount').textContent = people.length;
+}
+
+// ─────────────────────────────────────────────
+// Table
+// ─────────────────────────────────────────────
+function setF(f, btn) {
+  filt = f;
+  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  renderT();
+}
+
+function renderT() {
+  const band = bandMap[curName];
+  if (!band || !curYear) return;
+  const filing = (band.filings||[]).find(f=>f.year===curYear&&/remuneration/i.test(f.docType||''));
+  if (!filing || !(filing.people||[]).length) return;
+
+  const sv = document.getElementById('sortSel').value;
+  let rows = filt==='all' ? [...filing.people] : filing.people.filter(p=>p.role===filt);
+  if (sv==='td') rows.sort((a,b)=>rowTotal(b)-rowTotal(a));
+  else if (sv==='ta') rows.sort((a,b)=>rowTotal(a)-rowTotal(b));
+  else rows.sort((a,b)=>a.name.localeCompare(b.name));
+
+  const ft = rows.reduce((s,p)=>s+rowTotal(p), 0);
+
+  document.getElementById('tb').innerHTML = rows.map(p => `
+    <tr>
+      <td><div class="tn">${esc(p.name)}</div></td>
+      <td><span class="rb ${p.role==='Chief'?'rc':'rco'}">${esc(p.role)}</span></td>
+      <td style="font-size:13px;color:var(--text-2)">${p.months!=null?p.months:'&mdash;'}</td>
+      <td class="amt">${money(p.remuneration)}</td>
+      <td class="amt">${money(p.travel)}</td>
+      <td class="amt">${money(p.expenses)}</td>
+      <td class="amt">${money(p.creditCard)}</td>
+      <td class="amt">${money(p.otherPayments)}</td>
+      <td class="amtt">${fmt(rowTotal(p))}</td>
+    </tr>`).join('');
+
+  document.getElementById('tfl').textContent = `${rows.length} member${rows.length!==1?'s':''} shown`;
+  document.getElementById('tft').textContent = `Total: ${fmt(ft)}`;
+}
+
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ─────────────────────────────────────────────
+// Source note
+// ─────────────────────────────────────────────
+function renderNote(filing, band) {
+  const el = document.getElementById('srcNote');
+  const status = filing.parse_status || '';
+  const warnings = (filing.warnings||[]).filter(w=>w&&!w.includes('pdfplumber unavail'));
+  let via = status.startsWith('ok_openai') ? 'OpenAI Vision extraction'
+           : status.startsWith('ok_pdf') ? 'pdfplumber table extraction'
+           : 'automated extraction';
+  el.innerHTML = `<strong>Source:</strong> Parsed from the Schedule of Remuneration and Expenses filed with ISC under the FNFTA via ${via}. <a href="${filing.href||ISC_FILING(band.id)}" target="_blank" rel="noopener">View original PDF</a>.`
+    + (warnings.length ? `<br><span style="color:var(--amber)">⚠ ${warnings.join('; ')}</span>` : '');
+}
+
+// ─────────────────────────────────────────────
+// Pending panel
+// ─────────────────────────────────────────────
+function renderPending(filing, band) {
+  const title = document.getElementById('pendingTitle');
+  const msg   = document.getElementById('pendingMsg');
+
+  if (!filing) {
+    title.textContent = 'No filing found for this year';
+    msg.innerHTML = `ISC may not have a remuneration schedule on file for ${curYear||'this year'}, or the band may not have filed yet. You can check the <a href="${ISC_FILING(band.id)}" target="_blank">ISC filing page</a> directly.`;
+  } else if (!filing.posted) {
+    title.textContent = 'Filing not yet posted';
+    msg.innerHTML = `The ${curYear} remuneration schedule has not been posted to ISC yet. <a href="${ISC_FILING(band.id)}" target="_blank">Check the ISC page</a> for the latest status.`;
+  } else {
+    title.textContent = 'Filing available — pending parse';
+    msg.innerHTML = `A filing exists for ${curYear} but the nightly parser hasn't extracted the data yet${filing.fallback ? ' (direct PDF link used)' : ''}. You can <a href="${filing.href||ISC_FILING(band.id)}" target="_blank">view the PDF on ISC</a> directly, or check back after the next nightly run.`;
+  }
+}
+
+// ─────────────────────────────────────────────
+// Nav link
+// ─────────────────────────────────────────────
+document.getElementById('howLink').addEventListener('click', e => {
+  e.preventDefault();
+  document.getElementById('empty').style.display = 'block';
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('how').scrollIntoView({ behavior:'smooth', block:'start' });
+});
 </script>
 </body>
 </html>
