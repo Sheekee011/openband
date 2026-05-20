@@ -4,6 +4,14 @@ OpenBand Scraper
 Runs nightly via GitHub Actions.
 Fetches FNFTA filing listings from Indigenous Services Canada and saves the
 results to data.json for the website to read.
+
+Band numbers sourced from:
+  - ISC Saskatchewan First Nations map (February 2020, GCdocs #60929202)
+  - Wikipedia First Nation infoboxes (cross-referenced against ISC Band Governance
+    Management System numbers)
+
+IMPORTANT: ISC uses its own "Band Number" system (BGMS IDs) which differs from
+reserve numbers. Always use the BGMS ID in BAND_NUMBER_FF query parameters.
 """
 
 import base64
@@ -23,152 +31,75 @@ except ImportError:
     pdfplumber = None
 
 
-# Band numbers come from ISC's First Nations Profiles registry.
-# This starter list covers the bands currently tracked by OpenBand.
+# ---------------------------------------------------------------------------
+# Saskatchewan First Nations — ISC BGMS Band Numbers (authoritative source:
+# ISC Saskatchewan Region map, Feb 2020; cross-checked via Wikipedia infoboxes)
+# ---------------------------------------------------------------------------
 BANDS = [
-    {"id": 1, "name": "Abegweit First Nation", "province": "PE"},
-    {"id": 2, "name": "Acadia First Nation", "province": "NS"},
-    {"id": 4, "name": "Acho Dene Koe First Nation", "province": "NT"},
-    {"id": 5, "name": "Adams Lake Indian Band", "province": "BC"},
-    {"id": 7, "name": "Ahousaht", "province": "BC"},
-    {"id": 8, "name": "Ahtahkakoop Cree Nation", "province": "SK"},
-    {"id": 10, "name": "Alexis Nakoda Sioux Nation", "province": "AB"},
-    {"id": 11, "name": "Alexis Creek (Tsi Del Del)", "province": "BC"},
-    {"id": 32, "name": "Beardy's and Okemasis' Cree Nation", "province": "SK"},
-    {"id": 35, "name": "Beausoleil First Nation", "province": "ON"},
-    {"id": 38, "name": "Beaver Lake Cree Nation", "province": "AB"},
-    {"id": 52, "name": "Blueberry River First Nations", "province": "BC"},
-    {"id": 58, "name": "Brokenhead Ojibway Nation", "province": "MB"},
-    {"id": 65, "name": "Caldwell First Nation", "province": "ON"},
-    {"id": 69, "name": "Canoe Lake Cree First Nation", "province": "SK"},
-    {"id": 71, "name": "Carry the Kettle Nakoda Nation", "province": "SK"},
-    {"id": 77, "name": "Chemawawin Cree Nation", "province": "MB"},
-    {"id": 81, "name": "Chippewas of Georgina Island First Nation", "province": "ON"},
-    {"id": 83, "name": "Chippewas of Kettle and Stony Point", "province": "ON"},
-    {"id": 85, "name": "Chippewas of Nawash Unceded First Nation", "province": "ON"},
-    {"id": 87, "name": "Chippewas of Rama First Nation", "province": "ON"},
-    {"id": 91, "name": "Clearwater River Dene Nation", "province": "SK"},
-    {"id": 93, "name": "Cold Lake First Nations", "province": "AB"},
-    {"id": 97, "name": "Constance Lake First Nation", "province": "ON"},
-    {"id": 101, "name": "Cote First Nation", "province": "SK"},
-    {"id": 103, "name": "Couchiching First Nation", "province": "ON"},
-    {"id": 105, "name": "Cowichan Tribes", "province": "BC"},
-    {"id": 107, "name": "Cowessess First Nation", "province": "SK"},
-    {"id": 109, "name": "Cross Lake Band of Indians", "province": "MB"},
-    {"id": 111, "name": "Cumberland House Cree Nation", "province": "SK"},
-    {"id": 113, "name": "Curve Lake First Nation", "province": "ON"},
-    {"id": 119, "name": "Day Star First Nation", "province": "SK"},
-    {"id": 121, "name": "Dene Tha' First Nation", "province": "AB"},
-    {"id": 125, "name": "Doig River First Nation", "province": "BC"},
-    {"id": 127, "name": "Driftpile Cree Nation", "province": "AB"},
-    {"id": 135, "name": "Enoch Cree Nation", "province": "AB"},
-    {"id": 145, "name": "Ermineskin Cree Nation", "province": "AB"},
-    {"id": 149, "name": "Frog Lake First Nation", "province": "AB"},
-    {"id": 151, "name": "Flying Dust First Nation", "province": "SK"},
-    {"id": 153, "name": "Sagkeeng First Nation", "province": "MB"},
-    {"id": 157, "name": "Fort McKay First Nation", "province": "AB"},
-    {"id": 163, "name": "Fort William First Nation", "province": "ON"},
-    {"id": 165, "name": "Fox Lake Cree Nation", "province": "MB"},
-    {"id": 169, "name": "Garden Hill First Nations", "province": "MB"},
-    {"id": 171, "name": "George Gordon First Nation", "province": "SK"},
-    {"id": 175, "name": "God's Lake First Nation", "province": "MB"},
-    {"id": 177, "name": "Grassy Narrows First Nation", "province": "ON"},
-    {"id": 181, "name": "Haisla Nation", "province": "BC"},
-    {"id": 183, "name": "Heiltsuk Nation", "province": "BC"},
-    {"id": 191, "name": "Horse Lake First Nation", "province": "AB"},
-    {"id": 193, "name": "Hudson Bay Cree Nation", "province": "SK"},
-    {"id": 197, "name": "Huron-Wendat", "province": "QC"},
-    {"id": 198, "name": "Batchewana First Nation", "province": "ON"},
-    {"id": 210, "name": "Kahkewistahaw First Nation", "province": "SK"},
-    {"id": 216, "name": "Kawacatoose First Nation", "province": "SK"},
-    {"id": 218, "name": "Keeseekoose First Nation", "province": "SK"},
-    {"id": 220, "name": "Key First Nation", "province": "SK"},
-    {"id": 222, "name": "Kinistin Saulteaux Nation", "province": "SK"},
-    {"id": 224, "name": "Kitasoo/Xai'Xais First Nation", "province": "BC"},
-    {"id": 226, "name": "Kluane First Nation", "province": "YT"},
-    {"id": 234, "name": "Lac La Ronge Indian Band", "province": "SK"},
-    {"id": 236, "name": "Lac Seul First Nation", "province": "ON"},
-    {"id": 240, "name": "Lake Manitoba First Nation", "province": "MB"},
-    {"id": 248, "name": "Lennox Island First Nation", "province": "PE"},
-    {"id": 254, "name": "Lil'wat Nation", "province": "BC"},
-    {"id": 256, "name": "Little Black Bear First Nation", "province": "SK"},
-    {"id": 258, "name": "Little Pine First Nation", "province": "SK"},
-    {"id": 260, "name": "Little Red River Cree Nation", "province": "AB"},
-    {"id": 266, "name": "Long Plain First Nation", "province": "MB"},
-    {"id": 270, "name": "Louis Bull Tribe", "province": "AB"},
-    {"id": 272, "name": "Lucky Man Cree Nation", "province": "SK"},
-    {"id": 276, "name": "Makwa Sahgaiehcan First Nation", "province": "SK"},
-    {"id": 286, "name": "Mathias Colomb Cree Nation", "province": "MB"},
-    {"id": 290, "name": "McLeod Lake Indian Band", "province": "BC"},
-    {"id": 292, "name": "Membertou First Nation", "province": "NS"},
-    {"id": 296, "name": "Mikisew Cree First Nation", "province": "AB"},
-    {"id": 298, "name": "Mistawasis Nehiyawak", "province": "SK"},
-    {"id": 300, "name": "Mohawks of Akwesasne", "province": "ON"},
-    {"id": 302, "name": "Mohawks of the Bay of Quinte", "province": "ON"},
-    {"id": 304, "name": "Montana First Nation", "province": "AB"},
-    {"id": 306, "name": "Moose Cree First Nation", "province": "ON"},
-    {"id": 312, "name": "Muskoday First Nation", "province": "SK"},
-    {"id": 318, "name": "Namgis First Nation", "province": "BC"},
-    {"id": 322, "name": "Nekaneet Cree Nation", "province": "SK"},
-    {"id": 330, "name": "Nisga'a Nation", "province": "BC"},
-    {"id": 332, "name": "Nisichawayasihk Cree Nation", "province": "MB"},
-    {"id": 344, "name": "Ochapowace First Nation", "province": "SK"},
-    {"id": 346, "name": "Okanagan Indian Band", "province": "BC"},
-    {"id": 348, "name": "Okanese First Nation", "province": "SK"},
-    {"id": 350, "name": "Onion Lake Cree Nation", "province": "SK"},
-    {"id": 352, "name": "Opaskwayak Cree Nation", "province": "MB"},
-    {"id": 360, "name": "Pasqua First Nation", "province": "SK"},
-    {"id": 364, "name": "Peepeekisis Cree Nation", "province": "SK"},
-    {"id": 366, "name": "Pelican Lake First Nation", "province": "SK"},
-    {"id": 368, "name": "Penelakut Tribe", "province": "BC"},
-    {"id": 370, "name": "Penticton Indian Band", "province": "BC"},
-    {"id": 372, "name": "Peter Ballantyne Cree Nation", "province": "SK"},
-    {"id": 376, "name": "Pheasant Rump Nakoda Nation", "province": "SK"},
-    {"id": 378, "name": "Pine Creek First Nation", "province": "MB"},
-    {"id": 380, "name": "Pinaymootang First Nation", "province": "MB"},
-    {"id": 386, "name": "Poplar River First Nation", "province": "MB"},
-    {"id": 392, "name": "Poundmaker Cree Nation", "province": "SK"},
-    {"id": 404, "name": "Red Earth Cree Nation", "province": "SK"},
-    {"id": 406, "name": "Red Pheasant Cree Nation", "province": "SK"},
-    {"id": 414, "name": "Rolling River First Nation", "province": "MB"},
-    {"id": 416, "name": "Roseau River Anishinabe First Nation", "province": "MB"},
-    {"id": 424, "name": "Sakimay First Nations", "province": "SK"},
-    {"id": 428, "name": "Sandy Bay Ojibway First Nation", "province": "MB"},
-    {"id": 430, "name": "Sandy Lake First Nation", "province": "ON"},
-    {"id": 432, "name": "Saulteau First Nations", "province": "BC"},
-    {"id": 434, "name": "Sawridge First Nation", "province": "AB"},
-    {"id": 448, "name": "Shoal Lake Cree Nation", "province": "SK"},
-    {"id": 452, "name": "Siksika Nation", "province": "AB"},
-    {"id": 454, "name": "Simpcw First Nation", "province": "BC"},
-    {"id": 456, "name": "Sioux Valley Dakota Nation", "province": "MB"},
-    {"id": 458, "name": "Six Nations of the Grand River", "province": "ON"},
-    {"id": 462, "name": "Skidegate (Haida Nation)", "province": "BC"},
-    {"id": 474, "name": "Squamish Nation", "province": "BC"},
-    {"id": 478, "name": "Stoney Nakoda Nation", "province": "AB"},
-    {"id": 480, "name": "Sucker Creek First Nation", "province": "AB"},
-    {"id": 490, "name": "Tahltan Nation", "province": "BC"},
-    {"id": 494, "name": "The Key First Nation", "province": "SK"},
-    {"id": 498, "name": "Tobique First Nation", "province": "NB"},
-    {"id": 502, "name": "Tootinaowaziibeeng Treaty Reserve", "province": "MB"},
-    {"id": 506, "name": "Tseshaht First Nation", "province": "BC"},
-    {"id": 510, "name": "Tsleil-Waututh Nation", "province": "BC"},
-    {"id": 512, "name": "Tsuut'ina Nation", "province": "AB"},
-    {"id": 518, "name": "Upper Nicola Band", "province": "BC"},
-    {"id": 524, "name": "Ucluelet First Nation", "province": "BC"},
-    {"id": 526, "name": "Wahnapitae First Nation", "province": "ON"},
-    {"id": 528, "name": "Wahpeton Dakota Nation", "province": "SK"},
-    {"id": 538, "name": "Waterhen Lake First Nation", "province": "SK"},
-    {"id": 540, "name": "Waywayseecappo First Nation", "province": "MB"},
-    {"id": 542, "name": "West Moberly First Nations", "province": "BC"},
-    {"id": 546, "name": "White Bear First Nations", "province": "SK"},
-    {"id": 548, "name": "Doig River First Nation", "province": "BC"},
-    {"id": 550, "name": "Whitefish Lake First Nation", "province": "AB"},
-    {"id": 552, "name": "Whitecap Dakota First Nation", "province": "SK"},
-    {"id": 556, "name": "Williams Lake Indian Band", "province": "BC"},
-    {"id": 560, "name": "Woodland Cree First Nation", "province": "AB"},
-    {"id": 566, "name": "Yale First Nation", "province": "BC"},
-    {"id": 568, "name": "Yellowknives Dene First Nation", "province": "NT"},
-    {"id": 570, "name": "York Factory First Nation", "province": "MB"},
+    # Treaty 4 Nations
+    {"id": 378, "name": "Carry the Kettle Nakoda Nation", "province": "SK", "treaty": "Treaty 4"},
+    {"id": 361, "name": "Cowessess First Nation",          "province": "SK", "treaty": "Treaty 4"},
+    {"id": 366, "name": "Cote First Nation",               "province": "SK", "treaty": "Treaty 4"},
+    {"id": 389, "name": "Day Star First Nation",           "province": "SK", "treaty": "Treaty 4"},
+    {"id": 391, "name": "George Gordon First Nation",      "province": "SK", "treaty": "Treaty 4"},
+    {"id": 362, "name": "Kahkewistahaw First Nation",      "province": "SK", "treaty": "Treaty 4"},
+    {"id": 367, "name": "Keeseekoose First Nation",        "province": "SK", "treaty": "Treaty 4"},
+    {"id": 377, "name": "Kinistin Saulteaux Nation",       "province": "SK", "treaty": "Treaty 4"},
+    {"id": 379, "name": "Little Black Bear First Nation",  "province": "SK", "treaty": "Treaty 4"},
+    {"id": 341, "name": "Lucky Man Cree Nation",           "province": "SK", "treaty": "Treaty 6"},
+    {"id": 396, "name": "Makwa Sahgaiehcan First Nation",  "province": "SK", "treaty": "Treaty 6"},
+    {"id": 374, "name": "Mistawasis Nehiyawak",            "province": "SK", "treaty": "Treaty 6"},
+    {"id": 371, "name": "Muskoday First Nation",           "province": "SK", "treaty": "Treaty 6"},
+    {"id": 363, "name": "Ochapowace First Nation",         "province": "SK", "treaty": "Treaty 4"},
+    {"id": 344, "name": "Onion Lake Cree Nation",          "province": "SK", "treaty": "Treaty 6"},
+    {"id": 383, "name": "Pasqua First Nation",             "province": "SK", "treaty": "Treaty 4"},
+    {"id": 384, "name": "Peepeekisis Cree Nation",         "province": "SK", "treaty": "Treaty 4"},
+    {"id": 405, "name": "Pelican Lake First Nation",       "province": "SK", "treaty": "Treaty 6"},
+    {"id": 355, "name": "Peter Ballantyne Cree Nation",    "province": "SK", "treaty": "Treaty 6"},
+    {"id": 409, "name": "Pheasant Rump Nakota Nation",     "province": "SK", "treaty": "Treaty 4"},
+    {"id": 345, "name": "Poundmaker Cree Nation",          "province": "SK", "treaty": "Treaty 6"},
+    {"id": 356, "name": "Red Earth Cree Nation",           "province": "SK", "treaty": "Treaty 6"},
+    {"id": 346, "name": "Red Pheasant Cree Nation",        "province": "SK", "treaty": "Treaty 6"},
+    {"id": 364, "name": "Sakimay First Nations",           "province": "SK", "treaty": "Treaty 4"},
+    {"id": 357, "name": "Shoal Lake Cree Nation",          "province": "SK", "treaty": "Treaty 6"},
+    {"id": 348, "name": "Sweetgrass First Nation",         "province": "SK", "treaty": "Treaty 6"},
+    {"id": 368, "name": "The Key First Nation",            "province": "SK", "treaty": "Treaty 4"},
+    {"id": 349, "name": "Thunderchild First Nation",       "province": "SK", "treaty": "Treaty 6"},
+    {"id": 358, "name": "Wahpeton Dakota Nation",          "province": "SK", "treaty": "Treaty 4"},
+    {"id": 402, "name": "Waterhen Lake First Nation",      "province": "SK", "treaty": "Treaty 6"},
+    {"id": 365, "name": "White Bear First Nations",        "province": "SK", "treaty": "Treaty 4"},
+    {"id": 372, "name": "Whitecap Dakota First Nation",    "province": "SK", "treaty": "Treaty 4"},
+    {"id": 388, "name": "Wood Mountain First Nation",      "province": "SK", "treaty": "Treaty 4"},
+    {"id": 376, "name": "Yellow Quill First Nation",       "province": "SK", "treaty": "Treaty 4"},
+    # Treaty 6 / Northern
+    {"id": 406, "name": "Ahtahkakoop Cree Nation",         "province": "SK", "treaty": "Treaty 6"},
+    {"id": 369, "name": "Beardy's and Okemasis' Cree Nation","province": "SK", "treaty": "Treaty 6"},
+    {"id": 398, "name": "Buffalo River Dene Nation",       "province": "SK", "treaty": "Treaty 10"},
+    {"id": 394, "name": "Canoe Lake Cree First Nation",    "province": "SK", "treaty": "Treaty 10"},
+    {"id": 401, "name": "Clearwater River Dene Nation",    "province": "SK", "treaty": "Treaty 10"},
+    {"id": 350, "name": "Cumberland House Cree Nation",    "province": "SK", "treaty": "Treaty 5"},
+    {"id": 400, "name": "English River Dene Nation",       "province": "SK", "treaty": "Treaty 10"},
+    {"id": 390, "name": "Fishing Lake First Nation",       "province": "SK", "treaty": "Treaty 4"},
+    {"id": 395, "name": "Flying Dust First Nation",        "province": "SK", "treaty": "Treaty 6"},
+    {"id": 352, "name": "Hatchet Lake Denesuline",         "province": "SK", "treaty": "Treaty 10"},
+    {"id": 353, "name": "Lac La Ronge Indian Band",        "province": "SK", "treaty": "Treaty 6"},
+    {"id": 340, "name": "Little Pine First Nation",        "province": "SK", "treaty": "Treaty 6"},
+    {"id": 397, "name": "Ministikwan Lake Cree Nation",    "province": "SK", "treaty": "Treaty 6"},
+    {"id": 354, "name": "Montreal Lake Cree Nation",       "province": "SK", "treaty": "Treaty 6"},
+    {"id": 342, "name": "Moosomin First Nation",           "province": "SK", "treaty": "Treaty 6"},
+    {"id": 343, "name": "Mosquito, Grizzly Bear's Head, Lean Man", "province": "SK", "treaty": "Treaty 6"},
+    {"id": 381, "name": "Muscowpetung First Nation",       "province": "SK", "treaty": "Treaty 4"},
+    {"id": 375, "name": "Muskeg Lake Cree Nation",         "province": "SK", "treaty": "Treaty 6"},
+    {"id": 392, "name": "Muskowekwan First Nation",        "province": "SK", "treaty": "Treaty 4"},
+    {"id": 380, "name": "Nekaneet Cree Nation",            "province": "SK", "treaty": "Treaty 4"},
+    {"id": 408, "name": "Ocean Man First Nation",          "province": "SK", "treaty": "Treaty 4"},
+    {"id": 382, "name": "Okanese First Nation",            "province": "SK", "treaty": "Treaty 4"},
+    {"id": 373, "name": "One Arrow First Nation",          "province": "SK", "treaty": "Treaty 6"},
+    {"id": 385, "name": "Piapot First Nation",             "province": "SK", "treaty": "Treaty 4"},
+    {"id": 347, "name": "Saulteaux First Nation",          "province": "SK", "treaty": "Treaty 6"},
+    {"id": 386, "name": "Standing Buffalo Dakota Nation",  "province": "SK", "treaty": "Treaty 4"},
+    {"id": 387, "name": "Star Blanket Cree Nation",        "province": "SK", "treaty": "Treaty 4"},
+    {"id": 360, "name": "Sturgeon Lake First Nation",      "province": "SK", "treaty": "Treaty 6"},
 ]
 
 ISC_HOST = "https://fnp-ppn.aadnc-aandc.gc.ca"
@@ -277,8 +208,13 @@ def fetch_band_filings(band_id):
         return None
 
 
-def build_fallback_filings(band_id):
-    """Build direct ISC PDF links using the public DisplayBinaryData URL pattern."""
+def build_direct_pdf_urls(band_id):
+    """
+    Build direct ISC DisplayBinaryData PDF links for the most common fiscal years
+    and document types. These links will work if ISC has the document, and return
+    a PDF error page if not — the site handles this gracefully by linking to the
+    filing page instead.
+    """
     fiscal_years = [
         "2023-2024",
         "2022-2023",
@@ -289,8 +225,6 @@ def build_fallback_filings(band_id):
         "2017-2018",
         "2016-2017",
         "2015-2016",
-        "2014-2015",
-        "2013-2014",
     ]
     doc_types = [
         "Audited consolidated financial statements",
@@ -300,13 +234,11 @@ def build_fallback_filings(band_id):
     filings = []
     for fy in fiscal_years:
         for doc in doc_types:
-            href = (
-                f"{ISC_BASE}/DisplayBinaryData.aspx?"
-                + urllib.parse.urlencode(
-                    {"BAND_NUMBER_FF": band_id, "FY": fy, "DOC": doc, "lang": "eng"},
-                    quote_via=urllib.parse.quote,
-                )
+            params = urllib.parse.urlencode(
+                {"BAND_NUMBER_FF": band_id, "FY": fy, "DOC": doc, "lang": "eng"},
+                quote_via=urllib.parse.quote,
             )
+            href = f"{ISC_BASE}/DisplayBinaryData.aspx?{params}"
             filings.append(
                 {
                     "year": fy,
@@ -340,7 +272,6 @@ def parse_money(value):
 def response_output_text(response_json):
     if response_json.get("output_text"):
         return response_json["output_text"]
-
     chunks = []
     for item in response_json.get("output", []):
         for content in item.get("content", []):
@@ -364,10 +295,11 @@ def extract_with_openai_vision(pdf_bytes):
         '{"people":[{"name":str,"role":str,"months":number|null,'
         '"remuneration":number|null,"travel":number|null,"expenses":number|null,'
         '"creditCard":number|null,"otherPayments":number|null,"total":number|null}]}. '
-        "If no table is present, return {\"people\":[]}."
+        'If no table is present, return {"people":[]}.'
     )
     payload = {
         "model": os.getenv("OPENAI_MODEL", "gpt-4.1-mini"),
+        "max_tokens": 1000,
         "input": [
             {
                 "role": "user",
@@ -387,7 +319,10 @@ def extract_with_openai_vision(pdf_bytes):
     req = urllib.request.Request(
         "https://api.openai.com/v1/responses",
         data=json.dumps(payload).encode("utf-8"),
-        headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
         method="POST",
     )
 
@@ -507,8 +442,8 @@ def extract_people_from_table(table):
             continue
 
         amounts = [parse_money(cell) for cell in cells]
-        amounts = [amount for amount in amounts if amount is not None]
-        if not amounts:
+        amounts_present = [a for a in amounts if a is not None]
+        if not amounts_present:
             continue
         if re.match(r"^\s*total\b", cells[0], re.I):
             continue
@@ -516,7 +451,6 @@ def extract_people_from_table(table):
         name = clean_person_name(value_by_key(cells, keys, "name"))
         role = value_by_key(cells, keys, "role") or ""
 
-        # Some schedules use a blank name header with role in column 1 and name in column 2.
         if not name and cells and re.search(r"chief|councillor|council", cells[0], re.I):
             role = role or cells[0]
             name = clean_person_name(cells[1] if len(cells) > 1 else "")
@@ -542,11 +476,10 @@ def extract_people_from_table(table):
         total = parse_money(value_by_key(cells, keys, "total"))
 
         if remuneration is None:
-            remuneration = amounts[0]
+            remuneration = amounts_present[0]
         if total is None:
             total = sum(
-                value or 0
-                for value in [remuneration, travel, expenses, credit_card, other_payments]
+                v or 0 for v in [remuneration, travel, expenses, credit_card, other_payments]
             )
 
         people.append(
@@ -622,15 +555,15 @@ def main():
     errors = 0
 
     for index, band in enumerate(BANDS, start=1):
-        print(f"[{index}/{len(BANDS)}] {band['name']} (#{band['id']})")
+        print(f"[{index}/{len(BANDS)}] {band['name']} (ISC #{band['id']})")
         filings = fetch_band_filings(band["id"])
 
         if filings is None:
-            filings = build_fallback_filings(band["id"])
+            filings = build_direct_pdf_urls(band["id"])
             errors += 1
             status = "fallback"
         elif not filings:
-            filings = build_fallback_filings(band["id"])
+            filings = build_direct_pdf_urls(band["id"])
             status = "no-filings-found"
         else:
             status = "ok"
@@ -656,6 +589,7 @@ def main():
                 "id": band["id"],
                 "name": band["name"],
                 "province": band["province"],
+                "treaty": band.get("treaty", ""),
                 "filings": enriched,
                 "status": status,
                 "scraped": utc_now(),
@@ -680,3 +614,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
