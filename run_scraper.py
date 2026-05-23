@@ -1,11 +1,14 @@
 """Compatibility launcher for the OpenBand scraper.
 
-Keeps the nightly run bounded. The scraper can discover the full filing archive,
-but PDF table extraction is limited to the current filing year first so more
-First Nations get displayable rows before older years are attempted.
+Keeps the nightly run bounded and adds a text-parser fallback for FNFTA PDFs.
+Some ISC PDFs do not expose clean table grids to pdfplumber, but their visible
+text still contains the Chief and Council rows. This launcher parses those rows
+before falling back to OpenAI.
 """
 
+import io
 import os
+import re
 import urllib.request
 
 _real_urlopen = urllib.request.urlopen
@@ -32,7 +35,174 @@ _ALLOWED_YEARS = {
 _MAX_PDF_ATTEMPTS = int(os.getenv("OPENBAND_MAX_PDF_ATTEMPTS", "70"))
 _attempts = {"count": 0}
 _original_should_parse_people = scraper.should_parse_people
-_original_extract_remuneration_rows = scraper.extract_remuneration_rows
+
+_MONEY_RE = re.compile(r"\(?\$?\s*-?\d{1,3}(?:,\d{3})*(?:\.\d+)?\)?|\(?\$?\s*-?\d+(?:\.\d+)?\)?")
+_SKIP_LINE_RE = re.compile(
+    r"\b(total|signature|schedule|unaudited|audited|note|acknowledged|approved|remuneration|expenses|payments|months|position|name)\b",
+    re.I,
+)
+
+
+def _parse_amount(value):
+    return scraper.parse_money(value)
+
+
+def _parse_text_line(line):
+    line = " ".join(str(line or "").replace("$", " $ ").split())
+    if not line or _SKIP_LINE_RE.search(line) and not re.search(r"\b(chief|councillor|councilor)\b", line, re.I):
+        return None
+    if not re.search(r"\b(chief|councillor|councilor)\b", line, re.I):
+        return None
+
+    matches = list(_MONEY_RE.finditer(line))
+    values = []
+    for match in matches:
+        raw = match.group(0).replace("$", "").strip()
+        amount = _parse_amount(raw)
+        if amount is not None:
+            values.append({"raw": raw, "amount": amount, "start": match.start(), "end": match.end()})
+    if len(values) < 2:
+        return None
+
+    first_value = values[0]
+    months = None
+    money_values = values
+    if first_value["amount"] <= 24 and "," not in first_value["raw"] and "." not in first_value["raw"]:
+        months = first_value["amount"]
+        money_values = values[1:]
+    if len(money_values) < 2:
+        return None
+
+    name_part = line[: first_value["start"]].strip(" -:\t")
+    role_match = re.search(r"\b(chief|councillor|councilor)\b", name_part, re.I)
+    if not role_match:
+        return None
+
+    role_word = role_match.group(1).lower()
+    role = "Chief" if role_word == "chief" else "Councillor"
+    if role_match.start() == 0:
+        name = name_part[role_match.end() :].strip(" -:\t")
+    else:
+        name = name_part[: role_match.start()].strip(" -:\t")
+    name = scraper.clean_person_name(name)
+    if not name or len(name) < 2:
+        return None
+
+    amounts = [item["amount"] for item in money_values]
+    remuneration = amounts[0] if len(amounts) > 0 else None
+    travel = amounts[1] if len(amounts) > 1 else None
+    expenses = None
+    credit_card = None
+    other_payments = None
+    total = None
+
+    if len(amounts) >= 5:
+        expenses = amounts[2]
+        credit_card = amounts[3]
+        total = amounts[4]
+    elif len(amounts) == 4:
+        expenses = amounts[2]
+        total = amounts[3]
+    elif len(amounts) == 3:
+        other_payments = amounts[2]
+        total = sum(value or 0 for value in [remuneration, travel, other_payments])
+    elif len(amounts) == 2:
+        total = sum(value or 0 for value in [remuneration, travel])
+
+    if total is None:
+        total = sum(value or 0 for value in [remuneration, travel, expenses, credit_card, other_payments])
+
+    return {
+        "name": name,
+        "role": role,
+        "months": months,
+        "remuneration": remuneration,
+        "travel": travel,
+        "expenses": expenses,
+        "creditCard": credit_card,
+        "otherPayments": other_payments,
+        "total": total,
+    }
+
+
+def _dedupe_people(people):
+    seen = set()
+    clean = []
+    for person in people:
+        key = (person.get("name", "").lower(), person.get("role", "").lower())
+        if not person.get("name") or key in seen:
+            continue
+        seen.add(key)
+        clean.append(person)
+    return clean
+
+
+def _extract_people_from_text(pdf_bytes):
+    if scraper.pdfplumber is None:
+        return []
+    people = []
+    with scraper.pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+        for page in pdf.pages:
+            text = page.extract_text(x_tolerance=1, y_tolerance=3) or ""
+            for line in text.splitlines():
+                person = _parse_text_line(line)
+                if person:
+                    people.append(person)
+    return _dedupe_people(people)
+
+
+def _extract_remuneration_rows_enhanced(pdf_url):
+    if not pdf_url:
+        return {"parse_status": "no_pdf_url", "warnings": ["No PDF URL available"], "people": []}
+
+    warnings = []
+    try:
+        pdf_bytes = scraper.fetch_url(scraper.normalize_pdf_url(pdf_url), timeout=30)
+    except Exception as exc:
+        return {
+            "parse_status": "error_pdf_download",
+            "warnings": [f"PDF download failed: {exc}"],
+            "people": [],
+        }
+
+    if scraper.pdfplumber is not None:
+        try:
+            people = []
+            with scraper.pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+                for page in pdf.pages:
+                    for table in page.extract_tables() or []:
+                        people.extend(scraper.extract_people_from_table(table))
+            people = _dedupe_people(people)
+            if people:
+                return {"parse_status": "ok_pdfplumber", "warnings": warnings, "people": people}
+        except Exception as exc:
+            warnings.append(f"PDF table extraction failed: {exc}")
+
+        try:
+            text_people = _extract_people_from_text(pdf_bytes)
+            if text_people:
+                return {
+                    "parse_status": "ok_pdf_text",
+                    "warnings": warnings + ["Parsed from PDF text fallback"],
+                    "people": text_people,
+                }
+        except Exception as exc:
+            warnings.append(f"PDF text extraction failed: {exc}")
+    else:
+        warnings.append("pdfplumber unavailable")
+
+    ai_result = scraper.extract_with_openai_vision(pdf_bytes)
+    if ai_result.get("people"):
+        ai_result["warnings"] = warnings + ["Parsed via OpenAI fallback"] + ai_result.get("warnings", [])
+        return ai_result
+
+    warnings.append("No remuneration rows detected from PDF table or text extraction")
+    warnings.extend(ai_result.get("warnings", []))
+    return {
+        "parse_status": ai_result.get("parse_status", "no_rows"),
+        "warnings": warnings,
+        "people": [],
+    }
 
 
 def _bounded_should_parse_people(filing):
@@ -50,7 +220,7 @@ def _bounded_extract_remuneration_rows(pdf_url):
         }
     _attempts["count"] += 1
     print(f"  parsing PDF {_attempts['count']}/{_MAX_PDF_ATTEMPTS}")
-    return _original_extract_remuneration_rows(pdf_url)
+    return _extract_remuneration_rows_enhanced(pdf_url)
 
 
 scraper.should_parse_people = _bounded_should_parse_people
