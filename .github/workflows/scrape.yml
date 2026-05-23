@@ -1,9 +1,11 @@
 name: Scrape FNFTA data
 
 on:
-  schedule:
-    - cron: "17 8 * * *"
-  workflow_dispatch:
+  # Temporarily disabled while stuck queued runs clear from GitHub Actions.
+  # Re-enable by restoring the schedule and workflow_dispatch triggers.
+  push:
+    branches-ignore:
+      - "**"
 
 permissions:
   contents: write
