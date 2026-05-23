@@ -11,7 +11,7 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
 
     steps:
       - name: Check out repository
@@ -29,8 +29,8 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: gpt-4.1-mini
-          OPENBAND_PARSE_YEARS: "2024-2025"
-          OPENBAND_MAX_PDF_ATTEMPTS: "80"
+          OPENBAND_PARSE_YEARS: "2024-2025,2023-2024,2022-2023"
+          OPENBAND_MAX_PDF_ATTEMPTS: "180"
         run: python run_scraper.py
 
       - name: Commit updated data
