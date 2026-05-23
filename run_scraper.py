@@ -1,8 +1,8 @@
 """Compatibility launcher for the OpenBand scraper.
 
 Keeps the nightly run bounded. The scraper can discover the full filing archive,
-but PDF table extraction is limited to recent years so GitHub Actions does not
-spend hours attempting old scanned PDFs.
+but PDF table extraction is limited to the current filing year first so more
+First Nations get displayable rows before older years are attempted.
 """
 
 import os
@@ -26,10 +26,10 @@ scraper.urllib.request.urlopen = _patched_urlopen
 
 _ALLOWED_YEARS = {
     y.strip()
-    for y in os.getenv("OPENBAND_PARSE_YEARS", "2024-2025,2023-2024,2022-2023").split(",")
+    for y in os.getenv("OPENBAND_PARSE_YEARS", "2024-2025").split(",")
     if y.strip()
 }
-_MAX_PDF_ATTEMPTS = int(os.getenv("OPENBAND_MAX_PDF_ATTEMPTS", "80"))
+_MAX_PDF_ATTEMPTS = int(os.getenv("OPENBAND_MAX_PDF_ATTEMPTS", "70"))
 _attempts = {"count": 0}
 _original_should_parse_people = scraper.should_parse_people
 _original_extract_remuneration_rows = scraper.extract_remuneration_rows
