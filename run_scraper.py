@@ -27,12 +27,25 @@ import scraper  # noqa: E402
 
 scraper.urllib.request.urlopen = _patched_urlopen
 
+# Extra Saskatchewan First Nations flagged during OpenBand coverage review.
+# IDs are ISC First Nation Profile band numbers used by the FNFTA filing pages.
+_EXTRA_BANDS = [
+    {"id": 404, "name": "Big River First Nation", "province": "SK", "treaty": "Treaty 6"},
+    {"id": 403, "name": "Birch Narrows Dene Nation", "province": "SK", "treaty": "Treaty 10"},
+    {"id": 359, "name": "Black Lake Denesuline First Nation", "province": "SK", "treaty": "Treaty 8"},
+    {"id": 351, "name": "Fond du Lac Denesuline First Nation", "province": "SK", "treaty": "Treaty 8"},
+    {"id": 370, "name": "James Smith Cree Nation", "province": "SK", "treaty": "Treaty 6"},
+    {"id": 393, "name": "Kawacatoose First Nation", "province": "SK", "treaty": "Treaty 4"},
+]
+_existing_ids = {band.get("id") for band in scraper.BANDS}
+scraper.BANDS.extend(band for band in _EXTRA_BANDS if band["id"] not in _existing_ids)
+
 _ALLOWED_YEARS = {
     y.strip()
     for y in os.getenv("OPENBAND_PARSE_YEARS", "2024-2025").split(",")
     if y.strip()
 }
-_MAX_PDF_ATTEMPTS = int(os.getenv("OPENBAND_MAX_PDF_ATTEMPTS", "70"))
+_MAX_PDF_ATTEMPTS = int(os.getenv("OPENBAND_MAX_PDF_ATTEMPTS", "80"))
 _attempts = {"count": 0}
 _original_should_parse_people = scraper.should_parse_people
 
@@ -41,17 +54,37 @@ _SKIP_LINE_RE = re.compile(
     r"\b(total|signature|schedule|unaudited|audited|note|acknowledged|approved|remuneration|expenses|payments|months|position|name)\b",
     re.I,
 )
+_PROJECT_LINE_RE = re.compile(
+    r"\b(project|program|contract|consulting|construction|maintenance|repair|renovation|insurance|administration|audit|legal|professional|revenue|income|asset|liability|payable|receivable)\b",
+    re.I,
+)
+_NAME_RE = re.compile(r"^[A-Z][A-Za-z'’.-]+(?:\s+[A-Z][A-Za-z'’.-]+){1,5}\*?$")
 
 
 def _parse_amount(value):
     return scraper.parse_money(value)
 
 
-def _parse_text_line(line):
+def _looks_like_person_name(value):
+    text = scraper.clean_person_name(value)
+    if not text or _PROJECT_LINE_RE.search(text):
+        return False
+    if re.search(r"\b(chief|councillor|councilor|total|travel|expense|payment|salary|wage)\b", text, re.I):
+        return False
+    return bool(_NAME_RE.match(text))
+
+
+def _parse_text_line(line, allow_inferred_councillor=False):
     line = " ".join(str(line or "").replace("$", " $ ").split())
-    if not line or _SKIP_LINE_RE.search(line) and not re.search(r"\b(chief|councillor|councilor)\b", line, re.I):
+    if not line:
         return None
-    if not re.search(r"\b(chief|councillor|councilor)\b", line, re.I):
+
+    has_role = re.search(r"\b(chief|councillor|councilor)\b", line, re.I)
+    if _SKIP_LINE_RE.search(line) and not has_role:
+        return None
+    if _PROJECT_LINE_RE.search(line) and not has_role:
+        return None
+    if not has_role and not allow_inferred_councillor:
         return None
 
     matches = list(_MONEY_RE.finditer(line))
@@ -75,17 +108,19 @@ def _parse_text_line(line):
 
     name_part = line[: first_value["start"]].strip(" -:\t")
     role_match = re.search(r"\b(chief|councillor|councilor)\b", name_part, re.I)
-    if not role_match:
-        return None
-
-    role_word = role_match.group(1).lower()
-    role = "Chief" if role_word == "chief" else "Councillor"
-    if role_match.start() == 0:
-        name = name_part[role_match.end() :].strip(" -:\t")
+    if role_match:
+        role_word = role_match.group(1).lower()
+        role = "Chief" if role_word == "chief" else "Councillor"
+        if role_match.start() == 0:
+            name = name_part[role_match.end() :].strip(" -:\t")
+        else:
+            name = name_part[: role_match.start()].strip(" -:\t")
     else:
-        name = name_part[: role_match.start()].strip(" -:\t")
+        role = "Councillor"
+        name = name_part
+
     name = scraper.clean_person_name(name)
-    if not name or len(name) < 2:
+    if not _looks_like_person_name(name):
         return None
 
     amounts = [item["amount"] for item in money_values]
@@ -144,8 +179,11 @@ def _extract_people_from_text(pdf_bytes):
     with scraper.pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
         for page in pdf.pages:
             text = page.extract_text(x_tolerance=1, y_tolerance=3) or ""
+            page_is_schedule = bool(
+                re.search(r"chief\s+and\s+council|chief\s+and\s+councillors|remuneration\s+and\s+expenses", text, re.I)
+            )
             for line in text.splitlines():
-                person = _parse_text_line(line)
+                person = _parse_text_line(line, allow_inferred_councillor=page_is_schedule)
                 if person:
                     people.append(person)
     return _dedupe_people(people)
@@ -173,8 +211,10 @@ def _extract_remuneration_rows_enhanced(pdf_url):
                     for table in page.extract_tables() or []:
                         people.extend(scraper.extract_people_from_table(table))
             people = _dedupe_people(people)
-            if people:
+            if people and not _looks_project_heavy(people):
                 return {"parse_status": "ok_pdfplumber", "warnings": warnings, "people": people}
+            if people:
+                warnings.append("Discarded table extraction because rows looked project-heavy")
         except Exception as exc:
             warnings.append(f"PDF table extraction failed: {exc}")
 
@@ -205,6 +245,13 @@ def _extract_remuneration_rows_enhanced(pdf_url):
     }
 
 
+def _looks_project_heavy(people):
+    if not people:
+        return False
+    bad = sum(1 for person in people if _PROJECT_LINE_RE.search(person.get("name", "")))
+    return bad >= max(1, len(people) // 2)
+
+
 def _bounded_should_parse_people(filing):
     if filing.get("year") not in _ALLOWED_YEARS:
         return False
@@ -228,6 +275,7 @@ scraper.extract_remuneration_rows = _bounded_extract_remuneration_rows
 
 if __name__ == "__main__":
     print("OpenBand bounded run")
+    print("  bands:", len(scraper.BANDS))
     print("  parse years:", ", ".join(sorted(_ALLOWED_YEARS)))
     print("  max PDF attempts:", _MAX_PDF_ATTEMPTS)
     scraper.main()
