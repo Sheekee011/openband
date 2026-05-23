@@ -9,6 +9,7 @@ before falling back to OpenAI.
 import io
 import os
 import re
+import urllib.parse
 import urllib.request
 
 _real_urlopen = urllib.request.urlopen
@@ -40,12 +41,50 @@ _EXTRA_BANDS = [
 _existing_ids = {band.get("id") for band in scraper.BANDS}
 scraper.BANDS.extend(band for band in _EXTRA_BANDS if band["id"] not in _existing_ids)
 
+
+def _build_direct_pdf_urls_with_current_year(band_id):
+    fiscal_years = [
+        "2024-2025",
+        "2023-2024",
+        "2022-2023",
+        "2021-2022",
+        "2020-2021",
+        "2019-2020",
+        "2018-2019",
+        "2017-2018",
+        "2016-2017",
+        "2015-2016",
+    ]
+    doc_types = [
+        "Audited consolidated financial statements",
+        "Schedule of Remuneration and Expenses",
+    ]
+    filings = []
+    for fy in fiscal_years:
+        for doc in doc_types:
+            params = urllib.parse.urlencode(
+                {"BAND_NUMBER_FF": band_id, "FY": fy, "DOC": doc, "lang": "eng"},
+                quote_via=urllib.parse.quote,
+            )
+            filings.append({
+                "year": fy,
+                "docType": doc,
+                "date": "See ISC",
+                "href": f"{scraper.ISC_BASE}/DisplayBinaryData.aspx?{params}",
+                "posted": True,
+                "fallback": True,
+            })
+    return filings
+
+
+scraper.build_direct_pdf_urls = _build_direct_pdf_urls_with_current_year
+
 _ALLOWED_YEARS = {
     y.strip()
-    for y in os.getenv("OPENBAND_PARSE_YEARS", "2024-2025").split(",")
+    for y in os.getenv("OPENBAND_PARSE_YEARS", "2024-2025,2023-2024,2022-2023").split(",")
     if y.strip()
 }
-_MAX_PDF_ATTEMPTS = int(os.getenv("OPENBAND_MAX_PDF_ATTEMPTS", "80"))
+_MAX_PDF_ATTEMPTS = int(os.getenv("OPENBAND_MAX_PDF_ATTEMPTS", "180"))
 _attempts = {"count": 0}
 _original_should_parse_people = scraper.should_parse_people
 
