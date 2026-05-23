@@ -1,6 +1,6 @@
 {
-  "generated": "2026-05-23T06:58:22Z",
-  "band_count": 62,
+  "generated": "2026-05-23T08:19:35Z",
+  "band_count": 68,
   "error_count": 0,
   "bands": [
     {
@@ -353,7 +353,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:20Z"
+      "scraped": "2026-05-23T08:15:32Z"
     },
     {
       "id": 361,
@@ -603,7 +603,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:21Z"
+      "scraped": "2026-05-23T08:15:34Z"
     },
     {
       "id": 366,
@@ -853,7 +853,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:22Z"
+      "scraped": "2026-05-23T08:15:35Z"
     },
     {
       "id": 389,
@@ -1103,7 +1103,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:23Z"
+      "scraped": "2026-05-23T08:15:36Z"
     },
     {
       "id": 391,
@@ -1349,15 +1349,103 @@
           "posted": true,
           "people": [
             {
-              "name": "Alexander (Byron) Bitternose",
-              "role": "Chief",
+              "name": "YEAR ENDED MARCH",
+              "role": "Councillor",
+              "months": null,
+              "remuneration": 31.0,
+              "travel": 202.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 5.0,
+              "total": 238.0
+            },
+            {
+              "name": "Alice Bitternose",
+              "role": "Councillor",
               "months": 6.0,
-              "remuneration": 43077.0,
-              "travel": 11240.0,
-              "expenses": 10501.0,
+              "remuneration": 24231.0,
+              "travel": 2900.0,
+              "expenses": 9638.0,
               "creditCard": null,
               "otherPayments": null,
-              "total": 11972.0
+              "total": 13138.0
+            },
+            {
+              "name": "Angela McNab",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 55754.0,
+              "travel": 7000.0,
+              "expenses": 26450.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 15893.0
+            },
+            {
+              "name": "Bryan L. McNabb",
+              "role": "Councillor",
+              "months": 6.0,
+              "remuneration": 24231.0,
+              "travel": 2600.0,
+              "expenses": 9497.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 18302.0
+            },
+            {
+              "name": "Daniel Cyr",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 53754.0,
+              "travel": 11768.0,
+              "expenses": 31800.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 27655.0
+            },
+            {
+              "name": "Donna Anderson-Blind",
+              "role": "Councillor",
+              "months": 6.0,
+              "remuneration": 24231.0,
+              "travel": 4200.0,
+              "expenses": 7989.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 5899.0
+            },
+            {
+              "name": "Jason Morris",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 55754.0,
+              "travel": 10500.0,
+              "expenses": 29995.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 13911.0
+            },
+            {
+              "name": "Lance McNab",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 55754.0,
+              "travel": 11000.0,
+              "expenses": 43617.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 14137.0
+            },
+            {
+              "name": "Tammy Pelletier",
+              "role": "Councillor",
+              "months": 6.0,
+              "remuneration": 24231.0,
+              "travel": 4200.0,
+              "expenses": 16240.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 7082.0
             },
             {
               "name": "Shawn R. Longman",
@@ -1369,6 +1457,50 @@
               "creditCard": null,
               "otherPayments": null,
               "total": 11505.0
+            },
+            {
+              "name": "Hugh Pratt",
+              "role": "Councillor",
+              "months": 6.0,
+              "remuneration": 33850.0,
+              "travel": 6300.0,
+              "expenses": 20707.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 5940.0
+            },
+            {
+              "name": "Ian Morris",
+              "role": "Councillor",
+              "months": 6.0,
+              "remuneration": 33850.0,
+              "travel": 7100.0,
+              "expenses": 19776.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 6159.0
+            },
+            {
+              "name": "Ivy Kennedy",
+              "role": "Councillor",
+              "months": 6.0,
+              "remuneration": 32985.0,
+              "travel": 5500.0,
+              "expenses": 7808.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 10344.0
+            },
+            {
+              "name": "Joseph E. McNab",
+              "role": "Councillor",
+              "months": 6.0,
+              "remuneration": 33850.0,
+              "travel": 7700.0,
+              "expenses": 18429.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 7490.0
             }
           ],
           "parse_status": "ok_pdf_text",
@@ -1378,7 +1510,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:25Z"
+      "scraped": "2026-05-23T08:15:39Z"
     },
     {
       "id": 362,
@@ -1624,6 +1756,17 @@
           "posted": true,
           "people": [
             {
+              "name": "YEAR ENDED MARCH",
+              "role": "Councillor",
+              "months": null,
+              "remuneration": 31.0,
+              "travel": 202.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 5.0,
+              "total": 238.0
+            },
+            {
               "name": "Evan Taypotat",
               "role": "Chief",
               "months": 12.0,
@@ -1633,6 +1776,50 @@
               "creditCard": 6852.0,
               "otherPayments": null,
               "total": 12.0
+            },
+            {
+              "name": "William Kaysaywaysemat",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 102884.0,
+              "travel": 9552.0,
+              "expenses": 88305.0,
+              "creditCard": 21718.0,
+              "otherPayments": null,
+              "total": 12.0
+            },
+            {
+              "name": "Iris Taypotat-Scribe",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 102884.0,
+              "travel": 8810.0,
+              "expenses": 80369.0,
+              "creditCard": 15734.0,
+              "otherPayments": null,
+              "total": 12595.0
+            },
+            {
+              "name": "Cory Alexson",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 102884.0,
+              "travel": 6465.0,
+              "expenses": 106476.0,
+              "creditCard": 19499.0,
+              "otherPayments": null,
+              "total": 9832.0
+            },
+            {
+              "name": "Michael Bob",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 102884.0,
+              "travel": 5673.0,
+              "expenses": 102933.0,
+              "creditCard": 21420.0,
+              "otherPayments": null,
+              "total": 8232.0
             }
           ],
           "parse_status": "ok_pdf_text",
@@ -1642,7 +1829,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:27Z"
+      "scraped": "2026-05-23T08:15:41Z"
     },
     {
       "id": 367,
@@ -1892,7 +2079,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:28Z"
+      "scraped": "2026-05-23T08:15:42Z"
     },
     {
       "id": 377,
@@ -2211,7 +2398,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:30Z"
+      "scraped": "2026-05-23T08:15:45Z"
     },
     {
       "id": 379,
@@ -2455,71 +2642,16 @@
           "date": "2025-09-24",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=379&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [
-            {
-              "name": "Bellegarde, Clarence",
-              "role": "Chief",
-              "months": 12.0,
-              "remuneration": 90497.0,
-              "travel": 40082.0,
-              "expenses": 77472.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 208051.0
-            },
-            {
-              "name": "Bellegarde, Holly",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 49227.0,
-              "travel": 78940.0,
-              "expenses": 27348.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 155515.0
-            },
-            {
-              "name": "Bellegarde, Randall",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 49227.0,
-              "travel": 30440.0,
-              "expenses": 21757.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 101424.0
-            },
-            {
-              "name": "Bellegarde, Trent",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 49227.0,
-              "travel": 30120.0,
-              "expenses": 27996.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 107343.0
-            },
-            {
-              "name": "Bellegarde, Michael J.",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 49227.0,
-              "travel": 56045.0,
-              "expenses": 28248.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 133520.0
-            }
-          ],
-          "parse_status": "ok_pdf_text",
+          "people": [],
+          "parse_status": "error_openai",
           "warnings": [
-            "Parsed from PDF text fallback"
+            "No remuneration rows detected from PDF table or text extraction",
+            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:33Z"
+      "scraped": "2026-05-23T08:15:58Z"
     },
     {
       "id": 341,
@@ -2769,7 +2901,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:34Z"
+      "scraped": "2026-05-23T08:15:59Z"
     },
     {
       "id": 396,
@@ -3099,7 +3231,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:36Z"
+      "scraped": "2026-05-23T08:16:02Z"
     },
     {
       "id": 374,
@@ -3427,7 +3559,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:38Z"
+      "scraped": "2026-05-23T08:16:04Z"
     },
     {
       "id": 371,
@@ -3673,15 +3805,15 @@
           "posted": true,
           "people": [
             {
-              "name": "Ronald Bear Chief",
-              "role": "Chief",
-              "months": 12.0,
-              "remuneration": 133048.0,
-              "travel": 14226.0,
+              "name": "YEAR ENDED MARCH",
+              "role": "Councillor",
+              "months": null,
+              "remuneration": 31.0,
+              "travel": 202.0,
               "expenses": null,
               "creditCard": null,
-              "otherPayments": null,
-              "total": 147274.0
+              "otherPayments": 5.0,
+              "total": 238.0
             },
             {
               "name": "Elaine Ross",
@@ -3746,7 +3878,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:39Z"
+      "scraped": "2026-05-23T08:16:06Z"
     },
     {
       "id": 363,
@@ -3996,7 +4128,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:40Z"
+      "scraped": "2026-05-23T08:16:07Z"
     },
     {
       "id": 344,
@@ -4246,7 +4378,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:42Z"
+      "scraped": "2026-05-23T08:16:09Z"
     },
     {
       "id": 383,
@@ -4496,7 +4628,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:43Z"
+      "scraped": "2026-05-23T08:16:10Z"
     },
     {
       "id": 384,
@@ -4746,7 +4878,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:44Z"
+      "scraped": "2026-05-23T08:16:11Z"
     },
     {
       "id": 405,
@@ -4996,7 +5128,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:45Z"
+      "scraped": "2026-05-23T08:16:12Z"
     },
     {
       "id": 355,
@@ -5246,7 +5378,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:46Z"
+      "scraped": "2026-05-23T08:16:14Z"
     },
     {
       "id": 409,
@@ -5554,7 +5686,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:48Z"
+      "scraped": "2026-05-23T08:16:16Z"
     },
     {
       "id": 345,
@@ -5798,93 +5930,16 @@
           "date": "2026-05-15",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=345&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [
-            {
-              "name": "Antoine, Duane",
-              "role": "Chief",
-              "months": 12.0,
-              "remuneration": 103503.0,
-              "travel": 50000.0,
-              "expenses": 33079.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 186582.0
-            },
-            {
-              "name": "Antoine, Leon",
-              "role": "Councillor",
-              "months": 10.0,
-              "remuneration": 66272.0,
-              "travel": 6000.0,
-              "expenses": 33970.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 106242.0
-            },
-            {
-              "name": "Checkosis, Norman",
-              "role": "Councillor",
-              "months": 10.0,
-              "remuneration": 66272.0,
-              "travel": 1000.0,
-              "expenses": 39306.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 106578.0
-            },
-            {
-              "name": "Chickeness, Marlene",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 78902.0,
-              "travel": 36932.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": 115834.0,
-              "total": 231668.0
-            },
-            {
-              "name": "Favel, Lester",
-              "role": "Councillor",
-              "months": 10.0,
-              "remuneration": 66272.0,
-              "travel": 33967.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": 100239.0,
-              "total": 200478.0
-            },
-            {
-              "name": "Favel, Brandon",
-              "role": "Councillor",
-              "months": 2.0,
-              "remuneration": 8400.0,
-              "travel": 5204.0,
-              "expenses": 1813.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 15417.0
-            },
-            {
-              "name": "Kasokeo, Darwin",
-              "role": "Councillor",
-              "months": 2.0,
-              "remuneration": 8400.0,
-              "travel": 46402.0,
-              "expenses": 1813.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 56615.0
-            }
-          ],
-          "parse_status": "ok_pdf_text",
+          "people": [],
+          "parse_status": "error_openai",
           "warnings": [
-            "Parsed from PDF text fallback"
+            "No remuneration rows detected from PDF table or text extraction",
+            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:50Z"
+      "scraped": "2026-05-23T08:16:27Z"
     },
     {
       "id": 356,
@@ -6134,7 +6189,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:52Z"
+      "scraped": "2026-05-23T08:16:28Z"
     },
     {
       "id": 346,
@@ -6484,7 +6539,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:53Z"
+      "scraped": "2026-05-23T08:16:30Z"
     },
     {
       "id": 364,
@@ -6734,7 +6789,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:55Z"
+      "scraped": "2026-05-23T08:16:32Z"
     },
     {
       "id": 357,
@@ -6984,7 +7039,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:56Z"
+      "scraped": "2026-05-23T08:16:33Z"
     },
     {
       "id": 348,
@@ -7230,6 +7285,17 @@
           "posted": true,
           "people": [
             {
+              "name": "YEAR ENDED MARCH",
+              "role": "Councillor",
+              "months": null,
+              "remuneration": 31.0,
+              "travel": 202.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 5.0,
+              "total": 238.0
+            },
+            {
               "name": "Lorie Whitecalf",
               "role": "Chief",
               "months": 12.0,
@@ -7239,6 +7305,72 @@
               "creditCard": null,
               "otherPayments": null,
               "total": 87604.0
+            },
+            {
+              "name": "Isaac Thomas",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 50142.0,
+              "travel": 20097.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 70239.0
+            },
+            {
+              "name": "Trina Albert",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 50142.0,
+              "travel": 29293.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 79435.0
+            },
+            {
+              "name": "Donovan Arcand",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 49892.0,
+              "travel": 17935.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 67827.0
+            },
+            {
+              "name": "Hazen Paskimin",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 50142.0,
+              "travel": 22734.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 72876.0
+            },
+            {
+              "name": "Kelsey Pooyak",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 50142.0,
+              "travel": 23688.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 73830.0
+            },
+            {
+              "name": "Lamarr Oksasikewiyin",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 50142.0,
+              "travel": 19814.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 69956.0
             }
           ],
           "parse_status": "ok_pdf_text",
@@ -7248,7 +7380,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:58Z"
+      "scraped": "2026-05-23T08:16:35Z"
     },
     {
       "id": 368,
@@ -7498,7 +7630,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:56:59Z"
+      "scraped": "2026-05-23T08:16:37Z"
     },
     {
       "id": 349,
@@ -7748,7 +7880,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:00Z"
+      "scraped": "2026-05-23T08:16:38Z"
     },
     {
       "id": 358,
@@ -7998,7 +8130,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:02Z"
+      "scraped": "2026-05-23T08:16:39Z"
     },
     {
       "id": 402,
@@ -8361,7 +8493,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:04Z"
+      "scraped": "2026-05-23T08:16:41Z"
     },
     {
       "id": 365,
@@ -8607,17 +8739,6 @@
           "posted": true,
           "people": [
             {
-              "name": "Jonathan Pasap Chief",
-              "role": "Chief",
-              "months": 12.0,
-              "remuneration": 98381.0,
-              "travel": 5975.0,
-              "expenses": 104356.0,
-              "creditCard": 49071.0,
-              "otherPayments": null,
-              "total": 153427.0
-            },
-            {
               "name": "Tanya Littlechief",
               "role": "Councillor",
               "months": 12.0,
@@ -8691,7 +8812,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:06Z"
+      "scraped": "2026-05-23T08:16:44Z"
     },
     {
       "id": 372,
@@ -8941,7 +9062,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:07Z"
+      "scraped": "2026-05-23T08:16:45Z"
     },
     {
       "id": 388,
@@ -9185,93 +9306,16 @@
           "date": "2025-07-05",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=388&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [
-            {
-              "name": "LeCaine, Ellen",
-              "role": "Chief",
-              "months": 12.0,
-              "remuneration": 50400.0,
-              "travel": 25362.0,
-              "expenses": 13810.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 89572.0
-            },
-            {
-              "name": "Craig, Angeline",
-              "role": "Councillor",
-              "months": 6.0,
-              "remuneration": 12000.0,
-              "travel": 9750.0,
-              "expenses": 128.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 21878.0
-            },
-            {
-              "name": "LeCaine, Eric",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 24000.0,
-              "travel": 19200.0,
-              "expenses": 8772.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 51972.0
-            },
-            {
-              "name": "Lethbridge, Loretta",
-              "role": "Councillor",
-              "months": 6.0,
-              "remuneration": 12000.0,
-              "travel": 3150.0,
-              "expenses": 5482.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 20632.0
-            },
-            {
-              "name": "Ogle, Colten ",
-              "role": "Councillor",
-              "months": 6.0,
-              "remuneration": 12000.0,
-              "travel": 66482.0,
-              "expenses": 4664.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 83146.0
-            },
-            {
-              "name": "Ogle, David",
-              "role": "Councillor",
-              "months": 6.0,
-              "remuneration": 12000.0,
-              "travel": 6250.0,
-              "expenses": 1497.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 19747.0
-            },
-            {
-              "name": "Ogle, Travis",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 24000.0,
-              "travel": 19650.0,
-              "expenses": 8421.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 52071.0
-            }
-          ],
-          "parse_status": "ok_pdf_text",
+          "people": [],
+          "parse_status": "error_openai",
           "warnings": [
-            "Parsed from PDF text fallback"
+            "No remuneration rows detected from PDF table or text extraction",
+            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:09Z"
+      "scraped": "2026-05-23T08:16:55Z"
     },
     {
       "id": 376,
@@ -9521,7 +9565,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:10Z"
+      "scraped": "2026-05-23T08:16:56Z"
     },
     {
       "id": 406,
@@ -9767,6 +9811,17 @@
           "posted": true,
           "people": [
             {
+              "name": "YEAR ENDED MARCH",
+              "role": "Councillor",
+              "months": null,
+              "remuneration": 31.0,
+              "travel": 202.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 5.0,
+              "total": 238.0
+            },
+            {
               "name": "Larry Ahenakew",
               "role": "Chief",
               "months": 12.0,
@@ -9776,6 +9831,138 @@
               "creditCard": null,
               "otherPayments": 107235.0,
               "total": 166936.0
+            },
+            {
+              "name": "Stanley Sasakamoose",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 31006.0,
+              "travel": 14234.0,
+              "expenses": 60923.0,
+              "creditCard": 475.0,
+              "otherPayments": null,
+              "total": 31430.0
+            },
+            {
+              "name": "Rodney Sasakamoose",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 41419.0,
+              "travel": 23007.0,
+              "expenses": 45760.0,
+              "creditCard": 7021.0,
+              "otherPayments": null,
+              "total": 9837.0
+            },
+            {
+              "name": "Lanny Ahenakew",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 25515.0,
+              "travel": 14005.0,
+              "expenses": 69692.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 900.0
+            },
+            {
+              "name": "James Isbister",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 28681.0,
+              "travel": 9231.0,
+              "expenses": 63346.0,
+              "creditCard": 3857.0,
+              "otherPayments": null,
+              "total": 24.0
+            },
+            {
+              "name": "Dean Genereaux",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 17600.0,
+              "travel": 16878.0,
+              "expenses": 38340.0,
+              "creditCard": 2025.0,
+              "otherPayments": null,
+              "total": 424.0
+            },
+            {
+              "name": "Cynthia Williams-Johnstone",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 53268.0,
+              "travel": 16473.0,
+              "expenses": 3185.0,
+              "creditCard": 1149.0,
+              "otherPayments": null,
+              "total": 560.0
+            },
+            {
+              "name": "Russell Ahenakew",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 54087.0,
+              "travel": 18412.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 72499.0
+            },
+            {
+              "name": "Evan Williams",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 57425.0,
+              "travel": 13419.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 70844.0
+            },
+            {
+              "name": "Chad Peekeekoot",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 52884.0,
+              "travel": 15418.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 68302.0
+            },
+            {
+              "name": "David Masuskapoe",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 49013.0,
+              "travel": 15653.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 64666.0
+            },
+            {
+              "name": "Patricia Isbister",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 47662.0,
+              "travel": 12479.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 60141.0
+            },
+            {
+              "name": "Ben Ahenakew",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 31759.0,
+              "travel": 6697.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 38456.0
             }
           ],
           "parse_status": "ok_pdf_text",
@@ -9785,7 +9972,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:12Z"
+      "scraped": "2026-05-23T08:16:58Z"
     },
     {
       "id": 369,
@@ -10029,102 +10216,17 @@
           "date": "2025-07-28",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=369&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [
-            {
-              "name": "Water treatment plant upgrades",
-              "role": "Council",
-              "months": null,
-              "remuneration": 3210838.0,
-              "travel": null,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 3210838.0
-            },
-            {
-              "name": "Sewage lagoon project",
-              "role": "Council",
-              "months": null,
-              "remuneration": 10282299.0,
-              "travel": null,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 10282299.0
-            },
-            {
-              "name": "Subdivision expansion project",
-              "role": "Council",
-              "months": null,
-              "remuneration": 179305.0,
-              "travel": null,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 179305.0
-            },
-            {
-              "name": "Signage project",
-              "role": "Council",
-              "months": null,
-              "remuneration": 147275.0,
-              "travel": null,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 147275.0
-            },
-            {
-              "name": "Subdivision drainage improvements",
-              "role": "Council",
-              "months": null,
-              "remuneration": 113713.0,
-              "travel": null,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 113713.0
-            },
-            {
-              "name": "Community lighting",
-              "role": "Council",
-              "months": null,
-              "remuneration": 13032.0,
-              "travel": null,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 13032.0
-            },
-            {
-              "name": "Gasification project",
-              "role": "Council",
-              "months": null,
-              "remuneration": 8117.0,
-              "travel": null,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 8117.0
-            },
-            {
-              "name": "Fire protection project",
-              "role": "Council",
-              "months": null,
-              "remuneration": 6372.0,
-              "travel": null,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 6372.0
-            }
-          ],
-          "parse_status": "ok_pdfplumber",
-          "warnings": []
+          "people": [],
+          "parse_status": "error_openai",
+          "warnings": [
+            "Discarded table extraction because rows looked project-heavy",
+            "No remuneration rows detected from PDF table or text extraction",
+            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+          ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:17Z"
+      "scraped": "2026-05-23T08:17:19Z"
     },
     {
       "id": 398,
@@ -10434,28 +10536,6 @@
               "creditCard": null,
               "otherPayments": null,
               "total": 1990.0
-            },
-            {
-              "name": "Former",
-              "role": "Chief",
-              "months": 8.0,
-              "remuneration": 55577.0,
-              "travel": 54426.0,
-              "expenses": 7743.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 36787.0
-            },
-            {
-              "name": "Former",
-              "role": "Councillor",
-              "months": 11.0,
-              "remuneration": 73846.0,
-              "travel": 55351.0,
-              "expenses": 5051.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 7052.0
             }
           ],
           "parse_status": "ok_pdf_text",
@@ -10465,7 +10545,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:20Z"
+      "scraped": "2026-05-23T08:17:21Z"
     },
     {
       "id": 394,
@@ -10715,7 +10795,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:21Z"
+      "scraped": "2026-05-23T08:17:23Z"
     },
     {
       "id": 401,
@@ -10965,7 +11045,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:22Z"
+      "scraped": "2026-05-23T08:17:24Z"
     },
     {
       "id": 350,
@@ -11215,7 +11295,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:23Z"
+      "scraped": "2026-05-23T08:17:25Z"
     },
     {
       "id": 400,
@@ -11465,7 +11545,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:25Z"
+      "scraped": "2026-05-23T08:17:27Z"
     },
     {
       "id": 390,
@@ -11718,7 +11798,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:37Z"
+      "scraped": "2026-05-23T08:17:38Z"
     },
     {
       "id": 395,
@@ -12059,7 +12139,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:38Z"
+      "scraped": "2026-05-23T08:17:41Z"
     },
     {
       "id": 352,
@@ -12303,137 +12383,16 @@
           "date": "2026-04-02",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=352&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [
-            {
-              "name": "Tsannie, Bartholomew",
-              "role": "Chief",
-              "months": 12.0,
-              "remuneration": 100000.0,
-              "travel": 16700.0,
-              "expenses": 87204.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 203904.0
-            },
-            {
-              "name": "Denedchezhe, Marie",
-              "role": "Councillor",
-              "months": 10.0,
-              "remuneration": 66000.0,
-              "travel": 7779.0,
-              "expenses": 62054.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 135833.0
-            },
-            {
-              "name": "Dzenlioun, Veronique",
-              "role": "Councillor",
-              "months": 10.0,
-              "remuneration": 53750.0,
-              "travel": 4300.0,
-              "expenses": 47471.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 105521.0
-            },
-            {
-              "name": "Dzeylion, Jaden",
-              "role": "Councillor",
-              "months": 10.0,
-              "remuneration": 43000.0,
-              "travel": 8100.0,
-              "expenses": 31327.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 82427.0
-            },
-            {
-              "name": "Gazandlare, Peter",
-              "role": "Councillor",
-              "months": 2.0,
-              "remuneration": 8000.0,
-              "travel": 7000.0,
-              "expenses": 8321.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 23321.0
-            },
-            {
-              "name": "Hansen, Nancy",
-              "role": "Councillor",
-              "months": 2.0,
-              "remuneration": 8000.0,
-              "travel": 7200.0,
-              "expenses": 2375.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 17575.0
-            },
-            {
-              "name": "Joseyounen, Joseph",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 74000.0,
-              "travel": 12500.0,
-              "expenses": 67188.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 153688.0
-            },
-            {
-              "name": "Josie, Louis",
-              "role": "Councillor",
-              "months": 2.0,
-              "remuneration": 8000.0,
-              "travel": 7000.0,
-              "expenses": 8396.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 23396.0
-            },
-            {
-              "name": "Mercredi, Glenda",
-              "role": "Councillor",
-              "months": 10.0,
-              "remuneration": 66000.0,
-              "travel": 8500.0,
-              "expenses": 60716.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 135216.0
-            },
-            {
-              "name": "Tsannie, George",
-              "role": "Councillor",
-              "months": 2.0,
-              "remuneration": 8000.0,
-              "travel": 9000.0,
-              "expenses": 6496.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 23496.0
-            },
-            {
-              "name": "Tsannie, Melinda",
-              "role": "Councillor",
-              "months": 10.0,
-              "remuneration": 44000.0,
-              "travel": 5200.0,
-              "expenses": 37713.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 86913.0
-            }
-          ],
-          "parse_status": "ok_pdf_text",
+          "people": [],
+          "parse_status": "error_openai",
           "warnings": [
-            "Parsed from PDF text fallback"
+            "No remuneration rows detected from PDF table or text extraction",
+            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:41Z"
+      "scraped": "2026-05-23T08:17:53Z"
     },
     {
       "id": 353,
@@ -12683,7 +12642,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:42Z"
+      "scraped": "2026-05-23T08:17:54Z"
     },
     {
       "id": 340,
@@ -12933,7 +12892,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:43Z"
+      "scraped": "2026-05-23T08:17:55Z"
     },
     {
       "id": 397,
@@ -13183,7 +13142,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:44Z"
+      "scraped": "2026-05-23T08:17:57Z"
     },
     {
       "id": 354,
@@ -13438,6 +13397,94 @@
               "creditCard": null,
               "otherPayments": null,
               "total": 169923.0
+            },
+            {
+              "name": "Dean Henderson",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 71000.0,
+              "travel": 64998.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 135998.0
+            },
+            {
+              "name": "Jeff Badger",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 70000.0,
+              "travel": 67759.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 137759.0
+            },
+            {
+              "name": "Troy Naytowhow",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 65000.0,
+              "travel": 70390.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 135390.0
+            },
+            {
+              "name": "Eldon Henderson",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 65000.0,
+              "travel": 41593.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 106593.0
+            },
+            {
+              "name": "Charmaine Ermine",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 55000.0,
+              "travel": 94116.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 149116.0
+            },
+            {
+              "name": "Carol Naytowhow",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 55000.0,
+              "travel": 89833.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 144833.0
+            },
+            {
+              "name": "Elisa Halkett",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 55000.0,
+              "travel": 75500.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 130500.0
+            },
+            {
+              "name": "Allen Naytowhow",
+              "role": "Councillor",
+              "months": 5.0,
+              "remuneration": 17308.0,
+              "travel": 36300.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 53608.0
             }
           ],
           "parse_status": "ok_pdf_text",
@@ -13447,7 +13494,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:46Z"
+      "scraped": "2026-05-23T08:17:59Z"
     },
     {
       "id": 342,
@@ -13693,6 +13740,17 @@
           "posted": true,
           "people": [
             {
+              "name": "YEAR ENDED MARCH",
+              "role": "Councillor",
+              "months": null,
+              "remuneration": 31.0,
+              "travel": 202.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 5.0,
+              "total": 238.0
+            },
+            {
               "name": "Cheryl Kahpeaysewat",
               "role": "Chief",
               "months": 7.0,
@@ -13704,6 +13762,94 @@
               "total": 167670.0
             },
             {
+              "name": "Harry Moosomin",
+              "role": "Councillor",
+              "months": 7.0,
+              "remuneration": 23273.0,
+              "travel": 83729.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 5949.0,
+              "total": 112951.0
+            },
+            {
+              "name": "Fabian Swiftwolfe",
+              "role": "Councillor",
+              "months": 7.0,
+              "remuneration": 31532.0,
+              "travel": 80451.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 1200.0,
+              "total": 113183.0
+            },
+            {
+              "name": "Iver Swiftwolfe",
+              "role": "Councillor",
+              "months": 7.0,
+              "remuneration": 27778.0,
+              "travel": 77066.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 600.0,
+              "total": 105444.0
+            },
+            {
+              "name": "Lance Myo",
+              "role": "Councillor",
+              "months": 4.0,
+              "remuneration": 9760.0,
+              "travel": 33755.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 52881.0,
+              "total": 96396.0
+            },
+            {
+              "name": "Preston Weenie",
+              "role": "Councillor",
+              "months": 7.0,
+              "remuneration": 23273.0,
+              "travel": 114516.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 137789.0
+            },
+            {
+              "name": "Gage Bird",
+              "role": "Councillor",
+              "months": 7.0,
+              "remuneration": 23273.0,
+              "travel": 102863.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 126136.0
+            },
+            {
+              "name": "Jamie Mooswa",
+              "role": "Councillor",
+              "months": 7.0,
+              "remuneration": 23273.0,
+              "travel": 82401.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 250.0,
+              "total": 105924.0
+            },
+            {
+              "name": "Willie Blind",
+              "role": "Councillor",
+              "months": 7.0,
+              "remuneration": 23273.0,
+              "travel": 86659.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 2000.0,
+              "total": 111932.0
+            },
+            {
               "name": "Quenton Swiftwolfe",
               "role": "Chief",
               "months": 5.0,
@@ -13713,6 +13859,50 @@
               "creditCard": null,
               "otherPayments": null,
               "total": 45218.0
+            },
+            {
+              "name": "Waylon Arcand",
+              "role": "Councillor",
+              "months": 5.0,
+              "remuneration": 24231.0,
+              "travel": 30215.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 750.0,
+              "total": 55196.0
+            },
+            {
+              "name": "Neil Mair",
+              "role": "Councillor",
+              "months": 5.0,
+              "remuneration": 24231.0,
+              "travel": 32797.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 57028.0
+            },
+            {
+              "name": "Miranda Martell",
+              "role": "Councillor",
+              "months": 5.0,
+              "remuneration": 24231.0,
+              "travel": 22333.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 450.0,
+              "total": 47014.0
+            },
+            {
+              "name": "Reuben Smith",
+              "role": "Councillor",
+              "months": 5.0,
+              "remuneration": 24231.0,
+              "travel": 29419.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 200.0,
+              "total": 53850.0
             }
           ],
           "parse_status": "ok_pdf_text",
@@ -13722,7 +13912,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:49Z"
+      "scraped": "2026-05-23T08:18:02Z"
     },
     {
       "id": 343,
@@ -13966,82 +14156,16 @@
           "date": "2026-02-11",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=343&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [
-            {
-              "name": "Aguilar-Antiman, Tanya",
-              "role": "Chief",
-              "months": 12.0,
-              "remuneration": 60000.0,
-              "travel": 56812.0,
-              "expenses": 10000.0,
-              "creditCard": 91248.0,
-              "otherPayments": null,
-              "total": 6970.0
-            },
-            {
-              "name": "Pahsaknunk, Rusty",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 60000.0,
-              "travel": 62000.0,
-              "expenses": 18000.0,
-              "creditCard": 68767.0,
-              "otherPayments": null,
-              "total": 5368.0
-            },
-            {
-              "name": "Sanders, Celest",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 60000.0,
-              "travel": 81607.0,
-              "expenses": 24000.0,
-              "creditCard": 82679.0,
-              "otherPayments": null,
-              "total": 6200.0
-            },
-            {
-              "name": "Spyglass, Angus",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 60000.0,
-              "travel": 66800.0,
-              "expenses": 14000.0,
-              "creditCard": 73268.0,
-              "otherPayments": null,
-              "total": 5435.0
-            },
-            {
-              "name": "Stone, Deborah",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 60000.0,
-              "travel": 50251.0,
-              "expenses": 20000.0,
-              "creditCard": 51573.0,
-              "otherPayments": null,
-              "total": 5029.0
-            },
-            {
-              "name": "Wahobin, Sanderson",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 60000.0,
-              "travel": 54510.0,
-              "expenses": 22000.0,
-              "creditCard": 60813.0,
-              "otherPayments": null,
-              "total": 5680.0
-            }
-          ],
-          "parse_status": "ok_pdf_text",
+          "people": [],
+          "parse_status": "error_openai",
           "warnings": [
-            "Parsed from PDF text fallback"
+            "No remuneration rows detected from PDF table or text extraction",
+            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:51Z"
+      "scraped": "2026-05-23T08:18:13Z"
     },
     {
       "id": 381,
@@ -14285,82 +14409,16 @@
           "date": "2025-07-30",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=381&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [
-            {
-              "name": "Tavita, Melissa",
-              "role": "Chief",
-              "months": 12.0,
-              "remuneration": 72000.0,
-              "travel": 20760.0,
-              "expenses": 94609.0,
-              "creditCard": 22933.0,
-              "otherPayments": null,
-              "total": 210302.0
-            },
-            {
-              "name": "Cappo, Barry",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 60000.0,
-              "travel": 25469.0,
-              "expenses": 95964.0,
-              "creditCard": 21761.0,
-              "otherPayments": null,
-              "total": 203194.0
-            },
-            {
-              "name": "Cappo, Terance",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 60000.0,
-              "travel": 14300.0,
-              "expenses": 95588.0,
-              "creditCard": 20378.0,
-              "otherPayments": null,
-              "total": 190266.0
-            },
-            {
-              "name": "Pratt, Thomas",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 60000.0,
-              "travel": 35581.0,
-              "expenses": 113347.0,
-              "creditCard": 28129.0,
-              "otherPayments": null,
-              "total": 237057.0
-            },
-            {
-              "name": "Rosebluff, Rhonda",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 60000.0,
-              "travel": 43872.0,
-              "expenses": 120734.0,
-              "creditCard": 19762.0,
-              "otherPayments": null,
-              "total": 244368.0
-            },
-            {
-              "name": "Toto, Byron",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 60000.0,
-              "travel": 20800.0,
-              "expenses": 93370.0,
-              "creditCard": 21378.0,
-              "otherPayments": null,
-              "total": 195548.0
-            }
-          ],
-          "parse_status": "ok_pdf_text",
+          "people": [],
+          "parse_status": "error_openai",
           "warnings": [
-            "Parsed from PDF text fallback"
+            "No remuneration rows detected from PDF table or text extraction",
+            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:53Z"
+      "scraped": "2026-05-23T08:18:24Z"
     },
     {
       "id": 375,
@@ -14610,7 +14668,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:54Z"
+      "scraped": "2026-05-23T08:18:25Z"
     },
     {
       "id": 392,
@@ -14860,7 +14918,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:56Z"
+      "scraped": "2026-05-23T08:18:27Z"
     },
     {
       "id": 380,
@@ -15110,7 +15168,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:57Z"
+      "scraped": "2026-05-23T08:18:28Z"
     },
     {
       "id": 408,
@@ -15360,7 +15418,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:58Z"
+      "scraped": "2026-05-23T08:18:29Z"
     },
     {
       "id": 382,
@@ -15610,7 +15668,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:57:59Z"
+      "scraped": "2026-05-23T08:18:31Z"
     },
     {
       "id": 373,
@@ -15860,7 +15918,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:58:01Z"
+      "scraped": "2026-05-23T08:18:32Z"
     },
     {
       "id": 385,
@@ -16245,7 +16303,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:58:03Z"
+      "scraped": "2026-05-23T08:18:34Z"
     },
     {
       "id": 347,
@@ -16564,7 +16622,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:58:05Z"
+      "scraped": "2026-05-23T08:18:36Z"
     },
     {
       "id": 386,
@@ -16808,93 +16866,16 @@
           "date": "2025-11-24",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=386&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [
-            {
-              "name": "Redman, Rodger",
-              "role": "Chief",
-              "months": 12.0,
-              "remuneration": 73089.0,
-              "travel": 32400.0,
-              "expenses": 11500.0,
-              "creditCard": 87059.0,
-              "otherPayments": null,
-              "total": 204048.0
-            },
-            {
-              "name": "Goodwill, Colter",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 50967.0,
-              "travel": 43887.0,
-              "expenses": 11500.0,
-              "creditCard": 64251.0,
-              "otherPayments": null,
-              "total": 170605.0
-            },
-            {
-              "name": "Moostoos, Gregory",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 50967.0,
-              "travel": 34331.0,
-              "expenses": 11500.0,
-              "creditCard": 64323.0,
-              "otherPayments": null,
-              "total": 161121.0
-            },
-            {
-              "name": "Redman, Dwayne Jr",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 50967.0,
-              "travel": 48042.0,
-              "expenses": 11500.0,
-              "creditCard": 83422.0,
-              "otherPayments": null,
-              "total": 193931.0
-            },
-            {
-              "name": "Ryder, Minnie",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 50967.0,
-              "travel": 38200.0,
-              "expenses": 11500.0,
-              "creditCard": 54781.0,
-              "otherPayments": null,
-              "total": 155448.0
-            },
-            {
-              "name": "Wajunta, Brendon Stacey",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 50967.0,
-              "travel": 31975.0,
-              "expenses": 11500.0,
-              "creditCard": 63220.0,
-              "otherPayments": null,
-              "total": 157662.0
-            },
-            {
-              "name": "Yuzicappi, Beckie",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 50967.0,
-              "travel": 29125.0,
-              "expenses": 11500.0,
-              "creditCard": 56927.0,
-              "otherPayments": null,
-              "total": 148519.0
-            }
-          ],
-          "parse_status": "ok_pdf_text",
+          "people": [],
+          "parse_status": "error_openai",
           "warnings": [
-            "Parsed from PDF text fallback"
+            "No remuneration rows detected from PDF table or text extraction",
+            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:58:07Z"
+      "scraped": "2026-05-23T08:18:48Z"
     },
     {
       "id": 387,
@@ -17140,6 +17121,17 @@
           "posted": true,
           "people": [
             {
+              "name": "Year Ended March",
+              "role": "Councillor",
+              "months": null,
+              "remuneration": 31.0,
+              "travel": 202.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 5.0,
+              "total": 238.0
+            },
+            {
               "name": "Michael G. Starr",
               "role": "Chief",
               "months": 12.0,
@@ -17160,17 +17152,6 @@
               "creditCard": null,
               "otherPayments": 27300.0,
               "total": 87123.0
-            },
-            {
-              "name": "Norman (Edgar) Starr",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 47276.0,
-              "travel": 6946.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": 17500.0,
-              "total": 71722.0
             },
             {
               "name": "Matthew Nokusis",
@@ -17202,7 +17183,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:58:09Z"
+      "scraped": "2026-05-23T08:18:50Z"
     },
     {
       "id": 360,
@@ -17455,7 +17436,2009 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:58:21Z"
+      "scraped": "2026-05-23T08:19:02Z"
+    },
+    {
+      "id": 404,
+      "name": "Big River First Nation",
+      "province": "SK",
+      "treaty": "Treaty 6",
+      "filings": [
+        {
+          "year": "2013-2014",
+          "docType": "Audited consolidated financial statements",
+          "date": "2014-07-31",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2013-2014&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2013-2014",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2014-07-31",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2013-2014&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2014-2015",
+          "docType": "Audited consolidated financial statements",
+          "date": "2015-08-25",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2014-2015&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2014-2015",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2015-08-26",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2014-2015&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2015-2016",
+          "docType": "Audited consolidated financial statements",
+          "date": "2016-08-05",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2015-2016&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2015-2016",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2016-08-05",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2015-2016&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2016-2017",
+          "docType": "Audited consolidated financial statements",
+          "date": "2017-08-11",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2016-2017&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2016-2017",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2017-08-11",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2016-2017&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2017-2018",
+          "docType": "Audited consolidated financial statements",
+          "date": "2018-07-18",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2017-2018&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2017-2018",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2018-07-18",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2017-2018&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2018-2019",
+          "docType": "Audited consolidated financial statements",
+          "date": "2019-07-29",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2018-2019&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2018-2019",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2019-07-29",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2018-2019&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2019-2020",
+          "docType": "Audited consolidated financial statements",
+          "date": "2020-08-04",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2019-2020&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2019-2020",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2020-08-04",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2019-2020&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2020-2021",
+          "docType": "Audited consolidated financial statements",
+          "date": "2021-11-26",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2020-2021&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2020-2021",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2021-11-26",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2020-2021&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2021-2022",
+          "docType": "Audited consolidated financial statements",
+          "date": "2022-10-12",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2021-2022&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2021-2022",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2022-10-12",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2021-2022&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2022-2023",
+          "docType": "Audited consolidated financial statements",
+          "date": "2024-01-26",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2022-2023&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2022-2023",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2024-01-26",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2023-2024",
+          "docType": "Audited consolidated financial statements",
+          "date": "2025-01-15",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2023-2024&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2023-2024",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2025-01-16",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2024-2025",
+          "docType": "Audited consolidated financial statements",
+          "date": "2025-11-06",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2024-2025&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2024-2025",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2025-11-06",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=404&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [
+            {
+              "name": "YEAR ENDED MARCH",
+              "role": "Councillor",
+              "months": null,
+              "remuneration": 31.0,
+              "travel": 202.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 5.0,
+              "total": 238.0
+            },
+            {
+              "name": "BEAR JONATHAN",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 120000.0,
+              "travel": 75915.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 18961.0,
+              "total": 214876.0
+            },
+            {
+              "name": "Council LACHANCE ISIDORE",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 52000.0,
+              "travel": 50499.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 16085.0,
+              "total": 118584.0
+            },
+            {
+              "name": "Council CROOKEDNECK MICHAEL",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 52000.0,
+              "travel": 74260.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 16085.0,
+              "total": 142345.0
+            },
+            {
+              "name": "Council MORIN EUCLID",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 52000.0,
+              "travel": 64598.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 16085.0,
+              "total": 132683.0
+            },
+            {
+              "name": "Council RABBITSKIN ROBERT",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 52000.0,
+              "travel": 63370.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 16085.0,
+              "total": 131455.0
+            },
+            {
+              "name": "Council BEAR CLIFFORD",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 52000.0,
+              "travel": 72343.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 16085.0,
+              "total": 140428.0
+            },
+            {
+              "name": "Council BEAR SANDRA",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 52000.0,
+              "travel": 64062.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 16085.0,
+              "total": 132147.0
+            },
+            {
+              "name": "Council JOSEPH LARRY",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 52000.0,
+              "travel": 50976.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 16085.0,
+              "total": 119061.0
+            },
+            {
+              "name": "Council KEENATCH LARRY",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 52000.0,
+              "travel": 48976.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 16085.0,
+              "total": 117061.0
+            },
+            {
+              "name": "Council MCADAM WALLY",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 52000.0,
+              "travel": 61917.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 16085.0,
+              "total": 130002.0
+            },
+            {
+              "name": "Council MORIN CURTIS",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 52000.0,
+              "travel": 50177.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 16085.0,
+              "total": 118262.0
+            },
+            {
+              "name": "Council WHITEFISH AL CHESTER",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 52000.0,
+              "travel": 79445.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 16085.0,
+              "total": 147530.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
+          "warnings": [
+            "Parsed from PDF text fallback"
+          ]
+        }
+      ],
+      "status": "ok",
+      "scraped": "2026-05-23T08:19:04Z"
+    },
+    {
+      "id": 403,
+      "name": "Birch Narrows Dene Nation",
+      "province": "SK",
+      "treaty": "Treaty 10",
+      "filings": [
+        {
+          "year": "2013-2014",
+          "docType": "Audited consolidated financial statements",
+          "date": "2014-10-10",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2013-2014&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2013-2014",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2014-10-10",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2013-2014&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2014-2015",
+          "docType": "Audited consolidated financial statements",
+          "date": "2015-09-03",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2014-2015&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2014-2015",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2015-09-03",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2014-2015&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2015-2016",
+          "docType": "Audited consolidated financial statements",
+          "date": "2016-10-04",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2015-2016&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2015-2016",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2016-10-04",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2015-2016&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2016-2017",
+          "docType": "Audited consolidated financial statements",
+          "date": "2017-08-23",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2016-2017&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2016-2017",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2017-08-23",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2016-2017&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2017-2018",
+          "docType": "Audited consolidated financial statements",
+          "date": "2018-09-21",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2017-2018&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2017-2018",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2018-09-21",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2017-2018&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2018-2019",
+          "docType": "Audited consolidated financial statements",
+          "date": "2019-12-02",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2018-2019&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2018-2019",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2019-12-02",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2018-2019&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2019-2020",
+          "docType": "Audited consolidated financial statements",
+          "date": "2021-09-08",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2019-2020&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2019-2020",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2021-09-08",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2019-2020&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2020-2021",
+          "docType": "Audited consolidated financial statements",
+          "date": "2022-07-19",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2020-2021&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2020-2021",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2022-07-19",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2020-2021&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2021-2022",
+          "docType": "Audited consolidated financial statements",
+          "date": "2023-05-12",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2021-2022&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2021-2022",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2023-05-12",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2021-2022&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2022-2023",
+          "docType": "Audited consolidated financial statements",
+          "date": "2023-08-30",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2022-2023&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2022-2023",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2023-08-30",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2023-2024",
+          "docType": "Audited consolidated financial statements",
+          "date": "2024-10-18",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2023-2024&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2023-2024",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2024-10-18",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2024-2025",
+          "docType": "Audited consolidated financial statements",
+          "date": "2025-08-26",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2024-2025&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2024-2025",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2025-08-26",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=403&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [
+            {
+              "name": "Jonathon P. Sylvestre",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 75300.0,
+              "travel": 40747.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 116047.0
+            },
+            {
+              "name": "Kimberly Sylvestre",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 49300.0,
+              "travel": 27367.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 76667.0
+            },
+            {
+              "name": "Trevor Moberly",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 49300.0,
+              "travel": 34304.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 83604.0
+            },
+            {
+              "name": "Robert Sylvester",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 49300.0,
+              "travel": 16797.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 66097.0
+            },
+            {
+              "name": "Conrad Sylvestre",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 49300.0,
+              "travel": 31107.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 80407.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
+          "warnings": [
+            "Parsed from PDF text fallback"
+          ]
+        }
+      ],
+      "status": "ok",
+      "scraped": "2026-05-23T08:19:06Z"
+    },
+    {
+      "id": 359,
+      "name": "Black Lake Denesuline First Nation",
+      "province": "SK",
+      "treaty": "Treaty 8",
+      "filings": [
+        {
+          "year": "2013-2014",
+          "docType": "Audited consolidated financial statements",
+          "date": "2014-09-18",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2013-2014&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2013-2014",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2014-09-18",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2013-2014&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2014-2015",
+          "docType": "Audited consolidated financial statements",
+          "date": "2015-07-29",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2014-2015&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2014-2015",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2015-07-29",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2014-2015&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2015-2016",
+          "docType": "Audited consolidated financial statements",
+          "date": "2016-11-03",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2015-2016&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2015-2016",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2016-11-03",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2015-2016&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2016-2017",
+          "docType": "Audited consolidated financial statements",
+          "date": "2017-07-29",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2016-2017&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2016-2017",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2017-07-29",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2016-2017&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2017-2018",
+          "docType": "Audited consolidated financial statements",
+          "date": "2018-08-27",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2017-2018&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2017-2018",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2018-08-27",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2017-2018&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2018-2019",
+          "docType": "Audited consolidated financial statements",
+          "date": "2019-12-02",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2018-2019&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2018-2019",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2019-12-02",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2018-2019&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2019-2020",
+          "docType": "Audited consolidated financial statements",
+          "date": "2021-11-30",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2019-2020&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2019-2020",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2021-11-30",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2019-2020&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2020-2021",
+          "docType": "Audited consolidated financial statements",
+          "date": "2022-11-03",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2020-2021&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2020-2021",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2022-11-03",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2020-2021&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2021-2022",
+          "docType": "Audited consolidated financial statements",
+          "date": "2023-03-31",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2021-2022&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2021-2022",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2023-03-31",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2021-2022&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2022-2023",
+          "docType": "Audited consolidated financial statements",
+          "date": "2024-01-23",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2022-2023&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2022-2023",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2024-01-23",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2023-2024",
+          "docType": "Audited consolidated financial statements",
+          "date": "2024-11-04",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2023-2024&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2023-2024",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2024-11-04",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2024-2025",
+          "docType": "Audited consolidated financial statements",
+          "date": "2025-09-17",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2024-2025&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2024-2025",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2025-09-17",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=359&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "error_openai",
+          "warnings": [
+            "No remuneration rows detected from PDF table or text extraction",
+            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+          ]
+        }
+      ],
+      "status": "ok",
+      "scraped": "2026-05-23T08:19:19Z"
+    },
+    {
+      "id": 351,
+      "name": "Fond du Lac Denesuline First Nation",
+      "province": "SK",
+      "treaty": "Treaty 8",
+      "filings": [
+        {
+          "year": "2013-2014",
+          "docType": "Audited consolidated financial statements",
+          "date": "2014-10-16",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2013-2014&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2013-2014",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2014-10-16",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2013-2014&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2014-2015",
+          "docType": "Audited consolidated financial statements",
+          "date": "2015-07-29",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2014-2015&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2014-2015",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2015-07-29",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2014-2015&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2015-2016",
+          "docType": "Audited consolidated financial statements",
+          "date": "2016-09-09",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2015-2016&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2015-2016",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2016-09-09",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2015-2016&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2016-2017",
+          "docType": "Audited consolidated financial statements",
+          "date": "2018-02-05",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2016-2017&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2016-2017",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2018-02-05",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2016-2017&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2017-2018",
+          "docType": "Audited consolidated financial statements",
+          "date": "2019-10-08",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2017-2018&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2017-2018",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2019-10-07",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2017-2018&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2018-2019",
+          "docType": "Audited consolidated financial statements",
+          "date": "2022-07-14",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2018-2019&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2018-2019",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2022-07-14",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2018-2019&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2019-2020",
+          "docType": "Audited consolidated financial statements",
+          "date": "2023-11-07",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2019-2020&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2019-2020",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2023-11-07",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2019-2020&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2020-2021",
+          "docType": "Audited consolidated financial statements",
+          "date": "2024-11-07",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2020-2021&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2020-2021",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2024-11-07",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2020-2021&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2021-2022",
+          "docType": "Audited consolidated financial statements",
+          "date": "2024-11-07",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2021-2022&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2021-2022",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2024-11-07",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2021-2022&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2022-2023",
+          "docType": "Audited consolidated financial statements",
+          "date": "2025-05-14",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2022-2023&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2022-2023",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2025-05-14",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2023-2024",
+          "docType": "Audited consolidated financial statements",
+          "date": "2025-05-14",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2023-2024&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2023-2024",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2025-05-14",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2024-2025",
+          "docType": "Audited consolidated financial statements",
+          "date": "2025-11-10",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2024-2025&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2024-2025",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2025-11-10",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=351&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "error_openai",
+          "warnings": [
+            "No remuneration rows detected from PDF table or text extraction",
+            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+          ]
+        }
+      ],
+      "status": "ok",
+      "scraped": "2026-05-23T08:19:29Z"
+    },
+    {
+      "id": 370,
+      "name": "James Smith Cree Nation",
+      "province": "SK",
+      "treaty": "Treaty 6",
+      "filings": [
+        {
+          "year": "2013-2014",
+          "docType": "Audited consolidated financial statements",
+          "date": "2014-08-07",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2013-2014&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2013-2014",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2014-08-07",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2013-2014&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2014-2015",
+          "docType": "Audited consolidated financial statements",
+          "date": "2015-07-29",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2014-2015&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2014-2015",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2015-07-29",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2014-2015&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2015-2016",
+          "docType": "Audited consolidated financial statements",
+          "date": "2016-08-29",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2015-2016&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2015-2016",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2016-08-31",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2015-2016&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2016-2017",
+          "docType": "Audited consolidated financial statements",
+          "date": "2017-09-18",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2016-2017&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2016-2017",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2017-09-18",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2016-2017&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2017-2018",
+          "docType": "Audited consolidated financial statements",
+          "date": "2018-09-28",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2017-2018&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2017-2018",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2018-10-24",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2017-2018&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2018-2019",
+          "docType": "Audited consolidated financial statements",
+          "date": "2019-09-20",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2018-2019&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2018-2019",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2019-09-20",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2018-2019&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2019-2020",
+          "docType": "Audited consolidated financial statements",
+          "date": "2021-03-19",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2019-2020&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2019-2020",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2021-03-19",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2019-2020&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2020-2021",
+          "docType": "Audited consolidated financial statements",
+          "date": "2022-02-10",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2020-2021&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2020-2021",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2022-02-10",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2020-2021&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2021-2022",
+          "docType": "Audited consolidated financial statements",
+          "date": "2023-01-09",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2021-2022&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2021-2022",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2023-01-09",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2021-2022&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2022-2023",
+          "docType": "Audited consolidated financial statements",
+          "date": "2024-01-22",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2022-2023&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2022-2023",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2024-01-22",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2023-2024",
+          "docType": "Audited consolidated financial statements",
+          "date": "2024-10-01",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2023-2024&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2023-2024",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2024-10-01",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2024-2025",
+          "docType": "Audited consolidated financial statements",
+          "date": "2025-12-16",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2024-2025&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2024-2025",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2025-12-16",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=370&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [
+            {
+              "name": "Kirby Constant James Smith",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 48200.0,
+              "travel": 25789.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 73989.0,
+              "total": 147978.0
+            },
+            {
+              "name": "Alvin Moostoos James Smith",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 12550.0,
+              "travel": 23327.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 35877.0,
+              "total": 71754.0
+            },
+            {
+              "name": "Justin Burns James Smith",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 12650.0,
+              "travel": 12887.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 25537.0,
+              "total": 51074.0
+            },
+            {
+              "name": "Tanya Moostoos James Smith",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 12350.0,
+              "travel": 9196.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 21546.0,
+              "total": 43092.0
+            },
+            {
+              "name": "Gerald McKay James Smith",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 14850.0,
+              "travel": 6549.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 21399.0,
+              "total": 42798.0
+            },
+            {
+              "name": "Calvin Sanderson Chakastaypasin",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 42500.0,
+              "travel": 14758.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 57258.0,
+              "total": 114516.0
+            },
+            {
+              "name": "Barry Sanderson Chakastaypasin",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 12550.0,
+              "travel": 6124.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 18674.0,
+              "total": 37348.0
+            },
+            {
+              "name": "Florence Sanderson Chakastaypasin",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 9850.0,
+              "travel": 8808.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 18658.0,
+              "total": 37316.0
+            },
+            {
+              "name": "Derrick Sanderson Chakastaypasin",
+              "role": "Councillor",
+              "months": 6.0,
+              "remuneration": 4350.0,
+              "travel": 2552.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 6902.0,
+              "total": 13804.0
+            },
+            {
+              "name": "Marjorie Sanderson Chakastaypasin",
+              "role": "Councillor",
+              "months": 6.0,
+              "remuneration": 5250.0,
+              "travel": 1134.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 6384.0,
+              "total": 12768.0
+            },
+            {
+              "name": "Solomon Dane Sanderson Chakastaypasin",
+              "role": "Councillor",
+              "months": 6.0,
+              "remuneration": 5750.0,
+              "travel": 526.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 6276.0,
+              "total": 12552.0
+            },
+            {
+              "name": "Robert Head Peter Chapman",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 42500.0,
+              "travel": 14118.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 56618.0,
+              "total": 113236.0
+            },
+            {
+              "name": "Adam Whitehead Peter Chapman",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 15600.0,
+              "travel": 11746.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 27346.0,
+              "total": 54692.0
+            },
+            {
+              "name": "Brian Head Peter Chapman",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 9600.0,
+              "travel": 7217.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 16817.0,
+              "total": 33634.0
+            },
+            {
+              "name": "Valerie Whitehead Peter Chapman",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 9600.0,
+              "travel": 3442.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 13042.0,
+              "total": 26084.0
+            },
+            {
+              "name": "Hughie Head Peter Chapman",
+              "role": "Councillor",
+              "months": 8.0,
+              "remuneration": 6350.0,
+              "travel": 926.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 7276.0,
+              "total": 14552.0
+            },
+            {
+              "name": "Kevin Head Peter Chapman",
+              "role": "Councillor",
+              "months": 4.0,
+              "remuneration": 2200.0,
+              "travel": 2200.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 4400.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
+          "warnings": [
+            "Parsed from PDF text fallback"
+          ]
+        }
+      ],
+      "status": "ok",
+      "scraped": "2026-05-23T08:19:32Z"
+    },
+    {
+      "id": 393,
+      "name": "Kawacatoose First Nation",
+      "province": "SK",
+      "treaty": "Treaty 4",
+      "filings": [
+        {
+          "year": "2013-2014",
+          "docType": "Audited consolidated financial statements",
+          "date": "2014-11-24",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2013-2014&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2013-2014",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2014-11-24",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2013-2014&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2014-2015",
+          "docType": "Audited consolidated financial statements",
+          "date": "2015-08-28",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2014-2015&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2014-2015",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2015-08-28",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2014-2015&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2015-2016",
+          "docType": "Audited consolidated financial statements",
+          "date": "2016-09-28",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2015-2016&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2015-2016",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2016-09-28",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2015-2016&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2016-2017",
+          "docType": "Audited consolidated financial statements",
+          "date": "2017-11-21",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2016-2017&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2016-2017",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2017-11-21",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2016-2017&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2017-2018",
+          "docType": "Audited consolidated financial statements",
+          "date": "2018-09-14",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2017-2018&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2017-2018",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2018-09-14",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2017-2018&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2018-2019",
+          "docType": "Audited consolidated financial statements",
+          "date": "2020-02-24",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2018-2019&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2018-2019",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2020-02-24",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2018-2019&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2019-2020",
+          "docType": "Audited consolidated financial statements",
+          "date": "2020-12-15",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2019-2020&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2019-2020",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2020-12-15",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2019-2020&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2020-2021",
+          "docType": "Audited consolidated financial statements",
+          "date": "2022-11-24",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2020-2021&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2020-2021",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2022-11-24",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2020-2021&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2021-2022",
+          "docType": "Audited consolidated financial statements",
+          "date": "2023-08-14",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2021-2022&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2021-2022",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2023-08-14",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2021-2022&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2022-2023",
+          "docType": "Audited consolidated financial statements",
+          "date": "2024-03-25",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2022-2023&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2022-2023",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2024-03-25",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2023-2024",
+          "docType": "Audited consolidated financial statements",
+          "date": "2024-10-25",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2023-2024&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2023-2024",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2024-10-25",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2024-2025",
+          "docType": "Audited consolidated financial statements",
+          "date": "2025-11-28",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2024-2025&DOC=Audited consolidated financial statements&lang=eng",
+          "posted": true,
+          "people": [],
+          "parse_status": "not_applicable",
+          "warnings": []
+        },
+        {
+          "year": "2024-2025",
+          "docType": "Schedule of Remuneration and Expenses",
+          "date": "2025-11-28",
+          "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=393&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
+          "posted": true,
+          "people": [
+            {
+              "name": "YEAR ENDED MARCH",
+              "role": "Councillor",
+              "months": null,
+              "remuneration": 31.0,
+              "travel": 202.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 5.0,
+              "total": 238.0
+            },
+            {
+              "name": "Lee-Anne Kehler",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 97000.0,
+              "travel": 5144.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 51238.0,
+              "total": 153382.0
+            },
+            {
+              "name": "Andrew Owl Child",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 70000.0,
+              "travel": 3400.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 54959.0,
+              "total": 128359.0
+            },
+            {
+              "name": "Cory Dustyhorn",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 70000.0,
+              "travel": 3644.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 41615.0,
+              "total": 115259.0
+            },
+            {
+              "name": "Delmont Asapace",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 70000.0,
+              "travel": 3644.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 48126.0,
+              "total": 121770.0
+            },
+            {
+              "name": "Joan Ens",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 70000.0,
+              "travel": 3644.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 42134.0,
+              "total": 115778.0
+            },
+            {
+              "name": "Lisa Kay",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 70000.0,
+              "travel": 4044.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 30491.0,
+              "total": 104535.0
+            },
+            {
+              "name": "Marvin Albert",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 70000.0,
+              "travel": 3644.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 50844.0,
+              "total": 124488.0
+            },
+            {
+              "name": "Vincent Machiskinic",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 70000.0,
+              "travel": 3644.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 44081.0,
+              "total": 117725.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
+          "warnings": [
+            "Parsed from PDF text fallback"
+          ]
+        }
+      ],
+      "status": "ok",
+      "scraped": "2026-05-23T08:19:34Z"
     }
   ]
 }
