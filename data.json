@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-23T06:39:39Z",
+  "generated": "2026-05-23T06:58:22Z",
   "band_count": 62,
   "error_count": 0,
   "bands": [
@@ -206,11 +206,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=378&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -229,11 +226,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=378&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -251,16 +245,115 @@
           "date": "2026-02-13",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=378&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Scott Eashappie",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 108791.0,
+              "travel": 13000.0,
+              "expenses": 256865.0,
+              "creditCard": 264662.0,
+              "otherPayments": null,
+              "total": 643318.0
+            },
+            {
+              "name": "Shawn Spencer",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 87000.0,
+              "travel": 13000.0,
+              "expenses": 84696.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 184696.0
+            },
+            {
+              "name": "Dwayne Thomson",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 87000.0,
+              "travel": 13000.0,
+              "expenses": 28790.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 128790.0
+            },
+            {
+              "name": "Lucy Musqua",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 87000.0,
+              "travel": 13000.0,
+              "expenses": 42914.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 142914.0
+            },
+            {
+              "name": "Tamara Thomson",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 87000.0,
+              "travel": 13000.0,
+              "expenses": 29952.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 129952.0
+            },
+            {
+              "name": "Terrina Ashdohonk-Bellegarde",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 87000.0,
+              "travel": 13000.0,
+              "expenses": 10285.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 110285.0
+            },
+            {
+              "name": "Joellen Haywahe",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 87000.0,
+              "travel": 13000.0,
+              "expenses": 4553.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 104553.0
+            },
+            {
+              "name": "Brady O'Watch",
+              "role": "Councillor",
+              "months": 2.0,
+              "remuneration": 16346.0,
+              "travel": 2500.0,
+              "expenses": 72392.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 91238.0
+            },
+            {
+              "name": "Morris Passap",
+              "role": "Councillor",
+              "months": 2.0,
+              "remuneration": 16346.0,
+              "travel": 2500.0,
+              "expenses": 22460.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 41306.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:26:34Z"
+      "scraped": "2026-05-23T06:56:20Z"
     },
     {
       "id": 361,
@@ -465,11 +558,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=361&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -488,11 +578,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=361&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -516,7 +603,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:26:54Z"
+      "scraped": "2026-05-23T06:56:21Z"
     },
     {
       "id": 366,
@@ -766,7 +853,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:26:55Z"
+      "scraped": "2026-05-23T06:56:22Z"
     },
     {
       "id": 389,
@@ -1016,7 +1103,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:26:56Z"
+      "scraped": "2026-05-23T06:56:23Z"
     },
     {
       "id": 391,
@@ -1221,11 +1308,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=391&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -1244,11 +1328,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=391&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -1266,16 +1347,38 @@
           "date": "2026-01-27",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=391&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Alexander (Byron) Bitternose",
+              "role": "Chief",
+              "months": 6.0,
+              "remuneration": 43077.0,
+              "travel": 11240.0,
+              "expenses": 10501.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 11972.0
+            },
+            {
+              "name": "Shawn R. Longman",
+              "role": "Chief",
+              "months": 6.0,
+              "remuneration": 56429.0,
+              "travel": 6500.0,
+              "expenses": 20176.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 11505.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:27:26Z"
+      "scraped": "2026-05-23T06:56:25Z"
     },
     {
       "id": 362,
@@ -1480,11 +1583,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=362&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -1503,11 +1603,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=362&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -1525,16 +1622,27 @@
           "date": "2025-10-14",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=362&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Evan Taypotat",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 133750.0,
+              "travel": 12415.0,
+              "expenses": 93132.0,
+              "creditCard": 6852.0,
+              "otherPayments": null,
+              "total": 12.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:27:56Z"
+      "scraped": "2026-05-23T06:56:27Z"
     },
     {
       "id": 367,
@@ -1784,7 +1892,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:27:57Z"
+      "scraped": "2026-05-23T06:56:28Z"
     },
     {
       "id": 377,
@@ -1989,11 +2097,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=377&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -2012,11 +2117,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=377&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -2034,16 +2136,82 @@
           "date": "2025-12-12",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=377&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Felix Thomas",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 90000.0,
+              "travel": 23892.0,
+              "expenses": 7057.0,
+              "creditCard": 8420.0,
+              "otherPayments": null,
+              "total": 7500.0
+            },
+            {
+              "name": "Trevor Cheekinew",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 71000.0,
+              "travel": 36175.0,
+              "expenses": 6664.0,
+              "creditCard": 6525.0,
+              "otherPayments": null,
+              "total": 7650.0
+            },
+            {
+              "name": "Cecil McNab",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 71000.0,
+              "travel": 23600.0,
+              "expenses": 7247.0,
+              "creditCard": 4008.0,
+              "otherPayments": null,
+              "total": 8190.0
+            },
+            {
+              "name": "Rita Lumberjack",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 71000.0,
+              "travel": 30538.0,
+              "expenses": 6664.0,
+              "creditCard": 6426.0,
+              "otherPayments": null,
+              "total": 7500.0
+            },
+            {
+              "name": "Kalvin Nippi",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 71000.0,
+              "travel": 32388.0,
+              "expenses": 6664.0,
+              "creditCard": 6637.0,
+              "otherPayments": null,
+              "total": 8250.0
+            },
+            {
+              "name": "Ken Thomas",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 70000.0,
+              "travel": 11555.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 1500.0,
+              "total": 83055.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:28:29Z"
+      "scraped": "2026-05-23T06:56:30Z"
     },
     {
       "id": 379,
@@ -2248,11 +2416,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=379&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -2271,11 +2436,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=379&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -2293,16 +2455,71 @@
           "date": "2025-09-24",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=379&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Bellegarde, Clarence",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 90497.0,
+              "travel": 40082.0,
+              "expenses": 77472.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 208051.0
+            },
+            {
+              "name": "Bellegarde, Holly",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 49227.0,
+              "travel": 78940.0,
+              "expenses": 27348.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 155515.0
+            },
+            {
+              "name": "Bellegarde, Randall",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 49227.0,
+              "travel": 30440.0,
+              "expenses": 21757.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 101424.0
+            },
+            {
+              "name": "Bellegarde, Trent",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 49227.0,
+              "travel": 30120.0,
+              "expenses": 27996.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 107343.0
+            },
+            {
+              "name": "Bellegarde, Michael J.",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 49227.0,
+              "travel": 56045.0,
+              "expenses": 28248.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 133520.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:28:59Z"
+      "scraped": "2026-05-23T06:56:33Z"
     },
     {
       "id": 341,
@@ -2552,7 +2769,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:29:00Z"
+      "scraped": "2026-05-23T06:56:34Z"
     },
     {
       "id": 396,
@@ -2757,11 +2974,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=396&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -2780,11 +2994,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=396&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -2802,16 +3013,93 @@
           "date": "2025-12-02",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=396&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Melvin Mooswa",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 123000.0,
+              "travel": 101462.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 224462.0,
+              "total": 448924.0
+            },
+            {
+              "name": "Derrick Cantre",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 103000.0,
+              "travel": 8.0,
+              "expenses": 7086.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 190086.0
+            },
+            {
+              "name": "Dean Mitsuing",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 103000.0,
+              "travel": 9.0,
+              "expenses": 8992.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 201992.0
+            },
+            {
+              "name": "Kenneth Mitsuing",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 103000.0,
+              "travel": 8.0,
+              "expenses": 555.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 183555.0
+            },
+            {
+              "name": "Michael Mitsuing",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 103000.0,
+              "travel": 8.0,
+              "expenses": 2803.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 185803.0
+            },
+            {
+              "name": "Walter Mitsuing",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 103000.0,
+              "travel": 8.0,
+              "expenses": 6661.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 189661.0
+            },
+            {
+              "name": "Julia Ouellette",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 103000.0,
+              "travel": 8.0,
+              "expenses": 3503.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 186503.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:29:31Z"
+      "scraped": "2026-05-23T06:56:36Z"
     },
     {
       "id": 374,
@@ -3015,75 +3303,8 @@
           "date": "2024-03-28",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=374&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [
-            {
-              "name": "WATSON DARYL",
-              "role": "Chief",
-              "months": 12.0,
-              "remuneration": 114231.0,
-              "travel": 59760.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 208887.0
-            },
-            {
-              "name": "DANIELS COLBY",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 73892.0,
-              "travel": 30106.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 148420.0
-            },
-            {
-              "name": "DANIELS ROBIN",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 73892.0,
-              "travel": 31200.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 155003.0
-            },
-            {
-              "name": "JOHNSTON STEVEN",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 73892.0,
-              "travel": 32282.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 155589.0
-            },
-            {
-              "name": "PECHAWIS, LESLIE",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 73892.0,
-              "travel": 30368.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 143196.0
-            },
-            {
-              "name": "SANDERSON, DEREK",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 73892.0,
-              "travel": 27999.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 126825.0
-            }
-          ],
-          "parse_status": "ok_pdfplumber",
+          "people": [],
+          "parse_status": "not_applicable",
           "warnings": []
         },
         {
@@ -3102,86 +3323,8 @@
           "date": "2025-03-12",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=374&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [
-            {
-              "name": "WATSON, DARYL",
-              "role": "Chief",
-              "months": 12.0,
-              "remuneration": 110000.0,
-              "travel": 40000.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 205490.0
-            },
-            {
-              "name": "DANIELS, COLBY",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 70000.0,
-              "travel": 25000.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 140019.0
-            },
-            {
-              "name": "DANIELS, ROBIN",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 70000.0,
-              "travel": 25000.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 143753.0
-            },
-            {
-              "name": "JOHNSTON, STEVEN",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 70000.0,
-              "travel": 25000.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 140086.0
-            },
-            {
-              "name": "PECHAWIS, LESLIE",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 70000.0,
-              "travel": 25000.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 128865.0
-            },
-            {
-              "name": "SANDERSON, DEREK",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 70000.0,
-              "travel": 25000.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 137397.0
-            },
-            {
-              "name": "Total",
-              "role": "Council",
-              "months": null,
-              "remuneration": 460000.0,
-              "travel": 165000.0,
-              "expenses": null,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 895610.0
-            }
-          ],
-          "parse_status": "ok_pdfplumber",
+          "people": [],
+          "parse_status": "not_applicable",
           "warnings": []
         },
         {
@@ -3284,7 +3427,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:29:35Z"
+      "scraped": "2026-05-23T06:56:38Z"
     },
     {
       "id": 371,
@@ -3489,11 +3632,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=371&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -3512,11 +3652,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=371&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -3534,16 +3671,82 @@
           "date": "2025-12-22",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=371&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Ronald Bear Chief",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 133048.0,
+              "travel": 14226.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 147274.0
+            },
+            {
+              "name": "Elaine Ross",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 86579.0,
+              "travel": 23069.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 972.0,
+              "total": 110620.0
+            },
+            {
+              "name": "Theodore Bear",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 81153.0,
+              "travel": 24480.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 105633.0
+            },
+            {
+              "name": "Elizabeth Merle Crain",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 80780.0,
+              "travel": 4580.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 85360.0
+            },
+            {
+              "name": "Beryl Bear",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 81961.0,
+              "travel": 2296.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 84257.0
+            },
+            {
+              "name": "Herman Crain",
+              "role": "Councillor",
+              "months": 4.0,
+              "remuneration": 27305.0,
+              "travel": 2215.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 29520.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:30:05Z"
+      "scraped": "2026-05-23T06:56:39Z"
     },
     {
       "id": 363,
@@ -3793,7 +3996,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:30:06Z"
+      "scraped": "2026-05-23T06:56:40Z"
     },
     {
       "id": 344,
@@ -4043,7 +4246,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:30:08Z"
+      "scraped": "2026-05-23T06:56:42Z"
     },
     {
       "id": 383,
@@ -4248,11 +4451,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=383&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -4296,7 +4496,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:30:17Z"
+      "scraped": "2026-05-23T06:56:43Z"
     },
     {
       "id": 384,
@@ -4546,7 +4746,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:30:18Z"
+      "scraped": "2026-05-23T06:56:44Z"
     },
     {
       "id": 405,
@@ -4796,7 +4996,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:30:20Z"
+      "scraped": "2026-05-23T06:56:45Z"
     },
     {
       "id": 355,
@@ -5046,7 +5246,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:30:21Z"
+      "scraped": "2026-05-23T06:56:46Z"
     },
     {
       "id": 409,
@@ -5251,11 +5451,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=409&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -5274,11 +5471,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=409&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -5296,16 +5490,71 @@
           "date": "2025-07-29",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=409&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Ira McArthur",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 88442.0,
+              "travel": 500.0,
+              "expenses": 15220.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 104161.0
+            },
+            {
+              "name": "Julie Kakakaway",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 74234.0,
+              "travel": 19132.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 93366.0,
+              "total": 186732.0
+            },
+            {
+              "name": "Patricia Fleming",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 72412.0,
+              "travel": 500.0,
+              "expenses": 9847.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 82759.0
+            },
+            {
+              "name": "Ramona Knebush",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 74264.0,
+              "travel": 500.0,
+              "expenses": 24592.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 99356.0
+            },
+            {
+              "name": "Sheila Knebush",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 66985.0,
+              "travel": 500.0,
+              "expenses": 12235.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 79720.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:30:49Z"
+      "scraped": "2026-05-23T06:56:48Z"
     },
     {
       "id": 345,
@@ -5510,11 +5759,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=345&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -5533,11 +5779,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=345&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -5555,16 +5798,93 @@
           "date": "2026-05-15",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=345&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Antoine, Duane",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 103503.0,
+              "travel": 50000.0,
+              "expenses": 33079.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 186582.0
+            },
+            {
+              "name": "Antoine, Leon",
+              "role": "Councillor",
+              "months": 10.0,
+              "remuneration": 66272.0,
+              "travel": 6000.0,
+              "expenses": 33970.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 106242.0
+            },
+            {
+              "name": "Checkosis, Norman",
+              "role": "Councillor",
+              "months": 10.0,
+              "remuneration": 66272.0,
+              "travel": 1000.0,
+              "expenses": 39306.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 106578.0
+            },
+            {
+              "name": "Chickeness, Marlene",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 78902.0,
+              "travel": 36932.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 115834.0,
+              "total": 231668.0
+            },
+            {
+              "name": "Favel, Lester",
+              "role": "Councillor",
+              "months": 10.0,
+              "remuneration": 66272.0,
+              "travel": 33967.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 100239.0,
+              "total": 200478.0
+            },
+            {
+              "name": "Favel, Brandon",
+              "role": "Councillor",
+              "months": 2.0,
+              "remuneration": 8400.0,
+              "travel": 5204.0,
+              "expenses": 1813.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 15417.0
+            },
+            {
+              "name": "Kasokeo, Darwin",
+              "role": "Councillor",
+              "months": 2.0,
+              "remuneration": 8400.0,
+              "travel": 46402.0,
+              "expenses": 1813.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 56615.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:31:19Z"
+      "scraped": "2026-05-23T06:56:50Z"
     },
     {
       "id": 356,
@@ -5769,11 +6089,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=356&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -5792,11 +6109,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=356&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -5820,7 +6134,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:31:38Z"
+      "scraped": "2026-05-23T06:56:52Z"
     },
     {
       "id": 346,
@@ -6024,86 +6338,8 @@
           "date": "2023-11-30",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=346&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [
-            {
-              "name": "Lux Benson",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 32000.0,
-              "travel": null,
-              "expenses": 36256.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 68256.0
-            },
-            {
-              "name": "Mandy Cuthand",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 32000.0,
-              "travel": null,
-              "expenses": 35896.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 67896.0
-            },
-            {
-              "name": "Henry Gardipy",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 32000.0,
-              "travel": null,
-              "expenses": 35108.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 67108.0
-            },
-            {
-              "name": "Dana Falcon",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 32000.0,
-              "travel": null,
-              "expenses": 35222.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 67222.0
-            },
-            {
-              "name": "Shawn Wuttunee",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 32000.0,
-              "travel": null,
-              "expenses": 35681.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 67681.0
-            },
-            {
-              "name": "Jason Chakita",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 32000.0,
-              "travel": null,
-              "expenses": 35448.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 67448.0
-            },
-            {
-              "name": "Sam Wuttunee",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 32000.0,
-              "travel": null,
-              "expenses": 35625.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 67625.0
-            }
-          ],
-          "parse_status": "ok_pdfplumber",
+          "people": [],
+          "parse_status": "not_applicable",
           "warnings": []
         },
         {
@@ -6122,119 +6358,8 @@
           "date": "2024-12-12",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=346&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [
-            {
-              "name": "Lux Benson",
-              "role": "Chief",
-              "months": 12.0,
-              "remuneration": 32000.0,
-              "travel": null,
-              "expenses": 38765.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 70765.0
-            },
-            {
-              "name": "Mandy Cuthand",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 32000.0,
-              "travel": null,
-              "expenses": 38234.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 70234.0
-            },
-            {
-              "name": "Henry Gardipy",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 32000.0,
-              "travel": null,
-              "expenses": 38456.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 70456.0
-            },
-            {
-              "name": "Dana Falcon",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 32000.0,
-              "travel": null,
-              "expenses": 38234.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 70234.0
-            },
-            {
-              "name": "Shawn Wuttunee",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 32000.0,
-              "travel": null,
-              "expenses": 39281.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 71281.0
-            },
-            {
-              "name": "Jason Chakita",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 32000.0,
-              "travel": null,
-              "expenses": 38714.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 70714.0
-            },
-            {
-              "name": "Sam Wuttunee",
-              "role": "Councillor",
-              "months": 12.0,
-              "remuneration": 32000.0,
-              "travel": null,
-              "expenses": 38934.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 70934.0
-            },
-            {
-              "name": "Cody Benson",
-              "role": "Chief",
-              "months": 0.33,
-              "remuneration": 1231.0,
-              "travel": null,
-              "expenses": 1083.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 2314.0
-            },
-            {
-              "name": "Leroy Nicotine",
-              "role": "Councillor",
-              "months": 0.33,
-              "remuneration": 1231.0,
-              "travel": null,
-              "expenses": 1423.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 2654.0
-            },
-            {
-              "name": "Shawn Nicotine",
-              "role": "Councillor",
-              "months": 0.33,
-              "remuneration": 1231.0,
-              "travel": null,
-              "expenses": 1423.0,
-              "creditCard": null,
-              "otherPayments": null,
-              "total": 2654.0
-            }
-          ],
-          "parse_status": "ok_pdfplumber",
+          "people": [],
+          "parse_status": "not_applicable",
           "warnings": []
         },
         {
@@ -6359,7 +6484,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:31:42Z"
+      "scraped": "2026-05-23T06:56:53Z"
     },
     {
       "id": 364,
@@ -6584,11 +6709,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=364&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -6612,7 +6734,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:31:52Z"
+      "scraped": "2026-05-23T06:56:55Z"
     },
     {
       "id": 357,
@@ -6817,11 +6939,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=357&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -6840,11 +6959,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=357&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -6868,7 +6984,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:32:14Z"
+      "scraped": "2026-05-23T06:56:56Z"
     },
     {
       "id": 348,
@@ -7073,11 +7189,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=348&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -7096,11 +7209,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=348&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -7118,16 +7228,27 @@
           "date": "2025-07-22",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=348&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Lorie Whitecalf",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 68654.0,
+              "travel": 18950.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 87604.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:32:47Z"
+      "scraped": "2026-05-23T06:56:58Z"
     },
     {
       "id": 368,
@@ -7377,7 +7498,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:32:48Z"
+      "scraped": "2026-05-23T06:56:59Z"
     },
     {
       "id": 349,
@@ -7627,7 +7748,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:32:50Z"
+      "scraped": "2026-05-23T06:57:00Z"
     },
     {
       "id": 358,
@@ -7877,7 +7998,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:32:51Z"
+      "scraped": "2026-05-23T06:57:02Z"
     },
     {
       "id": 402,
@@ -8082,11 +8203,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=402&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -8105,11 +8223,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=402&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -8127,16 +8242,126 @@
           "date": "2025-07-29",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=402&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Blaine Fiddler",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 80000.0,
+              "travel": 16250.0,
+              "expenses": 123412.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 1500.0
+            },
+            {
+              "name": "Carolyn Bernard",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 62500.0,
+              "travel": 15000.0,
+              "expenses": 90426.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 1500.0
+            },
+            {
+              "name": "Peter Bouvier",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 62500.0,
+              "travel": 15000.0,
+              "expenses": 82025.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 2500.0
+            },
+            {
+              "name": "Dean Martell",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 64904.0,
+              "travel": 17500.0,
+              "expenses": 103793.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 1500.0
+            },
+            {
+              "name": "Ableheza Ernest",
+              "role": "Councillor",
+              "months": 2.0,
+              "remuneration": 10817.0,
+              "travel": 2500.0,
+              "expenses": 15201.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 1500.0
+            },
+            {
+              "name": "Jacqueline Manderscheid",
+              "role": "Councillor",
+              "months": 2.0,
+              "remuneration": 10421.0,
+              "travel": 2500.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 15752.0,
+              "total": 28673.0
+            },
+            {
+              "name": "Joanne Roy",
+              "role": "Councillor",
+              "months": 2.0,
+              "remuneration": 9615.0,
+              "travel": 2500.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 11467.0,
+              "total": 23582.0
+            },
+            {
+              "name": "Karnella Fiddler",
+              "role": "Councillor",
+              "months": 10.0,
+              "remuneration": 57780.0,
+              "travel": 12500.0,
+              "expenses": 126508.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 7800.0
+            },
+            {
+              "name": "David Fleury",
+              "role": "Councillor",
+              "months": 10.0,
+              "remuneration": 51683.0,
+              "travel": 12500.0,
+              "expenses": 88611.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 1500.0
+            },
+            {
+              "name": "Gordon Ernest",
+              "role": "Councillor",
+              "months": 10.0,
+              "remuneration": 51683.0,
+              "travel": 12500.0,
+              "expenses": 89184.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 1500.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:33:41Z"
+      "scraped": "2026-05-23T06:57:04Z"
     },
     {
       "id": 365,
@@ -8341,11 +8566,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=365&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -8364,11 +8586,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=365&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -8386,16 +8605,93 @@
           "date": "2025-08-01",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=365&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Jonathan Pasap Chief",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 98381.0,
+              "travel": 5975.0,
+              "expenses": 104356.0,
+              "creditCard": 49071.0,
+              "otherPayments": null,
+              "total": 153427.0
+            },
+            {
+              "name": "Tanya Littlechief",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 66485.0,
+              "travel": 11924.0,
+              "expenses": 78409.0,
+              "creditCard": 32333.0,
+              "otherPayments": null,
+              "total": 110742.0
+            },
+            {
+              "name": "Debbie Maxie",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 66485.0,
+              "travel": 7468.0,
+              "expenses": 73953.0,
+              "creditCard": 25481.0,
+              "otherPayments": null,
+              "total": 99434.0
+            },
+            {
+              "name": "Tanya Whitebear",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 63521.0,
+              "travel": 3918.0,
+              "expenses": 67439.0,
+              "creditCard": 28298.0,
+              "otherPayments": null,
+              "total": 95737.0
+            },
+            {
+              "name": "Brett Standingready",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 66485.0,
+              "travel": 6375.0,
+              "expenses": 72860.0,
+              "creditCard": 24735.0,
+              "otherPayments": null,
+              "total": 97595.0
+            },
+            {
+              "name": "Sheri McArthur",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 66485.0,
+              "travel": 10625.0,
+              "expenses": 77110.0,
+              "creditCard": 20949.0,
+              "otherPayments": null,
+              "total": 98059.0
+            },
+            {
+              "name": "Clarence Nokahoot",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 66485.0,
+              "travel": 4041.0,
+              "expenses": 70526.0,
+              "creditCard": 18983.0,
+              "otherPayments": null,
+              "total": 89509.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:34:12Z"
+      "scraped": "2026-05-23T06:57:06Z"
     },
     {
       "id": 372,
@@ -8645,7 +8941,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:34:13Z"
+      "scraped": "2026-05-23T06:57:07Z"
     },
     {
       "id": 388,
@@ -8850,11 +9146,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=388&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -8873,11 +9166,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=388&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -8895,16 +9185,93 @@
           "date": "2025-07-05",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=388&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "LeCaine, Ellen",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 50400.0,
+              "travel": 25362.0,
+              "expenses": 13810.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 89572.0
+            },
+            {
+              "name": "Craig, Angeline",
+              "role": "Councillor",
+              "months": 6.0,
+              "remuneration": 12000.0,
+              "travel": 9750.0,
+              "expenses": 128.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 21878.0
+            },
+            {
+              "name": "LeCaine, Eric",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 24000.0,
+              "travel": 19200.0,
+              "expenses": 8772.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 51972.0
+            },
+            {
+              "name": "Lethbridge, Loretta",
+              "role": "Councillor",
+              "months": 6.0,
+              "remuneration": 12000.0,
+              "travel": 3150.0,
+              "expenses": 5482.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 20632.0
+            },
+            {
+              "name": "Ogle, Colten ",
+              "role": "Councillor",
+              "months": 6.0,
+              "remuneration": 12000.0,
+              "travel": 66482.0,
+              "expenses": 4664.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 83146.0
+            },
+            {
+              "name": "Ogle, David",
+              "role": "Councillor",
+              "months": 6.0,
+              "remuneration": 12000.0,
+              "travel": 6250.0,
+              "expenses": 1497.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 19747.0
+            },
+            {
+              "name": "Ogle, Travis",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 24000.0,
+              "travel": 19650.0,
+              "expenses": 8421.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 52071.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:34:43Z"
+      "scraped": "2026-05-23T06:57:09Z"
     },
     {
       "id": 376,
@@ -9109,11 +9476,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=376&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -9132,11 +9496,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=376&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -9160,7 +9521,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:35:02Z"
+      "scraped": "2026-05-23T06:57:10Z"
     },
     {
       "id": 406,
@@ -9365,11 +9726,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=406&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -9388,11 +9746,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=406&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -9410,16 +9765,27 @@
           "date": "2025-07-29",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=406&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Larry Ahenakew",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 26375.0,
+              "travel": 33326.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 107235.0,
+              "total": 166936.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:35:32Z"
+      "scraped": "2026-05-23T06:57:12Z"
     },
     {
       "id": 369,
@@ -9624,11 +9990,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=369&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -9647,11 +10010,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=369&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -9764,7 +10124,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:35:58Z"
+      "scraped": "2026-05-23T06:57:17Z"
     },
     {
       "id": 398,
@@ -9969,11 +10329,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=398&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -9992,11 +10349,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=398&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -10014,16 +10368,104 @@
           "date": "2026-04-10",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=398&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Kelly Montgrand",
+              "role": "Chief",
+              "months": 1.0,
+              "remuneration": 6538.0,
+              "travel": 2070.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 8608.0
+            },
+            {
+              "name": "Eric Bekkatla",
+              "role": "Councillor",
+              "months": 1.0,
+              "remuneration": 6154.0,
+              "travel": 3375.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 9529.0
+            },
+            {
+              "name": "Debbie Billette",
+              "role": "Councillor",
+              "months": 1.0,
+              "remuneration": 6154.0,
+              "travel": 2070.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 8224.0
+            },
+            {
+              "name": "Renita Noltcho",
+              "role": "Councillor",
+              "months": 1.0,
+              "remuneration": 6154.0,
+              "travel": 3630.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 9784.0
+            },
+            {
+              "name": "Julian Sylvestre",
+              "role": "Councillor",
+              "months": 1.0,
+              "remuneration": 6154.0,
+              "travel": 3835.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 9989.0
+            },
+            {
+              "name": "Melissa Desjarlais",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 80000.0,
+              "travel": 47378.0,
+              "expenses": 3278.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 1990.0
+            },
+            {
+              "name": "Former",
+              "role": "Chief",
+              "months": 8.0,
+              "remuneration": 55577.0,
+              "travel": 54426.0,
+              "expenses": 7743.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 36787.0
+            },
+            {
+              "name": "Former",
+              "role": "Councillor",
+              "months": 11.0,
+              "remuneration": 73846.0,
+              "travel": 55351.0,
+              "expenses": 5051.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 7052.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:36:25Z"
+      "scraped": "2026-05-23T06:57:20Z"
     },
     {
       "id": 394,
@@ -10228,11 +10670,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=394&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -10276,7 +10715,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:36:35Z"
+      "scraped": "2026-05-23T06:57:21Z"
     },
     {
       "id": 401,
@@ -10526,7 +10965,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:36:36Z"
+      "scraped": "2026-05-23T06:57:22Z"
     },
     {
       "id": 350,
@@ -10731,11 +11170,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=350&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -10754,11 +11190,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=350&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -10782,7 +11215,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:36:58Z"
+      "scraped": "2026-05-23T06:57:23Z"
     },
     {
       "id": 400,
@@ -10987,11 +11420,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=400&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -11035,7 +11465,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:37:10Z"
+      "scraped": "2026-05-23T06:57:25Z"
     },
     {
       "id": 390,
@@ -11240,11 +11670,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=390&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -11263,11 +11690,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=390&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -11288,13 +11712,13 @@
           "people": [],
           "parse_status": "error_openai",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
+            "No remuneration rows detected from PDF table or text extraction",
             "OpenAI parse failed: HTTP Error 429: Too Many Requests"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:37:42Z"
+      "scraped": "2026-05-23T06:57:37Z"
     },
     {
       "id": 395,
@@ -11499,11 +11923,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=395&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -11522,11 +11943,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=395&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -11544,16 +11962,104 @@
           "date": "2025-07-28",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=395&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Tyson Bear",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 90250.0,
+              "travel": 35324.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 22000.0,
+              "total": 147574.0
+            },
+            {
+              "name": "Marie Gladue",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 72250.0,
+              "travel": 20272.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 24000.0,
+              "total": 116522.0
+            },
+            {
+              "name": "Nicholas Derocher",
+              "role": "Councillor",
+              "months": 3.0,
+              "remuneration": 22091.0,
+              "travel": 4324.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 8000.0,
+              "total": 34415.0
+            },
+            {
+              "name": "Charmaine Mirasty",
+              "role": "Councillor",
+              "months": 3.0,
+              "remuneration": 22404.0,
+              "travel": 5910.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 8000.0,
+              "total": 36314.0
+            },
+            {
+              "name": "Calvin Bear",
+              "role": "Councillor",
+              "months": 3.0,
+              "remuneration": 22368.0,
+              "travel": 3203.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 8000.0,
+              "total": 33571.0
+            },
+            {
+              "name": "Connie Derocher",
+              "role": "Councillor",
+              "months": 9.0,
+              "remuneration": 71635.0,
+              "travel": 13180.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 18000.0,
+              "total": 102815.0
+            },
+            {
+              "name": "Rubyn Norman",
+              "role": "Councillor",
+              "months": 9.0,
+              "remuneration": 63635.0,
+              "travel": 16877.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 18000.0,
+              "total": 98512.0
+            },
+            {
+              "name": "Jonathon Mirasty",
+              "role": "Councillor",
+              "months": 9.0,
+              "remuneration": 59635.0,
+              "travel": 9679.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 18000.0,
+              "total": 87314.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:38:14Z"
+      "scraped": "2026-05-23T06:57:38Z"
     },
     {
       "id": 352,
@@ -11758,11 +12264,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=352&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -11781,11 +12284,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=352&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -11803,16 +12303,137 @@
           "date": "2026-04-02",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=352&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "error_openai",
+          "people": [
+            {
+              "name": "Tsannie, Bartholomew",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 100000.0,
+              "travel": 16700.0,
+              "expenses": 87204.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 203904.0
+            },
+            {
+              "name": "Denedchezhe, Marie",
+              "role": "Councillor",
+              "months": 10.0,
+              "remuneration": 66000.0,
+              "travel": 7779.0,
+              "expenses": 62054.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 135833.0
+            },
+            {
+              "name": "Dzenlioun, Veronique",
+              "role": "Councillor",
+              "months": 10.0,
+              "remuneration": 53750.0,
+              "travel": 4300.0,
+              "expenses": 47471.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 105521.0
+            },
+            {
+              "name": "Dzeylion, Jaden",
+              "role": "Councillor",
+              "months": 10.0,
+              "remuneration": 43000.0,
+              "travel": 8100.0,
+              "expenses": 31327.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 82427.0
+            },
+            {
+              "name": "Gazandlare, Peter",
+              "role": "Councillor",
+              "months": 2.0,
+              "remuneration": 8000.0,
+              "travel": 7000.0,
+              "expenses": 8321.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 23321.0
+            },
+            {
+              "name": "Hansen, Nancy",
+              "role": "Councillor",
+              "months": 2.0,
+              "remuneration": 8000.0,
+              "travel": 7200.0,
+              "expenses": 2375.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 17575.0
+            },
+            {
+              "name": "Joseyounen, Joseph",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 74000.0,
+              "travel": 12500.0,
+              "expenses": 67188.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 153688.0
+            },
+            {
+              "name": "Josie, Louis",
+              "role": "Councillor",
+              "months": 2.0,
+              "remuneration": 8000.0,
+              "travel": 7000.0,
+              "expenses": 8396.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 23396.0
+            },
+            {
+              "name": "Mercredi, Glenda",
+              "role": "Councillor",
+              "months": 10.0,
+              "remuneration": 66000.0,
+              "travel": 8500.0,
+              "expenses": 60716.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 135216.0
+            },
+            {
+              "name": "Tsannie, George",
+              "role": "Councillor",
+              "months": 2.0,
+              "remuneration": 8000.0,
+              "travel": 9000.0,
+              "expenses": 6496.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 23496.0
+            },
+            {
+              "name": "Tsannie, Melinda",
+              "role": "Councillor",
+              "months": 10.0,
+              "remuneration": 44000.0,
+              "travel": 5200.0,
+              "expenses": 37713.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 86913.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:38:43Z"
+      "scraped": "2026-05-23T06:57:41Z"
     },
     {
       "id": 353,
@@ -12017,11 +12638,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=353&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -12065,7 +12683,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:38:55Z"
+      "scraped": "2026-05-23T06:57:42Z"
     },
     {
       "id": 340,
@@ -12315,7 +12933,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:38:56Z"
+      "scraped": "2026-05-23T06:57:43Z"
     },
     {
       "id": 397,
@@ -12520,11 +13138,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=397&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -12543,11 +13158,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=397&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "error_openai",
-          "warnings": [
-            "No remuneration rows detected from PDF table extraction",
-            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -12571,7 +13183,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:18Z"
+      "scraped": "2026-05-23T06:57:44Z"
     },
     {
       "id": 354,
@@ -12776,10 +13388,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=354&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -12798,10 +13408,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=354&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -12819,15 +13427,27 @@
           "date": "2026-02-02",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=354&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "skipped_run_limit",
+          "people": [
+            {
+              "name": "Joyce McLeod",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 95000.0,
+              "travel": 74923.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 169923.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:20Z"
+      "scraped": "2026-05-23T06:57:46Z"
     },
     {
       "id": 342,
@@ -13032,10 +13652,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=342&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -13054,10 +13672,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=342&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -13075,15 +13691,38 @@
           "date": "2025-08-15",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=342&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "skipped_run_limit",
+          "people": [
+            {
+              "name": "Cheryl Kahpeaysewat",
+              "role": "Chief",
+              "months": 7.0,
+              "remuneration": 46250.0,
+              "travel": 116770.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 4650.0,
+              "total": 167670.0
+            },
+            {
+              "name": "Quenton Swiftwolfe",
+              "role": "Chief",
+              "months": 5.0,
+              "remuneration": 33942.0,
+              "travel": 11276.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 45218.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:21Z"
+      "scraped": "2026-05-23T06:57:49Z"
     },
     {
       "id": 343,
@@ -13288,10 +13927,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=343&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -13310,10 +13947,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=343&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -13331,15 +13966,82 @@
           "date": "2026-02-11",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=343&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "skipped_run_limit",
+          "people": [
+            {
+              "name": "Aguilar-Antiman, Tanya",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 60000.0,
+              "travel": 56812.0,
+              "expenses": 10000.0,
+              "creditCard": 91248.0,
+              "otherPayments": null,
+              "total": 6970.0
+            },
+            {
+              "name": "Pahsaknunk, Rusty",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 60000.0,
+              "travel": 62000.0,
+              "expenses": 18000.0,
+              "creditCard": 68767.0,
+              "otherPayments": null,
+              "total": 5368.0
+            },
+            {
+              "name": "Sanders, Celest",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 60000.0,
+              "travel": 81607.0,
+              "expenses": 24000.0,
+              "creditCard": 82679.0,
+              "otherPayments": null,
+              "total": 6200.0
+            },
+            {
+              "name": "Spyglass, Angus",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 60000.0,
+              "travel": 66800.0,
+              "expenses": 14000.0,
+              "creditCard": 73268.0,
+              "otherPayments": null,
+              "total": 5435.0
+            },
+            {
+              "name": "Stone, Deborah",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 60000.0,
+              "travel": 50251.0,
+              "expenses": 20000.0,
+              "creditCard": 51573.0,
+              "otherPayments": null,
+              "total": 5029.0
+            },
+            {
+              "name": "Wahobin, Sanderson",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 60000.0,
+              "travel": 54510.0,
+              "expenses": 22000.0,
+              "creditCard": 60813.0,
+              "otherPayments": null,
+              "total": 5680.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:22Z"
+      "scraped": "2026-05-23T06:57:51Z"
     },
     {
       "id": 381,
@@ -13544,10 +14246,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=381&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -13566,10 +14266,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=381&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -13587,15 +14285,82 @@
           "date": "2025-07-30",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=381&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "skipped_run_limit",
+          "people": [
+            {
+              "name": "Tavita, Melissa",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 72000.0,
+              "travel": 20760.0,
+              "expenses": 94609.0,
+              "creditCard": 22933.0,
+              "otherPayments": null,
+              "total": 210302.0
+            },
+            {
+              "name": "Cappo, Barry",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 60000.0,
+              "travel": 25469.0,
+              "expenses": 95964.0,
+              "creditCard": 21761.0,
+              "otherPayments": null,
+              "total": 203194.0
+            },
+            {
+              "name": "Cappo, Terance",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 60000.0,
+              "travel": 14300.0,
+              "expenses": 95588.0,
+              "creditCard": 20378.0,
+              "otherPayments": null,
+              "total": 190266.0
+            },
+            {
+              "name": "Pratt, Thomas",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 60000.0,
+              "travel": 35581.0,
+              "expenses": 113347.0,
+              "creditCard": 28129.0,
+              "otherPayments": null,
+              "total": 237057.0
+            },
+            {
+              "name": "Rosebluff, Rhonda",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 60000.0,
+              "travel": 43872.0,
+              "expenses": 120734.0,
+              "creditCard": 19762.0,
+              "otherPayments": null,
+              "total": 244368.0
+            },
+            {
+              "name": "Toto, Byron",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 60000.0,
+              "travel": 20800.0,
+              "expenses": 93370.0,
+              "creditCard": 21378.0,
+              "otherPayments": null,
+              "total": 195548.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:23Z"
+      "scraped": "2026-05-23T06:57:53Z"
     },
     {
       "id": 375,
@@ -13845,7 +14610,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:25Z"
+      "scraped": "2026-05-23T06:57:54Z"
     },
     {
       "id": 392,
@@ -14050,10 +14815,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=392&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -14072,10 +14835,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=392&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -14099,7 +14860,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:26Z"
+      "scraped": "2026-05-23T06:57:56Z"
     },
     {
       "id": 380,
@@ -14304,10 +15065,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=380&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -14326,10 +15085,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=380&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -14353,7 +15110,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:27Z"
+      "scraped": "2026-05-23T06:57:57Z"
     },
     {
       "id": 408,
@@ -14558,10 +15315,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=408&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -14605,7 +15360,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:29Z"
+      "scraped": "2026-05-23T06:57:58Z"
     },
     {
       "id": 382,
@@ -14810,10 +15565,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=382&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -14832,10 +15585,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=382&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -14859,7 +15610,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:30Z"
+      "scraped": "2026-05-23T06:57:59Z"
     },
     {
       "id": 373,
@@ -15064,10 +15815,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=373&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -15111,7 +15860,7 @@
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:31Z"
+      "scraped": "2026-05-23T06:58:01Z"
     },
     {
       "id": 385,
@@ -15316,10 +16065,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=385&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -15338,10 +16085,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=385&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -15359,15 +16104,148 @@
           "date": "2025-08-01",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=385&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "skipped_run_limit",
+          "people": [
+            {
+              "name": "Mark Fox",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 92500.0,
+              "travel": 201621.0,
+              "expenses": 19403.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 313524.0
+            },
+            {
+              "name": "Crystal Crowe",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 80000.0,
+              "travel": 165637.0,
+              "expenses": 12153.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 257790.0
+            },
+            {
+              "name": "Marilyn Kaiswatum",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 80000.0,
+              "travel": 130551.0,
+              "expenses": 12153.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 222704.0
+            },
+            {
+              "name": "Harold Kaiswatum",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 80000.0,
+              "travel": 112461.0,
+              "expenses": 17153.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 209614.0
+            },
+            {
+              "name": "Nicole Crowe",
+              "role": "Councillor",
+              "months": 9.0,
+              "remuneration": 59000.0,
+              "travel": 100409.0,
+              "expenses": 3500.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 162909.0
+            },
+            {
+              "name": "William Carrier",
+              "role": "Councillor",
+              "months": 9.0,
+              "remuneration": 59000.0,
+              "travel": 82356.0,
+              "expenses": 3500.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 144856.0
+            },
+            {
+              "name": "Tamara Desjarlais",
+              "role": "Councillor",
+              "months": 9.0,
+              "remuneration": 59000.0,
+              "travel": 76132.0,
+              "expenses": 3597.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 138729.0
+            },
+            {
+              "name": "Jayleen Francis",
+              "role": "Councillor",
+              "months": 9.0,
+              "remuneration": 59000.0,
+              "travel": 69549.0,
+              "expenses": 6000.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 134549.0
+            },
+            {
+              "name": "Lloyd Desjarlais",
+              "role": "Councillor",
+              "months": 9.0,
+              "remuneration": 59000.0,
+              "travel": 55945.0,
+              "expenses": 6000.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 120945.0
+            },
+            {
+              "name": "Everet Sayer",
+              "role": "Councillor",
+              "months": 3.0,
+              "remuneration": 21000.0,
+              "travel": 47547.0,
+              "expenses": 16306.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 84853.0
+            },
+            {
+              "name": "Jason Wesaquate",
+              "role": "Councillor",
+              "months": 3.0,
+              "remuneration": 21000.0,
+              "travel": 28363.0,
+              "expenses": 8653.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 58016.0
+            },
+            {
+              "name": "Ira Lavalee",
+              "role": "Councillor",
+              "months": 3.0,
+              "remuneration": 21000.0,
+              "travel": 20328.0,
+              "expenses": 2000.0,
+              "creditCard": null,
+              "otherPayments": null,
+              "total": 43328.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:32Z"
+      "scraped": "2026-05-23T06:58:03Z"
     },
     {
       "id": 347,
@@ -15572,10 +16450,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=347&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -15594,10 +16470,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=347&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -15615,15 +16489,82 @@
           "date": "2025-10-09",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=347&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "skipped_run_limit",
+          "people": [
+            {
+              "name": "Kenny Moccasin",
+              "role": "Chief",
+              "months": null,
+              "remuneration": 112.0,
+              "travel": 2.0,
+              "expenses": 70000.0,
+              "creditCard": 27813.0,
+              "otherPayments": null,
+              "total": 4000.0
+            },
+            {
+              "name": "Ricky Moccasin",
+              "role": "Councillor",
+              "months": null,
+              "remuneration": 112.0,
+              "travel": 2.0,
+              "expenses": 60000.0,
+              "creditCard": 23466.0,
+              "otherPayments": null,
+              "total": 3400.0
+            },
+            {
+              "name": "Gabriel Moccasin",
+              "role": "Councillor",
+              "months": null,
+              "remuneration": 112.0,
+              "travel": 2.0,
+              "expenses": 60000.0,
+              "creditCard": 2400.0,
+              "otherPayments": null,
+              "total": 24768.0
+            },
+            {
+              "name": "Don Night",
+              "role": "Councillor",
+              "months": null,
+              "remuneration": 112.0,
+              "travel": 2.0,
+              "expenses": 60000.0,
+              "creditCard": 2400.0,
+              "otherPayments": null,
+              "total": 22028.0
+            },
+            {
+              "name": "Curtis Poitras",
+              "role": "Councillor",
+              "months": null,
+              "remuneration": 112.0,
+              "travel": 2.0,
+              "expenses": 60000.0,
+              "creditCard": 18179.0,
+              "otherPayments": null,
+              "total": 3400.0
+            },
+            {
+              "name": "Rebbecca Gopher",
+              "role": "Councillor",
+              "months": null,
+              "remuneration": 112.0,
+              "travel": 2.0,
+              "expenses": 60000.0,
+              "creditCard": 2400.0,
+              "otherPayments": null,
+              "total": 20220.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:34Z"
+      "scraped": "2026-05-23T06:58:05Z"
     },
     {
       "id": 386,
@@ -15828,10 +16769,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=386&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -15850,10 +16789,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=386&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -15871,15 +16808,93 @@
           "date": "2025-11-24",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=386&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "skipped_run_limit",
+          "people": [
+            {
+              "name": "Redman, Rodger",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 73089.0,
+              "travel": 32400.0,
+              "expenses": 11500.0,
+              "creditCard": 87059.0,
+              "otherPayments": null,
+              "total": 204048.0
+            },
+            {
+              "name": "Goodwill, Colter",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 50967.0,
+              "travel": 43887.0,
+              "expenses": 11500.0,
+              "creditCard": 64251.0,
+              "otherPayments": null,
+              "total": 170605.0
+            },
+            {
+              "name": "Moostoos, Gregory",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 50967.0,
+              "travel": 34331.0,
+              "expenses": 11500.0,
+              "creditCard": 64323.0,
+              "otherPayments": null,
+              "total": 161121.0
+            },
+            {
+              "name": "Redman, Dwayne Jr",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 50967.0,
+              "travel": 48042.0,
+              "expenses": 11500.0,
+              "creditCard": 83422.0,
+              "otherPayments": null,
+              "total": 193931.0
+            },
+            {
+              "name": "Ryder, Minnie",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 50967.0,
+              "travel": 38200.0,
+              "expenses": 11500.0,
+              "creditCard": 54781.0,
+              "otherPayments": null,
+              "total": 155448.0
+            },
+            {
+              "name": "Wajunta, Brendon Stacey",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 50967.0,
+              "travel": 31975.0,
+              "expenses": 11500.0,
+              "creditCard": 63220.0,
+              "otherPayments": null,
+              "total": 157662.0
+            },
+            {
+              "name": "Yuzicappi, Beckie",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 50967.0,
+              "travel": 29125.0,
+              "expenses": 11500.0,
+              "creditCard": 56927.0,
+              "otherPayments": null,
+              "total": 148519.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:35Z"
+      "scraped": "2026-05-23T06:58:07Z"
     },
     {
       "id": 387,
@@ -16084,10 +17099,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=387&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -16106,10 +17119,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=387&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -16127,15 +17138,71 @@
           "date": "2025-07-28",
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=387&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
-          "people": [],
-          "parse_status": "skipped_run_limit",
+          "people": [
+            {
+              "name": "Michael G. Starr",
+              "role": "Chief",
+              "months": 12.0,
+              "remuneration": 68149.0,
+              "travel": 15802.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 24200.0,
+              "total": 108151.0
+            },
+            {
+              "name": "Joanne Starr",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 47276.0,
+              "travel": 12547.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 27300.0,
+              "total": 87123.0
+            },
+            {
+              "name": "Norman (Edgar) Starr",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 47276.0,
+              "travel": 6946.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 17500.0,
+              "total": 71722.0
+            },
+            {
+              "name": "Matthew Nokusis",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 47276.0,
+              "travel": 12242.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 21200.0,
+              "total": 80718.0
+            },
+            {
+              "name": "Catherine Stonechild",
+              "role": "Councillor",
+              "months": 12.0,
+              "remuneration": 47276.0,
+              "travel": 13910.0,
+              "expenses": null,
+              "creditCard": null,
+              "otherPayments": 24650.0,
+              "total": 85836.0
+            }
+          ],
+          "parse_status": "ok_pdf_text",
           "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
+            "Parsed from PDF text fallback"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:36Z"
+      "scraped": "2026-05-23T06:58:09Z"
     },
     {
       "id": 360,
@@ -16340,10 +17407,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=360&FY=2022-2023&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2023-2024",
@@ -16362,10 +17427,8 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=360&FY=2023-2024&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
-          "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
-          ]
+          "parse_status": "not_applicable",
+          "warnings": []
         },
         {
           "year": "2024-2025",
@@ -16384,14 +17447,15 @@
           "href": "https://fnp-ppn.aadnc-aandc.gc.ca/fnp/Main/Search/DisplayBinaryData.aspx?BAND_NUMBER_FF=360&FY=2024-2025&DOC=Schedule of Remuneration and Expenses&lang=eng",
           "posted": true,
           "people": [],
-          "parse_status": "skipped_run_limit",
+          "parse_status": "error_openai",
           "warnings": [
-            "Skipped after 80 PDF parse attempts in this run"
+            "No remuneration rows detected from PDF table or text extraction",
+            "OpenAI parse failed: HTTP Error 429: Too Many Requests"
           ]
         }
       ],
       "status": "ok",
-      "scraped": "2026-05-23T06:39:38Z"
+      "scraped": "2026-05-23T06:58:21Z"
     }
   ]
 }
